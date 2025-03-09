@@ -1,0 +1,124 @@
+.root {
+  display: inline-flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  position: relative;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  margin-left: calc(0px - 4px);
+  width: calc(100% + 4px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 4px;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.2s;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  border-radius: 4px;
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  color: #0091ff;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.svgnoLable {
+  display: block;
+}
+.svgisDisabled {
+  display: block;
+}
+.svgisIndeterminate {
+  display: block;
+}
+.root .svg___focusVisibleWithin {
+  color: var(--token-5Rq9QySOaZ_r);
+  display: block;
+  outline: none;
+}
+.root:hover .svg {
+  display: block;
+}
+.root:focus-within .svg {
+  color: var(--token-5Rq9QySOaZ_r);
+  display: block;
+  outline: none;
+}
+.labelContainer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.labelContainernoLable {
+  display: none;
+}
+.labelContainerisChecked2 {
+  display: flex;
+}
+.slotTargetChildren {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--token-AVWGsDrVoWFX);
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre;
+  user-select: text;
+}
+.slotTargetChildren > :global(.__wab_text),
+.slotTargetChildren > :global(.__wab_expr_html_text),
+.slotTargetChildren > :global(.__wab_slot-string-wrapper),
+.slotTargetChildren > :global(.__wab_slot) > :global(.__wab_text),
+.slotTargetChildren > :global(.__wab_slot) > :global(.__wab_expr_html_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper) {
+  text-decoration-line: none;
+  text-overflow: ellipsis;
+}

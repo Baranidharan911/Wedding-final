@@ -1,0 +1,47 @@
+{
+  "name": "tmp-cpa",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.6.1",
+    "@ant-design/pro-components": "^2.6.4",
+    "@plasmicapp/cli": "^0.1.335",
+    "@plasmicapp/react-web": "^0.2.375",
+    "@plasmicpkgs/antd5": "^0.0.276",
+    "@plasmicpkgs/plasmic-basic-components": "^0.0.234",
+    "@plasmicpkgs/plasmic-link-preview": "^1.0.108",
+    "@plasmicpkgs/plasmic-query": "^0.0.230",
+    "@plasmicpkgs/plasmic-rich-components": "^1.0.206",
+    "@plasmicpkgs/plasmic-tabs": "^0.0.52",
+    "@plasmicpkgs/radix-ui": "^0.0.69",
+    "@plasmicpkgs/react-aria": "^0.0.119",
+    "@plasmicpkgs/react-awesome-reveal": "^3.8.213",
+    "@plasmicpkgs/react-chartjs-2": "^1.0.121",
+    "@plasmicpkgs/react-slick": "^0.0.232",
+    "chart.js": "^4.4.8",
+    "node-html-parser": "^7.0.1",
+    "react": "^19.0.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.0.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "vite": "^6.2.0"
+  }
+}

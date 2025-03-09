@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  justify-self: flex-start;
+  min-width: 0;
+}
+.collapse:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  min-width: 0;
+  border-radius: 16px;
+  border: 1px solid var(--token-GF4iIwmUdYKG);
+}
+.text {
+  padding-top: 8px;
+  border-top: 1px solid var(--token-GF4iIwmUdYKG);
+}

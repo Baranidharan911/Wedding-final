@@ -1,0 +1,98 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  justify-self: flex-start;
+  cursor: pointer;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 0px;
+}
+.rootisActive {
+  background: var(--token-5vMSjw0Ti28u);
+}
+.rootisActive > :global(.__wab_flex-container) {
+  align-items: stretch;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+  margin-top: calc(0px - 0px);
+  height: calc(100% + 0px);
+}
+.rootisActive > :global(.__wab_flex-container) > *,
+.rootisActive > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.rootisActive > :global(.__wab_flex-container) > picture > img,
+.rootisActive
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+  margin-top: 0px;
+}
+.root:hover {
+  background: var(--token-5vMSjw0Ti28u);
+}
+.slotTargetChildrenisActive {
+  color: var(--token-VGuF2xmnPXbh);
+}
+.root:hover .slotTargetChildren {
+  color: var(--token-VGuF2xmnPXbh);
+}
+.freeBox__emOOo {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__emOOo > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 8px);
+  width: calc(100% + 8px);
+}
+.freeBox__emOOo > :global(.__wab_flex-container) > *,
+.freeBox__emOOo > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__emOOo > :global(.__wab_flex-container) > picture > img,
+.freeBox__emOOo
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 8px;
+}
+.svg__ymA0R {
+  object-fit: cover;
+  max-width: 100%;
+  height: 25px;
+}
+.text___8UUT {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-weight: 500;
+  min-width: 0;
+}

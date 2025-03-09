@@ -1,0 +1,132 @@
+.card {
+  background: rgba(243, 79, 80, 1);
+  width: 400px;
+  height: 400px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-self: flex-start;
+  position: relative;
+  border-radius: 16px;
+  padding: 32px 24px;
+}
+.card > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.card > :global(.__wab_flex-container) > *,
+.card > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card > :global(.__wab_flex-container) > picture > img,
+.card > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 16px;
+}
+.cardnormal {
+  background: var(--token-DbGdjBpQ6R_X);
+}
+.content {
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  flex-direction: column;
+}
+.content > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.content > :global(.__wab_flex-container) > *,
+.content > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.content > :global(.__wab_flex-container) > picture > img,
+.content
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 16px;
+}
+.text__x63Jy {
+  position: relative;
+  color: var(--token-qVz5WKCV9T7R);
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0em;
+}
+.text__c0WQ {
+  position: relative;
+  align-self: stretch;
+}
+.button2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+.button2normal:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.svg__oKsxi {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__q7MuY {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-qVz5WKCV9T7R);
+  min-width: 0;
+}
+.textnormal__q7MuYgbfs0 {
+  color: var(--token-qVz5WKCV9T7R);
+}
+.svg__zni23 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.icons {
+  width: 164px;
+  height: 164px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.messagesChatSmileysConversationConversationChat {
+  transform: translate(0.4159999999999999px, 0.4159999999999999px);
+  width: 158px;
+  height: 158px;
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+.group128 {
+  width: 158px;
+  height: 158px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.svg__qbYD {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  color: #fde4e4;
+  width: 157.166px;
+  height: 157.166px;
+  display: block;
+  top: 0px;
+  left: 0px;
+}

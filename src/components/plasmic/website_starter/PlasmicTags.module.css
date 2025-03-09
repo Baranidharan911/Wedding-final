@@ -1,0 +1,32 @@
+.tag {
+  background: #f3f3f3;
+  width: auto;
+  height: 24px;
+  display: inline-flex;
+  flex-direction: row;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: none;
+  position: relative;
+  border-radius: 4px;
+}
+.tag > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(0px - 10px);
+  width: calc(100% + 10px);
+}
+.tag > :global(.__wab_flex-container) > *,
+.tag > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.tag > :global(.__wab_flex-container) > picture > img,
+.tag > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: 10px;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}

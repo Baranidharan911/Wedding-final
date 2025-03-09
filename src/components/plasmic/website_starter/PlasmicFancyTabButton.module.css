@@ -1,0 +1,156 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  min-width: 0;
+  padding: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .root {
+    align-items: center;
+    justify-content: center;
+  }
+}
+.root:hover {
+  align-items: flex-start;
+  justify-content: center;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.2s;
+  min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  border-radius: 8px;
+  padding: 16px 8px 16px 24px;
+  border-width: 1px;
+  border-style: none;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .button {
+    align-self: flex-start;
+    background: #f5f5f5;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: none;
+    width: 110%;
+    padding: 16px 8px 16px 24px;
+  }
+}
+.root:hover .button {
+  background: #f5f5f5;
+}
+.freeBox {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox {
+    justify-content: flex-start;
+    align-items: stretch;
+    max-width: 800px;
+  }
+}
+.slotTargetChildren {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  color: #535353;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+}
+.slotTargetChildren > :global(.__wab_text),
+.slotTargetChildren > :global(.__wab_expr_html_text),
+.slotTargetChildren > :global(.__wab_slot-string-wrapper),
+.slotTargetChildren > :global(.__wab_slot) > :global(.__wab_text),
+.slotTargetChildren > :global(.__wab_slot) > :global(.__wab_expr_html_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper) {
+  text-decoration-line: none;
+  text-overflow: clip;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .slotTargetChildren {
+    color: #2198e0;
+  }
+}
+.root:hover .slotTargetChildren {
+  color: #2198e0;
+}
+.text {
+  width: auto;
+  height: auto;
+  max-width: 800px;
+  white-space: pre;
+  color: #2198e0;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  user-select: text;
+  text-decoration-line: none;
+  text-overflow: clip;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text {
+    text-align: left;
+    display: block;
+  }
+}
+.root:hover .text {
+  display: block;
+}

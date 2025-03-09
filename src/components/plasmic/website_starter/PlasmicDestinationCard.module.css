@@ -1,0 +1,38 @@
+.destinationCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 320px;
+  height: 400px;
+  max-width: 100%;
+  background: linear-gradient(0deg, #00000099 0%, #ffffff00 51%) 0% 0% / 100%
+    100% repeat;
+  position: relative;
+  border-radius: 8px;
+  padding: 0px;
+}
+.img {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-position: center center;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  border-radius: 8px;
+}
+.img > picture > img {
+  object-fit: cover;
+  object-position: center center;
+}
+.h5 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-qVz5WKCV9T7R);
+  min-width: 0;
+  padding: 24px;
+}

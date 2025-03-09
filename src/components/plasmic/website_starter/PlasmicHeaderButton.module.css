@@ -1,0 +1,32 @@
+.root {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto;
+  letter-spacing: 0em;
+  line-height: 1.36;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  color: var(--token-0HG3WQChSB5M);
+  transition-property: all;
+  transition-duration: 0.5s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.5s;
+}
+.rootselect {
+  text-decoration-line: underline;
+  color: #f34f50;
+}
+.rootcolor_secondary {
+  color: var(--token-0HG3WQChSB5M);
+}
+.root:hover {
+  color: var(--token-5vMSjw0Ti28u);
+  text-decoration-line: underline;
+}
+.root:visited:focus:active:link:focus-within {
+  text-decoration-line: underline;
+  color: #f34f50;
+  outline: none;
+}

@@ -272,7 +272,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField___9087
+                                    sty.formField__yixjt
                                   )}
                                   label={"Username"}
                                   name={"username"}
@@ -280,14 +280,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdInput
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.input__kyU0C
+                                      sty.input__i9Tt
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__c7RA1
+                                    sty.formField__i0M7Q
                                   )}
                                   label={"Email"}
                                   name={"email"}
@@ -295,14 +295,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdInput
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.input__lwob2
+                                      sty.input__yZVmh
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__ombm4
+                                    sty.formField__nD9H9
                                   )}
                                   label={"Password"}
                                   name={"password"}
@@ -310,14 +310,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdPassword
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.passwordInput__pEjp2
+                                      sty.passwordInput__a5CGg
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <AntdButton
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.button__xYXtl
+                                    sty.button__rwzN1
                                   )}
                                   danger={true}
                                   submitsForm={true}
@@ -327,7 +327,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__fyZ3
+                                      sty.text__y6AY7
                                     )}
                                   >
                                     {"Submit"}
@@ -407,7 +407,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__q9J8T
+                                    sty.formField___9Mo4Y
                                   )}
                                   label={"Email"}
                                   name={"email"}
@@ -415,14 +415,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdInput
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.input___60M1C
+                                      sty.input___4K9Pj
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__kot2R
+                                    sty.formField__afW43
                                   )}
                                   label={"Password"}
                                   name={"password"}
@@ -430,14 +430,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdPassword
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.passwordInput__eemjw
+                                      sty.passwordInput__hLwJ
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <AntdButton
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.button__d0YwG
+                                    sty.button__oMHt
                                   )}
                                   danger={true}
                                   submitsForm={true}
@@ -447,7 +447,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__syVhq
+                                      sty.text__b5DvY
                                     )}
                                   >
                                     {"Submit"}

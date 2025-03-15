@@ -396,6 +396,131 @@
   max-width: 100%;
   flex-shrink: 0;
 }
+.weddingVendorCateogries:global(.__wab_instance) {
+  position: relative;
+  margin-top: calc(0px + 32px) !important;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .weddingVendorCateogries:global(.__wab_instance) {
+    margin-top: calc(0px + 32px) !important;
+  }
+}
+.weddingVendorCateogriesCard {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: auto;
+  max-width: 100%;
+  overflow: auto;
+  margin-right: 0px;
+  width: 100%;
+  min-width: 0;
+  padding: 40px 0px 64px;
+}
+.weddingVendorCateogriesCard > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.weddingVendorCateogriesCard > :global(.__wab_flex-container) > *,
+.weddingVendorCateogriesCard
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.weddingVendorCateogriesCard > :global(.__wab_flex-container) > picture > img,
+.weddingVendorCateogriesCard
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .weddingVendorCateogriesCard {
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+}
+.reveal__okk72:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.sliderCarousel10:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  object-fit: cover;
+  min-width: 0;
+}
+.freeBox__l32E4 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px 16px 0px 0px;
+}
+.freeBox__l32E4 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__l32E4 {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    flex-direction: column;
+    min-width: 0;
+    padding: 8px;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__l32E4 > :global(.__wab_flex-container) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__l32E4 > :global(.__wab_flex-container) > *,
+  .freeBox__l32E4 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__l32E4 > :global(.__wab_flex-container) > picture > img,
+  .freeBox__l32E4
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+  }
+}
+.vendorCateogiesCard:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .vendorCateogiesCard:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
 .featuringVendor:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -477,4 +602,309 @@
   .featuringVendorCard__fyeri:global(.__wab_instance) {
     flex-shrink: 0;
   }
+}
+.popularWeddingDestinations:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.popularWeddingDestinationsCard {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: auto;
+  max-width: 100%;
+  overflow: auto;
+  margin-right: 0px;
+  width: 100%;
+  min-width: 0;
+  padding: 40px 0px 64px;
+}
+.popularWeddingDestinationsCard > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.popularWeddingDestinationsCard > :global(.__wab_flex-container) > *,
+.popularWeddingDestinationsCard
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.popularWeddingDestinationsCard
+  > :global(.__wab_flex-container)
+  > picture
+  > img,
+.popularWeddingDestinationsCard
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .popularWeddingDestinationsCard {
+    padding: 20px 0px 0px;
+  }
+}
+.reveal__u7Ngx:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.sliderCarousel11:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  object-fit: cover;
+  min-width: 0;
+}
+.freeBox__grJrZ {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px 16px 0px 0px;
+}
+.freeBox__grJrZ > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__grJrZ {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    flex-direction: column;
+    min-width: 0;
+    padding: 8px;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__grJrZ > :global(.__wab_flex-container) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__grJrZ > :global(.__wab_flex-container) > *,
+  .freeBox__grJrZ > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__grJrZ > :global(.__wab_flex-container) > picture > img,
+  .freeBox__grJrZ
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+  }
+}
+.popularWeddingDestinationCard2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+.successStories:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.successStoriesCard {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: auto;
+  max-width: 100%;
+  overflow: auto;
+  margin-right: 0px;
+  width: 100%;
+  min-width: 0;
+  padding: 40px 0px 64px;
+}
+.successStoriesCard > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.successStoriesCard > :global(.__wab_flex-container) > *,
+.successStoriesCard > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.successStoriesCard > :global(.__wab_flex-container) > picture > img,
+.successStoriesCard
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .successStoriesCard {
+    padding: 20px 0px 0px;
+  }
+}
+.reveal__knqnn:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.sliderCarousel6:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  object-fit: cover;
+  min-width: 0;
+}
+.freeBox__ijX73 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__ijX73 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ijX73 {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    flex-direction: column;
+    min-width: 0;
+    padding: 8px;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ijX73 > :global(.__wab_flex-container) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ijX73 > :global(.__wab_flex-container) > *,
+  .freeBox__ijX73 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__ijX73 > :global(.__wab_flex-container) > picture > img,
+  .freeBox__ijX73
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+  }
+}
+.successStoriesCard2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .successStoriesCard2:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
+.weddingArticles:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  display: none;
+}
+.weddingArticlesCard {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: auto;
+  max-width: 100%;
+  overflow: auto;
+  margin-right: 0px;
+  padding: 40px 0px 64px;
+}
+.weddingArticlesCard > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
+}
+.weddingArticlesCard > :global(.__wab_flex-container) > *,
+.weddingArticlesCard
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.weddingArticlesCard > :global(.__wab_flex-container) > picture > img,
+.weddingArticlesCard
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 0px;
+}
+.reveal__gGsi2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.sliderCarousel7:global(.__wab_instance) {
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  object-fit: cover;
+  min-width: 0;
+}
+.freeBox__kiHIp {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 0px 16px 0px 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__kiHIp {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 0;
+    padding: 8px;
+  }
+}
+.weddingArticlesCard2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
 }

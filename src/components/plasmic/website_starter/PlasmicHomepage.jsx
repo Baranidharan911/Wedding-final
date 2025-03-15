@@ -34,7 +34,12 @@ import HomeSearch from "../../HomeSearch"; // plasmic-import: FUlO4nunxKtN/compo
 import SectionCardWrapper from "../../SectionCardWrapper"; // plasmic-import: 3GsrJjBEX6WY/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import PopularVenueCard from "../../PopularVenueCard"; // plasmic-import: 84EAZ_bZRjmv/component
+import SectionCardWrapper2 from "../../SectionCardWrapper2"; // plasmic-import: 60GYi7c5AWbx/component
+import VendorCateogiesCard from "../../VendorCateogiesCard"; // plasmic-import: BFcFglg7GpOz/component
 import FeaturingVendorCard from "../../FeaturingVendorCard"; // plasmic-import: FymR_Rf9uBOI/component
+import PopularWeddingDestinationCard2 from "../../PopularWeddingDestinationCard2"; // plasmic-import: ebhUM2oYNUEV/component
+import SuccessStoriesCard2 from "../../SuccessStoriesCard2"; // plasmic-import: 2mWYtfoCP0z8/component
+import WeddingArticlesCard2 from "../../WeddingArticlesCard2"; // plasmic-import: Gtd0WTfGHInR/component
 import { useScreenVariants as useScreenVariantszapf5SksSeNd } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: ZAPF5sksSeNd/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -164,6 +169,38 @@ function PlasmicHomepage__RenderFunc(props) {
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
         refName: "sliderCarousel8",
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      },
+      {
+        path: "sliderCarousel10.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+        refName: "sliderCarousel10",
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      },
+      {
+        path: "sliderCarousel11.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+        refName: "sliderCarousel11",
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      },
+      {
+        path: "sliderCarousel6.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+        refName: "sliderCarousel6",
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      },
+      {
+        path: "sliderCarousel7.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+        refName: "sliderCarousel7",
         onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       }
     ],
@@ -757,6 +794,226 @@ function PlasmicHomepage__RenderFunc(props) {
                   title={"Popular Venues Searches"}
                 />
 
+                <SectionCardWrapper2
+                  data-plasmic-name={"weddingVendorCateogries"}
+                  data-plasmic-override={overrides.weddingVendorCateogries}
+                  btnLink={(() => {
+                    try {
+                      return "/search?type=All";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return '"/search?type=vendor"';
+                      }
+                      throw e;
+                    }
+                  })()}
+                  btnName={"View All Categories"}
+                  cards2={
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"weddingVendorCateogriesCard"}
+                      data-plasmic-override={
+                        overrides.weddingVendorCateogriesCard
+                      }
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.weddingVendorCateogriesCard
+                      )}
+                    >
+                      <Reveal
+                        className={classNames(
+                          "__wab_instance",
+                          sty.reveal__okk72
+                        )}
+                        triggerOnce={true}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            arrows: false,
+                            autoplay: true,
+                            beforeChange: async (...eventArgs) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel10", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            centerMode: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? false
+                              : false,
+                            centerPadding: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? "0"
+                              : undefined,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel10
+                            ),
+                            initialSlide: generateStateValueProp($state, [
+                              "sliderCarousel10",
+                              "currentSlide"
+                            ]),
+                            lazyLoad: "ondemand",
+                            ref: ref => {
+                              $refs["sliderCarousel10"] = ref;
+                            },
+                            sliderScopeClassName:
+                              sty["sliderCarousel10__slider"],
+                            slidesPerRow: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? 1
+                              : 4,
+                            swipeToSlide: false,
+                            useCSS: true,
+                            useTransform: true,
+                            variableWidth: false
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName:
+                                  "sliderCarousel10.currentSlide"
+                              }
+                            ],
+
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel10"}
+                              data-plasmic-override={overrides.sliderCarousel10}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return Array.from(
+                                      { length: $state.weddingVendors.length },
+                                      (_, index) => index
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__l32E4
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <VendorCateogiesCard
+                                      data-plasmic-name={"vendorCateogiesCard"}
+                                      data-plasmic-override={
+                                        overrides.vendorCateogiesCard
+                                      }
+                                      category={(() => {
+                                        try {
+                                          return $state.weddingVendors[
+                                            currentIndex
+                                          ].attributes.title;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.vendorCateogiesCard
+                                      )}
+                                      description={(() => {
+                                        try {
+                                          return $state.weddingVendors[
+                                            currentIndex
+                                          ].attributes.description;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      image={(() => {
+                                        try {
+                                          return $state.weddingVendors[
+                                            currentIndex
+                                          ].attributes.image.data.attributes
+                                            .url;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    />
+                                  </Stack__>
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </Reveal>
+                    </Stack__>
+                  }
+                  className={classNames(
+                    "__wab_instance",
+                    sty.weddingVendorCateogries
+                  )}
+                  title={"Wedding Vendor Categories"}
+                />
+
                 <SectionCardWrapper
                   data-plasmic-name={"featuringVendor"}
                   data-plasmic-override={overrides.featuringVendor}
@@ -1035,6 +1292,777 @@ function PlasmicHomepage__RenderFunc(props) {
                   }
                   className={classNames("__wab_instance", sty.featuringVendor)}
                 />
+
+                <SectionCardWrapper2
+                  data-plasmic-name={"popularWeddingDestinations"}
+                  data-plasmic-override={overrides.popularWeddingDestinations}
+                  btnLink={(() => {
+                    try {
+                      return "/search?city=All";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  btnName={"View All Destinations"}
+                  cards2={
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"popularWeddingDestinationsCard"}
+                      data-plasmic-override={
+                        overrides.popularWeddingDestinationsCard
+                      }
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.popularWeddingDestinationsCard
+                      )}
+                    >
+                      <Reveal
+                        className={classNames(
+                          "__wab_instance",
+                          sty.reveal__u7Ngx
+                        )}
+                        triggerOnce={true}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            arrows: false,
+                            autoplay: true,
+                            beforeChange: async (...eventArgs) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel11", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            centerMode: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? false
+                              : false,
+                            centerPadding: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? "0"
+                              : undefined,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel11
+                            ),
+                            initialSlide: generateStateValueProp($state, [
+                              "sliderCarousel11",
+                              "currentSlide"
+                            ]),
+                            lazyLoad: "ondemand",
+                            ref: ref => {
+                              $refs["sliderCarousel11"] = ref;
+                            },
+                            sliderScopeClassName:
+                              sty["sliderCarousel11__slider"],
+                            slidesPerRow: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? 1
+                              : 4
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName:
+                                  "sliderCarousel11.currentSlide"
+                              }
+                            ],
+
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel11"}
+                              data-plasmic-override={overrides.sliderCarousel11}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return Array.from(
+                                      {
+                                        length:
+                                          $state.popularDestinations.length
+                                      },
+                                      (_, index) => index
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__grJrZ
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <PopularWeddingDestinationCard2
+                                      data-plasmic-name={
+                                        "popularWeddingDestinationCard2"
+                                      }
+                                      data-plasmic-override={
+                                        overrides.popularWeddingDestinationCard2
+                                      }
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.popularWeddingDestinationCard2
+                                      )}
+                                      image={(() => {
+                                        try {
+                                          return $state.popularDestinations[
+                                            currentIndex
+                                          ].attributes.image.data.attributes
+                                            .url;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      title={(() => {
+                                        try {
+                                          return $state.popularDestinations[
+                                            currentIndex
+                                          ].attributes.title;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    />
+                                  </Stack__>
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </Reveal>
+                    </Stack__>
+                  }
+                  className={classNames(
+                    "__wab_instance",
+                    sty.popularWeddingDestinations
+                  )}
+                  title={"Popular Wedding Destinations"}
+                />
+
+                <SectionCardWrapper2
+                  data-plasmic-name={"successStories"}
+                  data-plasmic-override={overrides.successStories}
+                  btnName={"View All Stories"}
+                  cards2={
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"successStoriesCard"}
+                      data-plasmic-override={overrides.successStoriesCard}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.successStoriesCard
+                      )}
+                    >
+                      <Reveal
+                        className={classNames(
+                          "__wab_instance",
+                          sty.reveal__knqnn
+                        )}
+                        triggerOnce={true}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            arrows: false,
+                            autoplay: true,
+                            beforeChange: async (...eventArgs) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel6", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            centerMode: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? false
+                              : false,
+                            centerPadding: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? "0"
+                              : undefined,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel6
+                            ),
+                            initialSlide: generateStateValueProp($state, [
+                              "sliderCarousel6",
+                              "currentSlide"
+                            ]),
+                            lazyLoad: "ondemand",
+                            ref: ref => {
+                              $refs["sliderCarousel6"] = ref;
+                            },
+                            sliderScopeClassName:
+                              sty["sliderCarousel6__slider"],
+                            slidesPerRow: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? 1
+                              : 2
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel6.currentSlide"
+                              }
+                            ],
+
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel6"}
+                              data-plasmic-override={overrides.sliderCarousel6}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return [
+                                      {
+                                        image:
+                                          "https://strapi-aws-s3-store.s3.eu-north-1.amazonaws.com/02c121911a4613aa3646a28b748f5b8b_985f45f78e.png",
+                                        title: "Asha & Raj",
+                                        location: "Mumbai, Maharashtra",
+                                        description: `Asha and Raj's glamorous Mumbai wedding was flawlessly captured, catered, and decorated, making their day unforgettable. "Everything was perfect," says Asha.`,
+                                        tags: [
+                                          "DreamCapture Photography",
+                                          "Gourmet Delights Catering",
+                                          "Blooming Beauties"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://strapi-aws-s3-store.s3.eu-north-1.amazonaws.com/4aa086bbaedde927e568d81295da1fd3_1ac612e5a1.png",
+                                        title: "Priya & Vikram",
+                                        location: "Delhi, Delhi NCR",
+                                        description: `Priya and Vikram's grand wedding had perfect music, beauty services, and decor, making it a dream come true. "We dreamed of this," shares Vikram.`,
+                                        tags: [
+                                          "Harmony Sounds",
+                                          "Bridal Beauty Experts",
+                                          "Elegant Events Decor"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://strapi-aws-s3-store.s3.eu-north-1.amazonaws.com/c182cd02c350200f66ab8e9d8b7d9c94_1b01daf0b6.png",
+                                        title: "Sneha & Arjun",
+                                        location: "Bangalore, Karnataka",
+                                        description: `Sneha and Arjun's Bangalore wedding was beautifully coordinated, with stunning attire and unforgettable photography. "We felt like royalty," says Sneha.`,
+                                        tags: [
+                                          "Perfect Day Planners",
+                                          "Bridal Elegance",
+                                          "DreamCapture Photography"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/1c09/ee95/c182cd02c350200f66ab8e9d8b7d9c94?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AIcSEWFM3SjIWd4EwlvnwxEpc3miRNvwQvYqrUmigRVZtsKk0EaLjG2dFN3X9yFL4hi4zt5xEz~csLlcRTATUDPIsRS5itXSZLRehHk9LtUXmKjx9v5QnOZtuAQ9o8eB-gE2qiN6lgjCdkmGPzzhEuuimAProGsUXjERkuGOvW8U0rQBywhRNzKCFVwL913oHi95fTX43Y1vN3RzzPxa3N9V1QEN~-K0sHoDsulJITenRT1wVOLs7bUxlPsT~jzfTszHpDiKG~ny0aaIpPKjxrqgwHDh3hU2D3T4qkFBj-HYb~XX8cIiVAgsDXJZPPno6Y8ffDeWewzpQhRUH80kRw__",
+                                        title: "Kavya & Rohit",
+                                        location: "Chennai, Tamil Nadu",
+                                        description: `Kavya and Rohit celebrated with amazing music, delicious catering, and stunning floral decor. "Our wedding was a dream come true," recalls Rohit.`,
+                                        tags: [
+                                          "Harmony Sounds",
+                                          "Gourmet Delights Catering",
+                                          "Blooming Beauties"
+                                        ]
+                                      }
+                                    ];
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__ijX73
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <SuccessStoriesCard2
+                                      data-plasmic-name={"successStoriesCard2"}
+                                      data-plasmic-override={
+                                        overrides.successStoriesCard2
+                                      }
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.successStoriesCard2
+                                      )}
+                                      description={(() => {
+                                        try {
+                                          return currentItem.description;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      image={(() => {
+                                        try {
+                                          return currentItem.image;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      location={(() => {
+                                        try {
+                                          return currentItem.location;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      name={(() => {
+                                        try {
+                                          return currentItem.title;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      tags={(() => {
+                                        try {
+                                          return { tag: currentItem.tags };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return {
+                                              tag: [
+                                                "DreamCapture Photography",
+                                                "Gourmey Delights Catering",
+                                                "Blooming Beauties"
+                                              ]
+                                            };
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    />
+                                  </Stack__>
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </Reveal>
+                    </Stack__>
+                  }
+                  className={classNames("__wab_instance", sty.successStories)}
+                  title={"Success Stories"}
+                />
+
+                <SectionCardWrapper2
+                  data-plasmic-name={"weddingArticles"}
+                  data-plasmic-override={overrides.weddingArticles}
+                  btnName={"View All Articles"}
+                  cards2={
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"weddingArticlesCard"}
+                      data-plasmic-override={overrides.weddingArticlesCard}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.weddingArticlesCard
+                      )}
+                    >
+                      <Reveal
+                        className={classNames(
+                          "__wab_instance",
+                          sty.reveal__gGsi2
+                        )}
+                        triggerOnce={true}
+                      >
+                        {(() => {
+                          const child$Props = {
+                            arrows: false,
+                            autoplay: true,
+                            beforeChange: async (...eventArgs) => {
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel7", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ).apply(null, eventArgs);
+                            },
+                            centerMode: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? false
+                              : false,
+                            centerPadding: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? "0"
+                              : undefined,
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel7
+                            ),
+                            initialSlide: generateStateValueProp($state, [
+                              "sliderCarousel7",
+                              "currentSlide"
+                            ]),
+                            ref: ref => {
+                              $refs["sliderCarousel7"] = ref;
+                            },
+                            sliderScopeClassName:
+                              sty["sliderCarousel7__slider"],
+                            slidesPerRow: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? 1
+                              : 4
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel7.currentSlide"
+                              }
+                            ],
+
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel7"}
+                              data-plasmic-override={overrides.sliderCarousel7}
+                              {...child$Props}
+                            >
+                              {(_par =>
+                                !_par
+                                  ? []
+                                  : Array.isArray(_par)
+                                  ? _par
+                                  : [_par])(
+                                (() => {
+                                  try {
+                                    return [
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/f759/226d/9e7119048aa3678d20f59e1dbbe61957?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UnzcYpPY5u6oQi45PXimhQEtChRrIEgV~cXddtOOXEf3oFuHyleOeAynbwikRy0nv4PfMI3B2GsbJbuTo5Q2bEgcdKuOpuZQI1EDj3v8-RdKXHMQDNw5d--YYdOSZWkeADMtBH3-Yxn7PiOqc1myldgDOPmPbQb4Sq8ZqeKWVvX9rJqN4f-3I6ltSBhtGxiTh75xXjZLLhkBR7SJqIqst116JPSgp0~wrviMkCrLbHTuiK2EJ~AJgafIM-0Y6ypNsa4PjuLH6NKTqbM7fv7wYRTrH7ct9lOL6MKUEjUORX2Yf9G6Z8efhtNX~VY5~HUzi8fEEWJcUFbqC~0i2lHrPw__",
+                                        title:
+                                          "Choose the Perfect wedding Photographer",
+                                        description: `Discover tips for selecting a wedding photographer who can capture your special moments beautifully.`,
+                                        tags: [
+                                          "Photography",
+                                          "WeddingPlanning",
+                                          "Tips"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/2740/c2ae/4fc573a120d4080b70011dc291162357?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S22YTCWi1NUlhH5zWH12-u1lsA7ZdP8lja2ZfdMZB6pjPIPRzQgpF-wiaDAWlGxxrX5rjJkIYyFroRhWwJNuRGi2JKOecl1Zjd7DlUUijbq5shKkF5gflC4b1nL1vbBBDZ1mzi0sGFNnKL5uimZV9m1QZZZeyleSQtGX9-sDYGX~rZoL5an~4C1kibKoGzhYfU5NlgQXAOvBr7-Tf3k8BbM0Kq5kbpBgxxzp6ymJrCMlcqd4nLxryPXOah7dKgXx4FLLZkTPBTp3hhf6k~yNFPqt6PGuGZP1vl3voD5N8~tNJ5E9k4PDZ9bvTipFpGezBTxzJoB~4H~huu9Pr~7ehA__",
+                                        title: "Gourmet Catering Ideas",
+                                        description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
+                                        tags: [
+                                          "Catering",
+                                          "WeddingFood",
+                                          "Gourmet"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/950d/2845/9d364bfe0e1fc1d9ba5fc985046784bf?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hkNpTdx-XO-G8DHgc~1eCoFVHxZEnxsXniQ2eVuiYHjLr-U2hn2BO55NsthjhmLSSNYtV5riaBhEXEZB-BWdtnSJ7adSXdl64WsLsXX4~gWrZMuc7YD2o5O3IZLZdshUX-TsImohNdXE1xexAk9ijn7-6jFgHD2Xz~vemhnUsxqz028n5W36j~R492ajYNQ7V74Z8R~886CFUYV9aO8keuwuk5dhJWpv6xER3lcgkZj1MnRU1oAIWXFAqiq89PN4hYHXZ76wm1Res1ZtjvskocOLzaHjcxAtWf0l19iXUO3UU13XhcyjHwSXPW54FjhUGLsc1MwUcM-fs4MP02gQ~g__",
+                                        title: "Stunning Floral Arrangements",
+                                        description: `Learn how to transform your wedding venue with breathtaking floral designs.`,
+                                        tags: [
+                                          "Florists",
+                                          "FloralDesign",
+                                          "WeddingDecor"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/5125/cfe1/3b4ad08956f66a7fa5f0869a3a16b57b?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a7OXwNKh6xZX66yHWd9THoP0~uJVteBRCvYXIxJ8Gl~X2ZTT2wq54dn2521U9HnDSVM5q6qVE-iSPFNSOOentPSraaJ-N5qQXXrEGqoPftC8XtO1HZc9BMGr0DKh9IaCbRz0ZfpaT1UrZYR-9ZXX0TgQbMD-AH9-BBxT4wFlZyDk04SHiGvA5bpqMQPqW6LXdW8zKJ-w-ynzmblFnCl9Lu6GXq0ZQOcF1ps9I5CI1ve5tu8OM2nfJr77mIqOB7z21U5gZjFOvOgLl5cVS5anW8TB-f1QiseI08eSXo8MXMv4ao0-E-JtzrnqPWbJY~7TtIFekYIAfusCAglWZ1rDMQ__",
+                                        title:
+                                          "Top Wedding Entertainment Options for your wedding.",
+                                        description: `Find the best live music and entertainment options to set the perfect mood for your wedding.`,
+                                        tags: [
+                                          "Music",
+                                          "Entertainment",
+                                          "WeddingIdeas"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/d0f7/7a2b/002ddab225b508929febd8ab1f845102?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GsfmUOdWBdr3lVqs8pW0SOwrV~aA-G~na924W-BC8RlNZ7jTQJ73TRLLotopDMFSHCiZ-QFOm1AgLPFJaY4mPDdsMZKC8JWroDVsMhAhVKx7Mn3PoxGq7xM4mpvEf1VPwaf~u6RF~L0naVl9-J9s5-N5bBsNdatsIJR20w03Kw2tEpzUG6YqWkx4Hs3tUusH-Vp9fcfG8ENilht8V-ByrcNrWTe5H8b~cDJQn7siudS5Ew0TLWnFXy5OL8VTdV~Bj7cmZ-nQYTig8ajZQDcOvhr9w4TuOjGqd3UIlr96uyHctlMDASKYQP7RnvCRO9ZuS0c8mOgoZ-hpTiMCBVS4MA__",
+                                        title: "Gourmet Catering Ideas",
+                                        description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
+                                        tags: [
+                                          "Catering",
+                                          "WeddingFood",
+                                          "Gourmet"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/f759/226d/9e7119048aa3678d20f59e1dbbe61957?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UnzcYpPY5u6oQi45PXimhQEtChRrIEgV~cXddtOOXEf3oFuHyleOeAynbwikRy0nv4PfMI3B2GsbJbuTo5Q2bEgcdKuOpuZQI1EDj3v8-RdKXHMQDNw5d--YYdOSZWkeADMtBH3-Yxn7PiOqc1myldgDOPmPbQb4Sq8ZqeKWVvX9rJqN4f-3I6ltSBhtGxiTh75xXjZLLhkBR7SJqIqst116JPSgp0~wrviMkCrLbHTuiK2EJ~AJgafIM-0Y6ypNsa4PjuLH6NKTqbM7fv7wYRTrH7ct9lOL6MKUEjUORX2Yf9G6Z8efhtNX~VY5~HUzi8fEEWJcUFbqC~0i2lHrPw__",
+                                        title:
+                                          "Choose the Perfect wedding Photographer",
+                                        description: `Discover tips for selecting a wedding photographer who can capture your special moments beautifully.`,
+                                        tags: [
+                                          "Photography",
+                                          "WeddingPlanning",
+                                          "Tips"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/2740/c2ae/4fc573a120d4080b70011dc291162357?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S22YTCWi1NUlhH5zWH12-u1lsA7ZdP8lja2ZfdMZB6pjPIPRzQgpF-wiaDAWlGxxrX5rjJkIYyFroRhWwJNuRGi2JKOecl1Zjd7DlUUijbq5shKkF5gflC4b1nL1vbBBDZ1mzi0sGFNnKL5uimZV9m1QZZZeyleSQtGX9-sDYGX~rZoL5an~4C1kibKoGzhYfU5NlgQXAOvBr7-Tf3k8BbM0Kq5kbpBgxxzp6ymJrCMlcqd4nLxryPXOah7dKgXx4FLLZkTPBTp3hhf6k~yNFPqt6PGuGZP1vl3voD5N8~tNJ5E9k4PDZ9bvTipFpGezBTxzJoB~4H~huu9Pr~7ehA__",
+                                        title: "Gourmet Catering Ideas",
+                                        description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
+                                        tags: [
+                                          "Catering",
+                                          "WeddingFood",
+                                          "Gourmet"
+                                        ]
+                                      },
+                                      {
+                                        image:
+                                          "https://s3-alpha-sig.figma.com/img/950d/2845/9d364bfe0e1fc1d9ba5fc985046784bf?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hkNpTdx-XO-G8DHgc~1eCoFVHxZEnxsXniQ2eVuiYHjLr-U2hn2BO55NsthjhmLSSNYtV5riaBhEXEZB-BWdtnSJ7adSXdl64WsLsXX4~gWrZMuc7YD2o5O3IZLZdshUX-TsImohNdXE1xexAk9ijn7-6jFgHD2Xz~vemhnUsxqz028n5W36j~R492ajYNQ7V74Z8R~886CFUYV9aO8keuwuk5dhJWpv6xER3lcgkZj1MnRU1oAIWXFAqiq89PN4hYHXZ76wm1Res1ZtjvskocOLzaHjcxAtWf0l19iXUO3UU13XhcyjHwSXPW54FjhUGLsc1MwUcM-fs4MP02gQ~g__",
+                                        title: "Stunning Floral Arrangements",
+                                        description: `Learn how to transform your wedding venue with breathtaking floral designs.`,
+                                        tags: [
+                                          "Florists",
+                                          "FloralDesign",
+                                          "WeddingDecor"
+                                        ]
+                                      }
+                                    ];
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                const currentItem = __plasmic_item_0;
+                                const currentIndex = __plasmic_idx_0;
+                                return (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__kiHIp
+                                    )}
+                                    key={currentIndex}
+                                  >
+                                    <WeddingArticlesCard2
+                                      data-plasmic-name={"weddingArticlesCard2"}
+                                      data-plasmic-override={
+                                        overrides.weddingArticlesCard2
+                                      }
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.weddingArticlesCard2
+                                      )}
+                                      description={(() => {
+                                        try {
+                                          return currentItem.description;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      image={(() => {
+                                        try {
+                                          return currentItem.image;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      name={(() => {
+                                        try {
+                                          return currentItem.title;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                      tags={(() => {
+                                        try {
+                                          return { tag: currentItem.tags };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return {
+                                              tag: [
+                                                "Photography",
+                                                "WeddingPlanning",
+                                                "Tips"
+                                              ]
+                                            };
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    />
+                                  </div>
+                                );
+                              })}
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </Reveal>
+                    </Stack__>
+                  }
+                  className={classNames("__wab_instance", sty.weddingArticles)}
+                  title={"Wedding Articles"}
+                />
               </Stack__>
             </div>
           </LayerDefault>
@@ -1061,9 +2089,25 @@ const PlasmicDescendants = {
     "popularVenuesCard",
     "sliderCarousel9",
     "popularVenueCard",
+    "weddingVendorCateogries",
+    "weddingVendorCateogriesCard",
+    "sliderCarousel10",
+    "vendorCateogiesCard",
     "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8"
+    "sliderCarousel8",
+    "popularWeddingDestinations",
+    "popularWeddingDestinationsCard",
+    "sliderCarousel11",
+    "popularWeddingDestinationCard2",
+    "successStories",
+    "successStoriesCard",
+    "sliderCarousel6",
+    "successStoriesCard2",
+    "weddingArticles",
+    "weddingArticlesCard",
+    "sliderCarousel7",
+    "weddingArticlesCard2"
   ],
 
   layerDefault: [
@@ -1081,9 +2125,25 @@ const PlasmicDescendants = {
     "popularVenuesCard",
     "sliderCarousel9",
     "popularVenueCard",
+    "weddingVendorCateogries",
+    "weddingVendorCateogriesCard",
+    "sliderCarousel10",
+    "vendorCateogiesCard",
     "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8"
+    "sliderCarousel8",
+    "popularWeddingDestinations",
+    "popularWeddingDestinationsCard",
+    "sliderCarousel11",
+    "popularWeddingDestinationCard2",
+    "successStories",
+    "successStoriesCard",
+    "sliderCarousel6",
+    "successStoriesCard2",
+    "weddingArticles",
+    "weddingArticlesCard",
+    "sliderCarousel7",
+    "weddingArticlesCard2"
   ],
 
   bodyContainer: [
@@ -1100,9 +2160,25 @@ const PlasmicDescendants = {
     "popularVenuesCard",
     "sliderCarousel9",
     "popularVenueCard",
+    "weddingVendorCateogries",
+    "weddingVendorCateogriesCard",
+    "sliderCarousel10",
+    "vendorCateogiesCard",
     "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8"
+    "sliderCarousel8",
+    "popularWeddingDestinations",
+    "popularWeddingDestinationsCard",
+    "sliderCarousel11",
+    "popularWeddingDestinationCard2",
+    "successStories",
+    "successStoriesCard",
+    "sliderCarousel6",
+    "successStoriesCard2",
+    "weddingArticles",
+    "weddingArticlesCard",
+    "sliderCarousel7",
+    "weddingArticlesCard2"
   ],
 
   heroContainer: [
@@ -1146,6 +2222,21 @@ const PlasmicDescendants = {
 
   sliderCarousel9: ["sliderCarousel9", "popularVenueCard"],
   popularVenueCard: ["popularVenueCard"],
+  weddingVendorCateogries: [
+    "weddingVendorCateogries",
+    "weddingVendorCateogriesCard",
+    "sliderCarousel10",
+    "vendorCateogiesCard"
+  ],
+
+  weddingVendorCateogriesCard: [
+    "weddingVendorCateogriesCard",
+    "sliderCarousel10",
+    "vendorCateogiesCard"
+  ],
+
+  sliderCarousel10: ["sliderCarousel10", "vendorCateogiesCard"],
+  vendorCateogiesCard: ["vendorCateogiesCard"],
   featuringVendor: [
     "featuringVendor",
     "featuringVendorCard",
@@ -1153,7 +2244,52 @@ const PlasmicDescendants = {
   ],
 
   featuringVendorCard: ["featuringVendorCard", "sliderCarousel8"],
-  sliderCarousel8: ["sliderCarousel8"]
+  sliderCarousel8: ["sliderCarousel8"],
+  popularWeddingDestinations: [
+    "popularWeddingDestinations",
+    "popularWeddingDestinationsCard",
+    "sliderCarousel11",
+    "popularWeddingDestinationCard2"
+  ],
+
+  popularWeddingDestinationsCard: [
+    "popularWeddingDestinationsCard",
+    "sliderCarousel11",
+    "popularWeddingDestinationCard2"
+  ],
+
+  sliderCarousel11: ["sliderCarousel11", "popularWeddingDestinationCard2"],
+  popularWeddingDestinationCard2: ["popularWeddingDestinationCard2"],
+  successStories: [
+    "successStories",
+    "successStoriesCard",
+    "sliderCarousel6",
+    "successStoriesCard2"
+  ],
+
+  successStoriesCard: [
+    "successStoriesCard",
+    "sliderCarousel6",
+    "successStoriesCard2"
+  ],
+
+  sliderCarousel6: ["sliderCarousel6", "successStoriesCard2"],
+  successStoriesCard2: ["successStoriesCard2"],
+  weddingArticles: [
+    "weddingArticles",
+    "weddingArticlesCard",
+    "sliderCarousel7",
+    "weddingArticlesCard2"
+  ],
+
+  weddingArticlesCard: [
+    "weddingArticlesCard",
+    "sliderCarousel7",
+    "weddingArticlesCard2"
+  ],
+
+  sliderCarousel7: ["sliderCarousel7", "weddingArticlesCard2"],
+  weddingArticlesCard2: ["weddingArticlesCard2"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -1202,9 +2338,31 @@ export const PlasmicHomepage = Object.assign(
     popularVenuesCard: makeNodeComponent("popularVenuesCard"),
     sliderCarousel9: makeNodeComponent("sliderCarousel9"),
     popularVenueCard: makeNodeComponent("popularVenueCard"),
+    weddingVendorCateogries: makeNodeComponent("weddingVendorCateogries"),
+    weddingVendorCateogriesCard: makeNodeComponent(
+      "weddingVendorCateogriesCard"
+    ),
+    sliderCarousel10: makeNodeComponent("sliderCarousel10"),
+    vendorCateogiesCard: makeNodeComponent("vendorCateogiesCard"),
     featuringVendor: makeNodeComponent("featuringVendor"),
     featuringVendorCard: makeNodeComponent("featuringVendorCard"),
     sliderCarousel8: makeNodeComponent("sliderCarousel8"),
+    popularWeddingDestinations: makeNodeComponent("popularWeddingDestinations"),
+    popularWeddingDestinationsCard: makeNodeComponent(
+      "popularWeddingDestinationsCard"
+    ),
+    sliderCarousel11: makeNodeComponent("sliderCarousel11"),
+    popularWeddingDestinationCard2: makeNodeComponent(
+      "popularWeddingDestinationCard2"
+    ),
+    successStories: makeNodeComponent("successStories"),
+    successStoriesCard: makeNodeComponent("successStoriesCard"),
+    sliderCarousel6: makeNodeComponent("sliderCarousel6"),
+    successStoriesCard2: makeNodeComponent("successStoriesCard2"),
+    weddingArticles: makeNodeComponent("weddingArticles"),
+    weddingArticlesCard: makeNodeComponent("weddingArticlesCard"),
+    sliderCarousel7: makeNodeComponent("sliderCarousel7"),
+    weddingArticlesCard2: makeNodeComponent("weddingArticlesCard2"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

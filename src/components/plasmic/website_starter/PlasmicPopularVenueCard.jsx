@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -31,7 +31,7 @@ createPlasmicElementProxy;
 export const PlasmicPopularVenueCard__VariantProps = new Array();
 
 export const PlasmicPopularVenueCard__ArgProps = new Array(
-  "images",
+  "image",
   "city",
   "title"
 );
@@ -44,7 +44,7 @@ function PlasmicPopularVenueCard__RenderFunc(props) {
     () =>
       Object.assign(
         {
-          images:
+          image:
             "https://images.unsplash.com/photo-1585506942812-e72b29cef752?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGFqJTIwbWFoYWx8ZW58MHwxfDB8fHww",
           title: "Historic Sites & Mansions"
         },
@@ -128,7 +128,7 @@ function PlasmicPopularVenueCard__RenderFunc(props) {
           loading={"lazy"}
           src={(() => {
             try {
-              return $props.images;
+              return $props.image;
             } catch (e) {
               if (
                 e instanceof TypeError ||

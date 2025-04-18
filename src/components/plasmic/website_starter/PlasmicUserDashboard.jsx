@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -10,19 +10,64 @@
 // Component: 0UDrNVsjN2gG
 import * as React from "react";
 import {
+  PlasmicImg as PlasmicImg__,
+  Stack as Stack__,
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  hasVariant,
+  initializeCodeComponentStates,
+  set as $stateSet,
   useDollarState
 } from "@plasmicapp/react-web";
-import { useDataEnv } from "@plasmicapp/react-web/lib/host";
-import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
+import { TabButton } from "@plasmicpkgs/plasmic-tabs";
+import SidebarButton2 from "../../SidebarButton2"; // plasmic-import: Vkqf6daet4hr/component
+import BottomButton2 from "../../BottomButton2"; // plasmic-import: sQYPjvPCql81/component
+import { TabContent } from "@plasmicpkgs/plasmic-tabs";
+import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
+import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
+import { UploadWrapper } from "@plasmicpkgs/antd5/skinny/registerUpload";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import ButtonContainer from "../../ButtonContainer"; // plasmic-import: dK0EsHLm2W5O/component
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import Select from "../../Select"; // plasmic-import: Qxrry2wyoobC/component
+import LocationForm from "../../LocationForm"; // plasmic-import: 3-VWNxcNSDds/component
+import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
+import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
+import UserEnquiriesTable from "../../UserEnquiriesTable"; // plasmic-import: 4Vh8-Nc4S1Td/component
+import { useScreenVariants as useScreenVariantszapf5SksSeNd } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: ZAPF5sksSeNd/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: i8KuCHvKrwawZpBmyovrv7/projectcss
 import sty from "./PlasmicUserDashboard.module.css"; // plasmic-import: 0UDrNVsjN2gG/css
+import InputPrefixIcon from "./icons/PlasmicIcon__InputPrefix"; // plasmic-import: cxov_8VheB0g/icon
+import MessagesPeoplePersonBubble1Icon from "./icons/PlasmicIcon__MessagesPeoplePersonBubble1"; // plasmic-import: IdixEc2FgfFa/icon
+import Group639SvgIcon from "./icons/PlasmicIcon__Group639Svg"; // plasmic-import: SpmRGHLSJaZR/icon
+import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: tp2Dhf6Ctx13/icon
+import SetttingsSvgIcon from "./icons/PlasmicIcon__SetttingsSvg"; // plasmic-import: yhV_3YbdgCPy/icon
+import Icon17Icon from "./icons/PlasmicIcon__Icon17"; // plasmic-import: gokeQ-lOkO--/icon
 
 createPlasmicElementProxy;
 
@@ -51,11 +96,12 @@ function PlasmicUserDashboard__RenderFunc(props) {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+  const $globalActions = useGlobalActions?.();
   let [$queries, setDollarQueries] = React.useState({});
   const stateSpecs = React.useMemo(
     () => [
       {
-        path: "countryCode",
+        path: "countryCodes",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
@@ -492,6 +538,125 @@ function PlasmicUserDashboard__RenderFunc(props) {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "table.selectedRowKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRowKey", RichTable_Helpers)
+      },
+      {
+        path: "table.selectedRow",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRow", RichTable_Helpers)
+      },
+      {
+        path: "table.selectedRows",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRows", RichTable_Helpers)
+      },
+      {
+        path: "table.selectedRowKeys",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRowKeys", RichTable_Helpers)
+      },
+      {
+        path: "profileInfo.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        refName: "profileInfo",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "profileInfo.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+        refName: "profileInfo",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "firstname.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "lastname.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "whatsapp.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "phone.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "countryCode.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "profilePicture.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        refName: "profilePicture",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "profilePicture.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+        refName: "profilePicture",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "profilePicture2.files",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "previewImage.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.profilePicture2.files.length;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
 
@@ -503,6 +668,8 @@ function PlasmicUserDashboard__RenderFunc(props) {
     $queries: $queries,
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
   const new$Queries = {
     auth: usePlasmicDataOp(() => {
       return {
@@ -515,36 +682,15 @@ function PlasmicUserDashboard__RenderFunc(props) {
         invalidatedKeys: null,
         roleId: null
       };
-    }),
-    userInfo: usePlasmicDataOp(() => {
-      return {
-        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "be11c307-f463-4ebf-8aeb-bfa58a932c02",
-        userArgs: {
-          variables: [$queries.auth]
-        },
-        cacheKey: `plasmic.$.be11c307-f463-4ebf-8aeb-bfa58a932c02.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    }),
-    enquiriesInfo: usePlasmicDataOp(() => {
-      return {
-        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "55121eb2-52ba-4a2a-8b85-78e3068be8b2",
-        userArgs: {
-          variables: [$queries.auth]
-        },
-        cacheKey: `plasmic.$.55121eb2-52ba-4a2a-8b85-78e3068be8b2.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
     setDollarQueries(new$Queries);
     $queries = new$Queries;
   }
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantszapf5SksSeNd()
+  });
   return (
     <React.Fragment>
       <div className={projectcss.plasmic_page_wrapper}>
@@ -564,11 +710,1820 @@ function PlasmicUserDashboard__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
-          />
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
+          >
+            <TabsContainer
+              data-plasmic-name={"main"}
+              data-plasmic-override={overrides.main}
+              initialKey={"tab1"}
+              previewKey={"profile"}
+            >
+              <DataCtxReader__>
+                {$ctx => (
+                  <div
+                    data-plasmic-name={"page"}
+                    data-plasmic-override={overrides.page}
+                    className={classNames(projectcss.all, sty.page)}
+                  >
+                    <div
+                      data-plasmic-name={"sidebar"}
+                      data-plasmic-override={overrides.sidebar}
+                      className={classNames(projectcss.all, sty.sidebar)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__slT8W
+                        )}
+                      >
+                        <div
+                          data-plasmic-name={"buttons"}
+                          data-plasmic-override={overrides.buttons}
+                          className={classNames(projectcss.all, sty.buttons)}
+                        >
+                          <Stack__
+                            as={"div"}
+                            data-plasmic-name={"desktop"}
+                            data-plasmic-override={overrides.desktop}
+                            hasGap={true}
+                            className={classNames(projectcss.all, sty.desktop)}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__nYeQb
+                              )}
+                            >
+                              <TabButton
+                                data-plasmic-name={"profile3"}
+                                data-plasmic-override={overrides.profile3}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.profile3
+                                )}
+                                tabKey={"profile"}
+                              >
+                                <SidebarButton2
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.sidebarButton2__jNeJ8
+                                  )}
+                                >
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___824P3
+                                    )}
+                                  >
+                                    <InputPrefixIcon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg___4X6Bw
+                                      )}
+                                      role={"img"}
+                                    />
+
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__afFnj
+                                      )}
+                                    >
+                                      {"My Profile"}
+                                    </div>
+                                  </Stack__>
+                                </SidebarButton2>
+                              </TabButton>
+                              <TabButton
+                                data-plasmic-name={"enquiries"}
+                                data-plasmic-override={overrides.enquiries}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.enquiries
+                                )}
+                                tabKey={"enquiries"}
+                              >
+                                <SidebarButton2
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.sidebarButton2__f9G0
+                                  )}
+                                >
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__wEdZd
+                                    )}
+                                  >
+                                    <MessagesPeoplePersonBubble1Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__ydT1C
+                                      )}
+                                      role={"img"}
+                                    />
+
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__sKx4
+                                      )}
+                                    >
+                                      {"Enquiries"}
+                                    </div>
+                                  </Stack__>
+                                </SidebarButton2>
+                              </TabButton>
+                            </Stack__>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            data-plasmic-name={"mobile"}
+                            data-plasmic-override={overrides.mobile}
+                            hasGap={true}
+                            className={classNames(projectcss.all, sty.mobile)}
+                          >
+                            <TabButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabButton__y5Yog
+                              )}
+                              tabKey={"profile"}
+                            >
+                              <BottomButton2
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.bottomButton2__cnLbT
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___5EwFt
+                                  )}
+                                >
+                                  <Group639SvgIcon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__hoogA
+                                    )}
+                                    role={"img"}
+                                  />
+                                </Stack__>
+                              </BottomButton2>
+                            </TabButton>
+                            <TabButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabButton__bbl4Y
+                              )}
+                              tabKey={"enquiries"}
+                            >
+                              <BottomButton2
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.bottomButton2__g6MhZ
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__o6AvV
+                                  )}
+                                >
+                                  <MessagesPeoplePersonBubble1Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__sKkQx
+                                    )}
+                                    role={"img"}
+                                  />
+                                </Stack__>
+                              </BottomButton2>
+                            </TabButton>
+                            <TabButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabButton__gnvjn
+                              )}
+                              tabKey={"reviews"}
+                            >
+                              <BottomButton2
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.bottomButton2__nLnI
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__z1Qna
+                                  )}
+                                >
+                                  <Icon16Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__ksnqP
+                                    )}
+                                    role={"img"}
+                                  />
+                                </Stack__>
+                              </BottomButton2>
+                            </TabButton>
+                            <TabButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.tabButton__vmT4T
+                              )}
+                              tabKey={"settings"}
+                            >
+                              <BottomButton2
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.bottomButton2__jwzc
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__e9ZyW
+                                  )}
+                                >
+                                  <SetttingsSvgIcon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__haDde
+                                    )}
+                                    role={"img"}
+                                  />
+                                </Stack__>
+                              </BottomButton2>
+                            </TabButton>
+                          </Stack__>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      data-plasmic-name={"content"}
+                      data-plasmic-override={overrides.content}
+                      className={classNames(projectcss.all, sty.content)}
+                    >
+                      <TabContent
+                        data-plasmic-name={"profile2"}
+                        data-plasmic-override={overrides.profile2}
+                        className={classNames("__wab_instance", sty.profile2)}
+                        tabKey={"profile"}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___7JlbU
+                          )}
+                        >
+                          <TabsContainer
+                            data-plasmic-name={"tabsContainer"}
+                            data-plasmic-override={overrides.tabsContainer}
+                            initialKey={"tab1"}
+                          >
+                            <DataCtxReader__>
+                              {$ctx => (
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___70Luv
+                                  )}
+                                >
+                                  <div
+                                    data-plasmic-name={"content2"}
+                                    data-plasmic-override={overrides.content2}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.content2
+                                    )}
+                                  >
+                                    <TabContent
+                                      data-plasmic-name={"profile"}
+                                      data-plasmic-override={overrides.profile}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.profile
+                                      )}
+                                      tabKey={"tab1"}
+                                    >
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__rYaU
+                                        )}
+                                      >
+                                        <Stack__
+                                          as={"div"}
+                                          hasGap={true}
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__hqPAc
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__v0Jxw
+                                            )}
+                                          >
+                                            {"Profile Information"}
+                                          </div>
+                                          <Stack__
+                                            as={"div"}
+                                            hasGap={true}
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.freeBox__npVQg
+                                            )}
+                                          >
+                                            <Stack__
+                                              as={"div"}
+                                              hasGap={true}
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__cRzqj
+                                              )}
+                                            >
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text___2ZsKd
+                                                )}
+                                              >
+                                                {"Profile Picture"}
+                                              </div>
+                                              {(() => {
+                                                try {
+                                                  return $queries.userInfo?.data
+                                                    ?.response?.data
+                                                    ?.usersPermissionsUser?.data
+                                                    ?.attributes
+                                                    ?.Profile_Picture?.data
+                                                    ?.attributes?.url;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return true;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })() ? (
+                                                <PlasmicImg__
+                                                  alt={""}
+                                                  className={classNames(
+                                                    sty.img__p0UPf
+                                                  )}
+                                                  displayHeight={
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobileOnly"
+                                                    )
+                                                      ? "70vw"
+                                                      : "300px"
+                                                  }
+                                                  displayMaxHeight={"none"}
+                                                  displayMaxWidth={"100%"}
+                                                  displayMinHeight={"0"}
+                                                  displayMinWidth={"0"}
+                                                  displayWidth={
+                                                    hasVariant(
+                                                      globalVariants,
+                                                      "screen",
+                                                      "mobileOnly"
+                                                    )
+                                                      ? "70vw"
+                                                      : "300px"
+                                                  }
+                                                  height={"300"}
+                                                  loading={"lazy"}
+                                                  src={(() => {
+                                                    try {
+                                                      return $queries.userInfo
+                                                        ?.data?.response?.data
+                                                        ?.usersPermissionsUser
+                                                        ?.data?.attributes
+                                                        ?.Profile_Picture?.data
+                                                        ?.attributes?.url;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                  width={"300"}
+                                                />
+                                              ) : null}
+                                            </Stack__>
+                                            {(() => {
+                                              const child$Props = {
+                                                className: classNames(
+                                                  "__wab_instance",
+                                                  sty.profilePicture
+                                                ),
+                                                extendedOnValuesChange: async (
+                                                  ...eventArgs
+                                                ) => {
+                                                  generateStateOnChangePropForCodeComponents(
+                                                    $state,
+                                                    "value",
+                                                    ["profilePicture", "value"],
+                                                    FormWrapper_Helpers
+                                                  ).apply(null, eventArgs);
+                                                },
+                                                formItems: [
+                                                  {
+                                                    label: "Name",
+                                                    name: "name",
+                                                    inputType: "Text"
+                                                  },
+                                                  {
+                                                    label: "Message",
+                                                    name: "message",
+                                                    inputType: "Text Area"
+                                                  }
+                                                ],
+
+                                                labelCol: {
+                                                  span: 8,
+                                                  horizontalOnly: true
+                                                },
+                                                layout: "vertical",
+                                                mode: "advanced",
+                                                onIsSubmittingChange: async (
+                                                  ...eventArgs
+                                                ) => {
+                                                  generateStateOnChangePropForCodeComponents(
+                                                    $state,
+                                                    "isSubmitting",
+                                                    [
+                                                      "profilePicture",
+                                                      "isSubmitting"
+                                                    ],
+
+                                                    FormWrapper_Helpers
+                                                  ).apply(null, eventArgs);
+                                                },
+                                                ref: ref => {
+                                                  $refs["profilePicture"] = ref;
+                                                },
+                                                submitSlot: null,
+                                                wrapperCol: {
+                                                  span: 16,
+                                                  horizontalOnly: true
+                                                }
+                                              };
+                                              initializeCodeComponentStates(
+                                                $state,
+                                                [
+                                                  {
+                                                    name: "value",
+                                                    plasmicStateName:
+                                                      "profilePicture.value"
+                                                  },
+                                                  {
+                                                    name: "isSubmitting",
+                                                    plasmicStateName:
+                                                      "profilePicture.isSubmitting"
+                                                  }
+                                                ],
+
+                                                [],
+                                                FormWrapper_Helpers ?? {},
+                                                child$Props
+                                              );
+                                              return (
+                                                <FormWrapper
+                                                  data-plasmic-name={
+                                                    "profilePicture"
+                                                  }
+                                                  data-plasmic-override={
+                                                    overrides.profilePicture
+                                                  }
+                                                  {...child$Props}
+                                                >
+                                                  <FormItemWrapper
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.formField__nFwwY
+                                                    )}
+                                                    label={null}
+                                                    name={"name"}
+                                                    noStyle={true}
+                                                  >
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        sty.freeBox__nHpfF
+                                                      )}
+                                                    >
+                                                      <UploadWrapper
+                                                        data-plasmic-name={
+                                                          "profilePicture2"
+                                                        }
+                                                        data-plasmic-override={
+                                                          overrides.profilePicture2
+                                                        }
+                                                        accept={""}
+                                                        className={classNames(
+                                                          "__wab_instance",
+                                                          sty.profilePicture2
+                                                        )}
+                                                        dragAndDropFiles={true}
+                                                        files={generateStateValueProp(
+                                                          $state,
+                                                          [
+                                                            "profilePicture2",
+                                                            "files"
+                                                          ]
+                                                        )}
+                                                        listType={
+                                                          "picture-circle"
+                                                        }
+                                                        maxCount={1}
+                                                        multiple={false}
+                                                        onFilesChange={async (
+                                                          ...eventArgs
+                                                        ) => {
+                                                          generateStateOnChangeProp(
+                                                            $state,
+                                                            [
+                                                              "profilePicture2",
+                                                              "files"
+                                                            ]
+                                                          ).apply(
+                                                            null,
+                                                            eventArgs
+                                                          );
+                                                        }}
+                                                        showUploadList={false}
+                                                      >
+                                                        <Stack__
+                                                          as={"div"}
+                                                          hasGap={true}
+                                                          className={classNames(
+                                                            projectcss.all,
+                                                            sty.freeBox__yyCcl
+                                                          )}
+                                                        >
+                                                          <Icon17Icon
+                                                            className={classNames(
+                                                              projectcss.all,
+                                                              sty.svg__b190B
+                                                            )}
+                                                            role={"img"}
+                                                          />
+
+                                                          <div
+                                                            className={classNames(
+                                                              projectcss.all,
+                                                              projectcss.__wab_text,
+                                                              sty.text__rx3Fx
+                                                            )}
+                                                          >
+                                                            {
+                                                              "Click or drag file to this area to upload"
+                                                            }
+                                                          </div>
+                                                        </Stack__>
+                                                      </UploadWrapper>
+                                                    </div>
+                                                  </FormItemWrapper>
+                                                </FormWrapper>
+                                              );
+                                            })()}
+                                            <AntdModal
+                                              data-plasmic-name={"previewImage"}
+                                              data-plasmic-override={
+                                                overrides.previewImage
+                                              }
+                                              className={classNames(
+                                                "__wab_instance",
+                                                sty.previewImage
+                                              )}
+                                              defaultStylesClassName={classNames(
+                                                projectcss.root_reset,
+                                                projectcss.plasmic_default_styles,
+                                                projectcss.plasmic_mixins,
+                                                projectcss.plasmic_tokens,
+                                                plasmic_antd_5_hostless_css.plasmic_tokens,
+                                                plasmic_plasmic_rich_components_css.plasmic_tokens
+                                              )}
+                                              footer={
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__hgEPf
+                                                  )}
+                                                >
+                                                  <ButtonContainer
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.buttonContainer__rg2Ck
+                                                    )}
+                                                  >
+                                                    <AntdButton
+                                                      data-plasmic-name={
+                                                        "cancel"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.cancel
+                                                      }
+                                                      className={classNames(
+                                                        "__wab_instance",
+                                                        sty.cancel
+                                                      )}
+                                                      type={"ghost"}
+                                                    >
+                                                      <div
+                                                        className={classNames(
+                                                          projectcss.all,
+                                                          projectcss.__wab_text,
+                                                          sty.text__ajoN0
+                                                        )}
+                                                      >
+                                                        {"Cancel"}
+                                                      </div>
+                                                    </AntdButton>
+                                                  </ButtonContainer>
+                                                  <ButtonContainer
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.buttonContainer___9Uik
+                                                    )}
+                                                  >
+                                                    <AntdButton
+                                                      data-plasmic-name={
+                                                        "upload"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.upload
+                                                      }
+                                                      className={classNames(
+                                                        "__wab_instance",
+                                                        sty.upload
+                                                      )}
+                                                      type={"ghost"}
+                                                    >
+                                                      <div
+                                                        className={classNames(
+                                                          projectcss.all,
+                                                          projectcss.__wab_text,
+                                                          sty.text__aQ3Pp
+                                                        )}
+                                                      >
+                                                        {"Upload"}
+                                                      </div>
+                                                    </AntdButton>
+                                                  </ButtonContainer>
+                                                </Stack__>
+                                              }
+                                              modalScopeClassName={
+                                                sty["previewImage__modal"]
+                                              }
+                                              onCancel={async () => {
+                                                const $steps = {};
+                                                $steps[
+                                                  "updateProfilePicture2Files"
+                                                ] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        variable: {
+                                                          objRoot: $state,
+                                                          variablePath: [
+                                                            "profilePicture2",
+                                                            "files"
+                                                          ]
+                                                        },
+                                                        operation: 0
+                                                      };
+                                                      return (({
+                                                        variable,
+                                                        value,
+                                                        startIndex,
+                                                        deleteCount
+                                                      }) => {
+                                                        if (!variable) {
+                                                          return;
+                                                        }
+                                                        const {
+                                                          objRoot,
+                                                          variablePath
+                                                        } = variable;
+                                                        $stateSet(
+                                                          objRoot,
+                                                          variablePath,
+                                                          value
+                                                        );
+                                                        return value;
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps[
+                                                    "updateProfilePicture2Files"
+                                                  ] != null &&
+                                                  typeof $steps[
+                                                    "updateProfilePicture2Files"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "updateProfilePicture2Files"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps[
+                                                    "updateProfilePicture2Files"
+                                                  ] = await $steps[
+                                                    "updateProfilePicture2Files"
+                                                  ];
+                                                }
+                                              }}
+                                              onOpenChange={async (
+                                                ...eventArgs
+                                              ) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  ["previewImage", "open"]
+                                                ).apply(null, eventArgs);
+                                              }}
+                                              open={generateStateValueProp(
+                                                $state,
+                                                ["previewImage", "open"]
+                                              )}
+                                              title={
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text__p56Ef
+                                                  )}
+                                                >
+                                                  {"Preview Image"}
+                                                </div>
+                                              }
+                                              trigger={null}
+                                            >
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__tEqwR
+                                                )}
+                                              >
+                                                <PlasmicImg__
+                                                  alt={""}
+                                                  className={classNames(
+                                                    sty.img__dlkL
+                                                  )}
+                                                  displayHeight={"auto"}
+                                                  displayMaxHeight={"none"}
+                                                  displayMaxWidth={"100%"}
+                                                  displayMinHeight={"0"}
+                                                  displayMinWidth={"0"}
+                                                  displayWidth={"auto"}
+                                                  height={"400"}
+                                                  loading={"lazy"}
+                                                  width={"400"}
+                                                />
+                                              </div>
+                                            </AntdModal>
+                                          </Stack__>
+                                          {(() => {
+                                            const child$Props = {
+                                              className: classNames(
+                                                "__wab_instance",
+                                                sty.profileInfo
+                                              ),
+                                              extendedOnValuesChange: async (
+                                                ...eventArgs
+                                              ) => {
+                                                generateStateOnChangePropForCodeComponents(
+                                                  $state,
+                                                  "value",
+                                                  ["profileInfo", "value"],
+                                                  FormWrapper_Helpers
+                                                ).apply(null, eventArgs);
+                                              },
+                                              formItems: [
+                                                {
+                                                  label: "Name",
+                                                  name: "name",
+                                                  inputType: "Text"
+                                                },
+                                                {
+                                                  label: "Message",
+                                                  name: "message",
+                                                  inputType: "Text Area"
+                                                }
+                                              ],
+
+                                              labelCol: {
+                                                span: 8,
+                                                horizontalOnly: true
+                                              },
+                                              layout: "vertical",
+                                              mode: "advanced",
+                                              onFinish: async values => {
+                                                const $steps = {};
+                                                $steps["graphqlMutation"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        dataOp: {
+                                                          sourceId:
+                                                            "bvg9JqrXbdUtvMXZbC26cd",
+                                                          opId: "9e63dc99-b5ce-4494-9779-b5f6d0abb24f",
+                                                          userArgs: {
+                                                            variables: [
+                                                              $queries.auth.data
+                                                                .response.data
+                                                                .me.id,
+                                                              $state.profileInfo
+                                                                .value.phone,
+                                                              $state.profileInfo
+                                                                .value
+                                                                .firstname,
+                                                              $state.profileInfo
+                                                                .value.lastname,
+                                                              $state.profileInfo
+                                                                .value.whatsapp
+                                                            ]
+                                                          },
+                                                          cacheKey: null,
+                                                          invalidatedKeys: [
+                                                            "plasmic_refresh_all"
+                                                          ],
+
+                                                          roleId: null
+                                                        },
+                                                        continueOnError: true
+                                                      };
+                                                      return (async ({
+                                                        dataOp,
+                                                        continueOnError
+                                                      }) => {
+                                                        try {
+                                                          const response =
+                                                            await executePlasmicDataOp(
+                                                              dataOp,
+                                                              {
+                                                                userAuthToken:
+                                                                  dataSourcesCtx?.userAuthToken,
+                                                                user: dataSourcesCtx?.user
+                                                              }
+                                                            );
+                                                          await plasmicInvalidate(
+                                                            dataOp.invalidatedKeys
+                                                          );
+                                                          return response;
+                                                        } catch (e) {
+                                                          if (
+                                                            !continueOnError
+                                                          ) {
+                                                            throw e;
+                                                          }
+                                                          return e;
+                                                        }
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["graphqlMutation"] !=
+                                                    null &&
+                                                  typeof $steps[
+                                                    "graphqlMutation"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "graphqlMutation"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps["graphqlMutation"] =
+                                                    await $steps[
+                                                      "graphqlMutation"
+                                                    ];
+                                                }
+                                                $steps["invokeGlobalAction"] =
+                                                  !$steps.useIntegration
+                                                    ?.response?.errors
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          args: [
+                                                            "success",
+                                                            "Updated!"
+                                                          ]
+                                                        };
+                                                        return $globalActions[
+                                                          "plasmic-antd5-config-provider.showNotification"
+                                                        ]?.apply(null, [
+                                                          ...actionArgs.args
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps[
+                                                    "invokeGlobalAction"
+                                                  ] != null &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps["invokeGlobalAction"] =
+                                                    await $steps[
+                                                      "invokeGlobalAction"
+                                                    ];
+                                                }
+                                                $steps["invokeGlobalAction2"] =
+                                                  $steps.useIntegration
+                                                    ?.response?.errors
+                                                    ? (() => {
+                                                        const actionArgs = {
+                                                          args: [
+                                                            "error",
+                                                            "Error"
+                                                          ]
+                                                        };
+                                                        return $globalActions[
+                                                          "plasmic-antd5-config-provider.showNotification"
+                                                        ]?.apply(null, [
+                                                          ...actionArgs.args
+                                                        ]);
+                                                      })()
+                                                    : undefined;
+                                                if (
+                                                  $steps[
+                                                    "invokeGlobalAction2"
+                                                  ] != null &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction2"
+                                                  ] === "object" &&
+                                                  typeof $steps[
+                                                    "invokeGlobalAction2"
+                                                  ].then === "function"
+                                                ) {
+                                                  $steps[
+                                                    "invokeGlobalAction2"
+                                                  ] = await $steps[
+                                                    "invokeGlobalAction2"
+                                                  ];
+                                                }
+                                              },
+                                              onIsSubmittingChange: async (
+                                                ...eventArgs
+                                              ) => {
+                                                generateStateOnChangePropForCodeComponents(
+                                                  $state,
+                                                  "isSubmitting",
+                                                  [
+                                                    "profileInfo",
+                                                    "isSubmitting"
+                                                  ],
+
+                                                  FormWrapper_Helpers
+                                                ).apply(null, eventArgs);
+                                              },
+                                              ref: ref => {
+                                                $refs["profileInfo"] = ref;
+                                              },
+                                              submitSlot: null,
+                                              wrapperCol: {
+                                                span: 16,
+                                                horizontalOnly: true
+                                              }
+                                            };
+                                            initializeCodeComponentStates(
+                                              $state,
+                                              [
+                                                {
+                                                  name: "value",
+                                                  plasmicStateName:
+                                                    "profileInfo.value"
+                                                },
+                                                {
+                                                  name: "isSubmitting",
+                                                  plasmicStateName:
+                                                    "profileInfo.isSubmitting"
+                                                }
+                                              ],
+
+                                              [],
+                                              FormWrapper_Helpers ?? {},
+                                              child$Props
+                                            );
+                                            return (
+                                              <FormWrapper
+                                                data-plasmic-name={
+                                                  "profileInfo"
+                                                }
+                                                data-plasmic-override={
+                                                  overrides.profileInfo
+                                                }
+                                                {...child$Props}
+                                              >
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__pcNqc
+                                                  )}
+                                                >
+                                                  <FormItemWrapper
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.formField__t5BRc
+                                                    )}
+                                                    initialValue={
+                                                      $queries.userInfo.data
+                                                        .response.data
+                                                        .usersPermissionsUser
+                                                        .data.attributes
+                                                        .FirstName
+                                                    }
+                                                    label={
+                                                      <div
+                                                        className={classNames(
+                                                          projectcss.all,
+                                                          projectcss.__wab_text,
+                                                          sty.text___3Dquo
+                                                        )}
+                                                      >
+                                                        {"First Name"}
+                                                      </div>
+                                                    }
+                                                    name={"firstname"}
+                                                    noStyle={true}
+                                                  >
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        sty.freeBox__hitXa
+                                                      )}
+                                                    >
+                                                      {(() => {
+                                                        const child$Props = {
+                                                          bordered: false,
+                                                          className: classNames(
+                                                            "__wab_instance",
+                                                            sty.firstname
+                                                          ),
+                                                          onChange: async (
+                                                            ...eventArgs
+                                                          ) => {
+                                                            generateStateOnChangePropForCodeComponents(
+                                                              $state,
+                                                              "value",
+                                                              [
+                                                                "firstname",
+                                                                "value"
+                                                              ],
+
+                                                              AntdInput_Helpers
+                                                            ).apply(
+                                                              null,
+                                                              eventArgs
+                                                            );
+                                                          },
+                                                          placeholder:
+                                                            "First Name",
+                                                          value:
+                                                            generateStateValueProp(
+                                                              $state,
+                                                              [
+                                                                "firstname",
+                                                                "value"
+                                                              ]
+                                                            )
+                                                        };
+                                                        initializeCodeComponentStates(
+                                                          $state,
+                                                          [
+                                                            {
+                                                              name: "value",
+                                                              plasmicStateName:
+                                                                "firstname.value"
+                                                            }
+                                                          ],
+
+                                                          [],
+                                                          AntdInput_Helpers ??
+                                                            {},
+                                                          child$Props
+                                                        );
+                                                        return (
+                                                          <AntdInput
+                                                            data-plasmic-name={
+                                                              "firstname"
+                                                            }
+                                                            data-plasmic-override={
+                                                              overrides.firstname
+                                                            }
+                                                            {...child$Props}
+                                                          />
+                                                        );
+                                                      })()}
+                                                    </div>
+                                                  </FormItemWrapper>
+                                                  <FormItemWrapper
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.formField__zOjyg
+                                                    )}
+                                                    initialValue={
+                                                      $queries.userInfo.data
+                                                        .response.data
+                                                        .usersPermissionsUser
+                                                        .data.attributes
+                                                        .LastName
+                                                    }
+                                                    label={
+                                                      <div
+                                                        className={classNames(
+                                                          projectcss.all,
+                                                          projectcss.__wab_text,
+                                                          sty.text__uJvLo
+                                                        )}
+                                                      >
+                                                        {"Last Name"}
+                                                      </div>
+                                                    }
+                                                    name={"lastname"}
+                                                    noStyle={true}
+                                                  >
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        sty.freeBox__saOuj
+                                                      )}
+                                                    >
+                                                      {(() => {
+                                                        const child$Props = {
+                                                          bordered: false,
+                                                          className: classNames(
+                                                            "__wab_instance",
+                                                            sty.lastname
+                                                          ),
+                                                          onChange: async (
+                                                            ...eventArgs
+                                                          ) => {
+                                                            generateStateOnChangePropForCodeComponents(
+                                                              $state,
+                                                              "value",
+                                                              [
+                                                                "lastname",
+                                                                "value"
+                                                              ],
+
+                                                              AntdInput_Helpers
+                                                            ).apply(
+                                                              null,
+                                                              eventArgs
+                                                            );
+                                                          },
+                                                          placeholder:
+                                                            "Last Name",
+                                                          value:
+                                                            generateStateValueProp(
+                                                              $state,
+                                                              [
+                                                                "lastname",
+                                                                "value"
+                                                              ]
+                                                            )
+                                                        };
+                                                        initializeCodeComponentStates(
+                                                          $state,
+                                                          [
+                                                            {
+                                                              name: "value",
+                                                              plasmicStateName:
+                                                                "lastname.value"
+                                                            }
+                                                          ],
+
+                                                          [],
+                                                          AntdInput_Helpers ??
+                                                            {},
+                                                          child$Props
+                                                        );
+                                                        return (
+                                                          <AntdInput
+                                                            data-plasmic-name={
+                                                              "lastname"
+                                                            }
+                                                            data-plasmic-override={
+                                                              overrides.lastname
+                                                            }
+                                                            {...child$Props}
+                                                          />
+                                                        );
+                                                      })()}
+                                                    </div>
+                                                  </FormItemWrapper>
+                                                </Stack__>
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox___3EqZm
+                                                  )}
+                                                >
+                                                  <FormItemWrapper
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.formField___6XxmE
+                                                    )}
+                                                    initialValue={
+                                                      $queries.userInfo.data
+                                                        .response.data
+                                                        .usersPermissionsUser
+                                                        .data.attributes
+                                                        .Whatsapp
+                                                    }
+                                                    label={
+                                                      <div
+                                                        className={classNames(
+                                                          projectcss.all,
+                                                          projectcss.__wab_text,
+                                                          sty.text___03SE9
+                                                        )}
+                                                      >
+                                                        {""}
+                                                      </div>
+                                                    }
+                                                    name={"whatsapp"}
+                                                    noStyle={true}
+                                                  >
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        sty.freeBox__zPzjh
+                                                      )}
+                                                    >
+                                                      {(() => {
+                                                        const child$Props = {
+                                                          bordered: false,
+                                                          className: classNames(
+                                                            "__wab_instance",
+                                                            sty.whatsapp
+                                                          ),
+                                                          onChange: async (
+                                                            ...eventArgs
+                                                          ) => {
+                                                            generateStateOnChangePropForCodeComponents(
+                                                              $state,
+                                                              "value",
+                                                              [
+                                                                "whatsapp",
+                                                                "value"
+                                                              ],
+
+                                                              AntdInput_Helpers
+                                                            ).apply(
+                                                              null,
+                                                              eventArgs
+                                                            );
+                                                          },
+                                                          placeholder:
+                                                            "Whatsapp Number",
+                                                          value:
+                                                            generateStateValueProp(
+                                                              $state,
+                                                              [
+                                                                "whatsapp",
+                                                                "value"
+                                                              ]
+                                                            )
+                                                        };
+                                                        initializeCodeComponentStates(
+                                                          $state,
+                                                          [
+                                                            {
+                                                              name: "value",
+                                                              plasmicStateName:
+                                                                "whatsapp.value"
+                                                            }
+                                                          ],
+
+                                                          [],
+                                                          AntdInput_Helpers ??
+                                                            {},
+                                                          child$Props
+                                                        );
+                                                        return (
+                                                          <AntdInput
+                                                            data-plasmic-name={
+                                                              "whatsapp"
+                                                            }
+                                                            data-plasmic-override={
+                                                              overrides.whatsapp
+                                                            }
+                                                            {...child$Props}
+                                                          />
+                                                        );
+                                                      })()}
+                                                    </div>
+                                                  </FormItemWrapper>
+                                                  <FormItemWrapper
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.formField__alqad
+                                                    )}
+                                                    initialValue={
+                                                      $queries.userInfo.data
+                                                        .response.data
+                                                        .usersPermissionsUser
+                                                        .data.attributes.Phone
+                                                    }
+                                                    label={
+                                                      <div
+                                                        className={classNames(
+                                                          projectcss.all,
+                                                          projectcss.__wab_text,
+                                                          sty.text__nCcg7
+                                                        )}
+                                                      >
+                                                        {""}
+                                                      </div>
+                                                    }
+                                                    name={"phone"}
+                                                    noStyle={true}
+                                                  >
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        sty.freeBox__b9RiR
+                                                      )}
+                                                    >
+                                                      {(() => {
+                                                        const child$Props = {
+                                                          bordered: false,
+                                                          className: classNames(
+                                                            "__wab_instance",
+                                                            sty.phone
+                                                          ),
+                                                          onChange: async (
+                                                            ...eventArgs
+                                                          ) => {
+                                                            generateStateOnChangePropForCodeComponents(
+                                                              $state,
+                                                              "value",
+                                                              [
+                                                                "phone",
+                                                                "value"
+                                                              ],
+
+                                                              AntdInput_Helpers
+                                                            ).apply(
+                                                              null,
+                                                              eventArgs
+                                                            );
+                                                          },
+                                                          placeholder:
+                                                            "Phone Number",
+                                                          value:
+                                                            generateStateValueProp(
+                                                              $state,
+                                                              ["phone", "value"]
+                                                            )
+                                                        };
+                                                        initializeCodeComponentStates(
+                                                          $state,
+                                                          [
+                                                            {
+                                                              name: "value",
+                                                              plasmicStateName:
+                                                                "phone.value"
+                                                            }
+                                                          ],
+
+                                                          [],
+                                                          AntdInput_Helpers ??
+                                                            {},
+                                                          child$Props
+                                                        );
+                                                        return (
+                                                          <AntdInput
+                                                            data-plasmic-name={
+                                                              "phone"
+                                                            }
+                                                            data-plasmic-override={
+                                                              overrides.phone
+                                                            }
+                                                            {...child$Props}
+                                                          />
+                                                        );
+                                                      })()}
+                                                    </div>
+                                                  </FormItemWrapper>
+                                                </Stack__>
+                                                <Stack__
+                                                  as={"div"}
+                                                  hasGap={true}
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    sty.freeBox__ghRjH
+                                                  )}
+                                                >
+                                                  <Stack__
+                                                    as={"div"}
+                                                    hasGap={true}
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      sty.freeBox__jrLxj
+                                                    )}
+                                                  >
+                                                    <Select
+                                                      data-plasmic-name={
+                                                        "countryCode"
+                                                      }
+                                                      data-plasmic-override={
+                                                        overrides.countryCode
+                                                      }
+                                                      className={classNames(
+                                                        "__wab_instance",
+                                                        sty.countryCode
+                                                      )}
+                                                      onChange={async (
+                                                        ...eventArgs
+                                                      ) => {
+                                                        ((...eventArgs) => {
+                                                          generateStateOnChangeProp(
+                                                            $state,
+                                                            [
+                                                              "countryCode",
+                                                              "value"
+                                                            ]
+                                                          )(eventArgs[0]);
+                                                        }).apply(
+                                                          null,
+                                                          eventArgs
+                                                        );
+                                                        if (
+                                                          eventArgs.length >
+                                                            1 &&
+                                                          eventArgs[1] &&
+                                                          eventArgs[1]
+                                                            ._plasmic_state_init_
+                                                        ) {
+                                                          return;
+                                                        }
+                                                      }}
+                                                      options={[
+                                                        {
+                                                          value: "option1",
+                                                          label: "Option 1"
+                                                        },
+                                                        {
+                                                          value: "option2",
+                                                          label: "Option 2"
+                                                        }
+                                                      ]}
+                                                      value={generateStateValueProp(
+                                                        $state,
+                                                        ["countryCode", "value"]
+                                                      )}
+                                                    />
+                                                  </Stack__>
+                                                </Stack__>
+                                                <ButtonContainer
+                                                  className={classNames(
+                                                    "__wab_instance",
+                                                    sty.buttonContainer__slEe
+                                                  )}
+                                                >
+                                                  <AntdButton
+                                                    data-plasmic-name={"button"}
+                                                    data-plasmic-override={
+                                                      overrides.button
+                                                    }
+                                                    className={classNames(
+                                                      "__wab_instance",
+                                                      sty.button
+                                                    )}
+                                                    danger={true}
+                                                    submitsForm={true}
+                                                    type={"ghost"}
+                                                  >
+                                                    <div
+                                                      className={classNames(
+                                                        projectcss.all,
+                                                        projectcss.__wab_text,
+                                                        sty.text__eHwMd
+                                                      )}
+                                                    >
+                                                      {"Update"}
+                                                    </div>
+                                                  </AntdButton>
+                                                </ButtonContainer>
+                                              </FormWrapper>
+                                            );
+                                          })()}
+                                        </Stack__>
+                                      </Stack__>
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__xu6Kc
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__uyiGh
+                                          )}
+                                        >
+                                          {"Address"}
+                                        </div>
+                                        <LocationForm
+                                          data-plasmic-name={"locationForm"}
+                                          data-plasmic-override={
+                                            overrides.locationForm
+                                          }
+                                          className={classNames(
+                                            "__wab_instance",
+                                            sty.locationForm
+                                          )}
+                                        />
+                                      </Stack__>
+                                    </TabContent>
+                                  </div>
+                                </Stack__>
+                              )}
+                            </DataCtxReader__>
+                          </TabsContainer>
+                        </div>
+                      </TabContent>
+                      <TabContent
+                        data-plasmic-name={"enquiries2"}
+                        data-plasmic-override={overrides.enquiries2}
+                        className={classNames("__wab_instance", sty.enquiries2)}
+                        tabKey={"enquiries"}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__gtm9T
+                          )}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.table
+                              ),
+                              data: (() => {
+                                try {
+                                  return $queries.enquiriesInfo.data.response
+                                    .data.enquiries.data;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              fields: (() => {
+                                const __composite = [
+                                  {
+                                    key: "id",
+                                    fieldId: "id",
+                                    title: null,
+                                    expr: null
+                                  },
+                                  {
+                                    key: "attributes",
+                                    fieldId: "attributes",
+                                    title: null,
+                                    expr: null
+                                  },
+                                  { title: null, expr: null },
+                                  { title: null, expr: null, isHidden: null }
+                                ];
+
+                                __composite["0"]["title"] = "S. No.";
+                                __composite["1"]["title"] = "Enquiry";
+                                __composite["2"]["title"] = "Form";
+                                __composite["3"]["title"] = "Form ID";
+                                __composite["3"]["isHidden"] = true;
+                                return __composite;
+                              })(),
+                              hideColumnPicker: true,
+                              hideDensity: true,
+                              hideExports: true,
+                              onRowClick: async (rowKey, row, event) => {
+                                const $steps = {};
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            console.log(row.attributes.forms);
+                                            console.log(
+                                              row.attributes.forms?.data[0]?.id
+                                            );
+                                            const base =
+                                              "https://weddingvows.plasmic.run/";
+                                            return navigator.clipboard.writeText(
+                                              base +
+                                                `form/${row.attributes.forms?.data[0]?.id}?enquiry=${row.id}`
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+                                $steps["invokeGlobalAction"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: ["success", "Copied form link!"]
+                                      };
+                                      return $globalActions[
+                                        "plasmic-antd5-config-provider.showNotification"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
+                              },
+                              onRowSelectionChanged: async (...eventArgs) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "selectedRowKey",
+                                  ["table", "selectedRowKey"],
+                                  RichTable_Helpers
+                                ).apply(null, eventArgs);
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "selectedRow",
+                                  ["table", "selectedRow"],
+                                  RichTable_Helpers
+                                ).apply(null, eventArgs);
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "selectedRows",
+                                  ["table", "selectedRows"],
+                                  RichTable_Helpers
+                                ).apply(null, eventArgs);
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "selectedRowKeys",
+                                  ["table", "selectedRowKeys"],
+                                  RichTable_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              pagination: true,
+                              scopeClassName: sty["table__instance"],
+                              selectedRowKey: generateStateValueProp($state, [
+                                "table",
+                                "selectedRowKey"
+                              ]),
+                              selectedRowKeys: generateStateValueProp($state, [
+                                "table",
+                                "selectedRowKeys"
+                              ]),
+                              themeResetClassName: classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens,
+                                plasmic_antd_5_hostless_css.plasmic_tokens,
+                                plasmic_plasmic_rich_components_css.plasmic_tokens
+                              )
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "selectedRowKey",
+                                  plasmicStateName: "table.selectedRowKey"
+                                },
+                                {
+                                  name: "selectedRow",
+                                  plasmicStateName: "table.selectedRow"
+                                },
+                                {
+                                  name: "selectedRows",
+                                  plasmicStateName: "table.selectedRows"
+                                },
+                                {
+                                  name: "selectedRowKeys",
+                                  plasmicStateName: "table.selectedRowKeys"
+                                }
+                              ],
+
+                              [],
+                              RichTable_Helpers ?? {},
+                              child$Props
+                            );
+                            return (
+                              <RichTable
+                                data-plasmic-name={"table"}
+                                data-plasmic-override={overrides.table}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
+                          <UserEnquiriesTable
+                            data-plasmic-name={"userEnquiriesTable"}
+                            data-plasmic-override={overrides.userEnquiriesTable}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.userEnquiriesTable
+                            )}
+                            userId={(() => {
+                              try {
+                                return $queries.auth.data.response.data.me.id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          />
+                        </div>
+                      </TabContent>
+                    </div>
+                  </div>
+                )}
+              </DataCtxReader__>
+            </TabsContainer>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -576,8 +2531,265 @@ function PlasmicUserDashboard__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "layerDefault"],
-  layerDefault: ["layerDefault"]
+  root: [
+    "root",
+    "layoutDefault",
+    "main",
+    "page",
+    "sidebar",
+    "buttons",
+    "desktop",
+    "profile3",
+    "enquiries",
+    "mobile",
+    "content",
+    "profile2",
+    "tabsContainer",
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm",
+    "enquiries2",
+    "table",
+    "userEnquiriesTable"
+  ],
+
+  layoutDefault: [
+    "layoutDefault",
+    "main",
+    "page",
+    "sidebar",
+    "buttons",
+    "desktop",
+    "profile3",
+    "enquiries",
+    "mobile",
+    "content",
+    "profile2",
+    "tabsContainer",
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm",
+    "enquiries2",
+    "table",
+    "userEnquiriesTable"
+  ],
+
+  main: [
+    "main",
+    "page",
+    "sidebar",
+    "buttons",
+    "desktop",
+    "profile3",
+    "enquiries",
+    "mobile",
+    "content",
+    "profile2",
+    "tabsContainer",
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm",
+    "enquiries2",
+    "table",
+    "userEnquiriesTable"
+  ],
+
+  page: [
+    "page",
+    "sidebar",
+    "buttons",
+    "desktop",
+    "profile3",
+    "enquiries",
+    "mobile",
+    "content",
+    "profile2",
+    "tabsContainer",
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm",
+    "enquiries2",
+    "table",
+    "userEnquiriesTable"
+  ],
+
+  sidebar: ["sidebar", "buttons", "desktop", "profile3", "enquiries", "mobile"],
+  buttons: ["buttons", "desktop", "profile3", "enquiries", "mobile"],
+  desktop: ["desktop", "profile3", "enquiries"],
+  profile3: ["profile3"],
+  enquiries: ["enquiries"],
+  mobile: ["mobile"],
+  content: [
+    "content",
+    "profile2",
+    "tabsContainer",
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm",
+    "enquiries2",
+    "table",
+    "userEnquiriesTable"
+  ],
+
+  profile2: [
+    "profile2",
+    "tabsContainer",
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm"
+  ],
+
+  tabsContainer: [
+    "tabsContainer",
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm"
+  ],
+
+  content2: [
+    "content2",
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm"
+  ],
+
+  profile: [
+    "profile",
+    "profilePicture",
+    "profilePicture2",
+    "previewImage",
+    "cancel",
+    "upload",
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button",
+    "locationForm"
+  ],
+
+  profilePicture: ["profilePicture", "profilePicture2"],
+  profilePicture2: ["profilePicture2"],
+  previewImage: ["previewImage", "cancel", "upload"],
+  cancel: ["cancel"],
+  upload: ["upload"],
+  profileInfo: [
+    "profileInfo",
+    "firstname",
+    "lastname",
+    "whatsapp",
+    "phone",
+    "countryCode",
+    "button"
+  ],
+
+  firstname: ["firstname"],
+  lastname: ["lastname"],
+  whatsapp: ["whatsapp"],
+  phone: ["phone"],
+  countryCode: ["countryCode"],
+  button: ["button"],
+  locationForm: ["locationForm"],
+  enquiries2: ["enquiries2", "table", "userEnquiriesTable"],
+  table: ["table"],
+  userEnquiriesTable: ["userEnquiriesTable"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -612,7 +2824,36 @@ export const PlasmicUserDashboard = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
+    main: makeNodeComponent("main"),
+    page: makeNodeComponent("page"),
+    sidebar: makeNodeComponent("sidebar"),
+    buttons: makeNodeComponent("buttons"),
+    desktop: makeNodeComponent("desktop"),
+    profile3: makeNodeComponent("profile3"),
+    enquiries: makeNodeComponent("enquiries"),
+    mobile: makeNodeComponent("mobile"),
+    content: makeNodeComponent("content"),
+    profile2: makeNodeComponent("profile2"),
+    tabsContainer: makeNodeComponent("tabsContainer"),
+    content2: makeNodeComponent("content2"),
+    profile: makeNodeComponent("profile"),
+    profilePicture: makeNodeComponent("profilePicture"),
+    profilePicture2: makeNodeComponent("profilePicture2"),
+    previewImage: makeNodeComponent("previewImage"),
+    cancel: makeNodeComponent("cancel"),
+    upload: makeNodeComponent("upload"),
+    profileInfo: makeNodeComponent("profileInfo"),
+    firstname: makeNodeComponent("firstname"),
+    lastname: makeNodeComponent("lastname"),
+    whatsapp: makeNodeComponent("whatsapp"),
+    phone: makeNodeComponent("phone"),
+    countryCode: makeNodeComponent("countryCode"),
+    button: makeNodeComponent("button"),
+    locationForm: makeNodeComponent("locationForm"),
+    enquiries2: makeNodeComponent("enquiries2"),
+    table: makeNodeComponent("table"),
+    userEnquiriesTable: makeNodeComponent("userEnquiriesTable"),
     // Metadata about props expected for PlasmicUserDashboard
     internalVariantProps: PlasmicUserDashboard__VariantProps,
     internalArgProps: PlasmicUserDashboard__ArgProps,

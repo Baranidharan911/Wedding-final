@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -26,7 +26,7 @@ import {
   useDataEnv
 } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
@@ -177,10 +177,10 @@ function PlasmicPremium__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
             {(() => {
               try {
@@ -1211,7 +1211,7 @@ function PlasmicPremium__RenderFunc(props) {
                 />
               </div>
             ) : null}
-          </LayerDefault>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -1221,7 +1221,7 @@ function PlasmicPremium__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "layerDefault",
+    "layoutDefault",
     "container",
     "space",
     "space2",
@@ -1241,8 +1241,8 @@ const PlasmicDescendants = {
     "prompt"
   ],
 
-  layerDefault: [
-    "layerDefault",
+  layoutDefault: [
+    "layoutDefault",
     "container",
     "space",
     "space2",
@@ -1339,7 +1339,7 @@ export const PlasmicPremium = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     container: makeNodeComponent("container"),
     space: makeNodeComponent("space"),
     space2: makeNodeComponent("space2"),

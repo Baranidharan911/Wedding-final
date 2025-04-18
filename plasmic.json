@@ -624,8 +624,7 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -1059,19 +1058,6 @@
             "modulePath": "NavMenuItem.jsx"
           },
           "cssFilePath": "plasmic/website_starter/PlasmicNavMenuItem.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "4uZwDUl-gHmp",
-          "name": "LayerDefault",
-          "type": "managed",
-          "projectId": "i8KuCHvKrwawZpBmyovrv7",
-          "renderModuleFilePath": "plasmic/website_starter/PlasmicLayerDefault.jsx",
-          "importSpec": {
-            "modulePath": "LayerDefault.jsx"
-          },
-          "cssFilePath": "plasmic/website_starter/PlasmicLayerDefault.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
@@ -1654,19 +1640,6 @@
           "componentType": "component"
         },
         {
-          "id": "OjHg0tBduh8e",
-          "name": "Prompt2",
-          "type": "managed",
-          "projectId": "i8KuCHvKrwawZpBmyovrv7",
-          "renderModuleFilePath": "plasmic/website_starter/PlasmicPrompt2.jsx",
-          "importSpec": {
-            "modulePath": "Prompt2.jsx"
-          },
-          "cssFilePath": "plasmic/website_starter/PlasmicPrompt2.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "z61XoqJwVNR6",
           "name": "SectionWrapperButton",
           "type": "managed",
@@ -1819,19 +1792,6 @@
             "modulePath": "Tooltip.jsx"
           },
           "cssFilePath": "plasmic/website_starter/PlasmicTooltip.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "6Xb_XVxcRgdA",
-          "name": "UserEnquiriesTable",
-          "type": "managed",
-          "projectId": "i8KuCHvKrwawZpBmyovrv7",
-          "renderModuleFilePath": "plasmic/website_starter/PlasmicUserEnquiriesTable.jsx",
-          "importSpec": {
-            "modulePath": "UserEnquiriesTable.jsx"
-          },
-          "cssFilePath": "plasmic/website_starter/PlasmicUserEnquiriesTable.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
@@ -2524,6 +2484,45 @@
           "cssFilePath": "plasmic/website_starter/PlasmicFaqCard2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "4uZwDUl-gHmp",
+          "name": "LayoutDefault",
+          "type": "managed",
+          "projectId": "i8KuCHvKrwawZpBmyovrv7",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicLayoutDefault.jsx",
+          "importSpec": {
+            "modulePath": "LayoutDefault.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicLayoutDefault.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "FMwXXyV406MS",
+          "name": "Drawer2",
+          "type": "managed",
+          "projectId": "i8KuCHvKrwawZpBmyovrv7",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicDrawer2.jsx",
+          "importSpec": {
+            "modulePath": "Drawer2.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicDrawer2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "4Vh8-Nc4S1Td",
+          "name": "UserEnquiriesTable",
+          "type": "managed",
+          "projectId": "i8KuCHvKrwawZpBmyovrv7",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicUserEnquiriesTable.jsx",
+          "importSpec": {
+            "modulePath": "UserEnquiriesTable.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicUserEnquiriesTable.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2861,6 +2860,26 @@
           "id": "YUO_3hQuK3XJ",
           "name": "Twitter154SvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Twitter154SvgrepoComSvg.jsx"
+        },
+        {
+          "id": "cxov_8VheB0g",
+          "name": "InputPrefixIcon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__InputPrefix.jsx"
+        },
+        {
+          "id": "SpmRGHLSJaZR",
+          "name": "Group639SvgIcon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Group639Svg.jsx"
+        },
+        {
+          "id": "tp2Dhf6Ctx13",
+          "name": "Icon16Icon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Icon16.jsx"
+        },
+        {
+          "id": "yhV_3YbdgCPy",
+          "name": "SetttingsSvgIcon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__SetttingsSvg.jsx"
         }
       ],
       "images": [
@@ -2967,7 +2986,7 @@
         {
           "id": "fPF0vbyqwFwM",
           "name": "Hero Image.jpg",
-          "filePath": "plasmic/website_starter/images/heroImageJpg.jpeg"
+          "filePath": "plasmic/website_starter/images/heroImageJpg.jpg"
         },
         {
           "id": "0U-SOL3N77YA",
@@ -3010,6 +3029,12 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "L2mAqIkLRCW8",
+          "name": "GoogleLoginButton",
+          "displayName": "GoogleLoginButton",
+          "componentImportPath": "./components/GoogleLoginButton"
         }
       ],
       "customFunctions": []
@@ -3026,6 +3051,6 @@
     ]
   },
   "wrapPagesWithGlobalContexts": true,
-  "cliVersion": "0.1.335",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.335/dist/plasmic.schema.json"
+  "cliVersion": "0.1.337",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.337/dist/plasmic.schema.json"
 }

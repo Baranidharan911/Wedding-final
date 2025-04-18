@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -26,7 +26,7 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import HeadingCardDetails from "../../HeadingCardDetails"; // plasmic-import: q9NG312BRqx6/component
@@ -148,12 +148,6 @@ function PlasmicHomepage__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
         refName: "sliderCarousel",
         onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
-      },
-      {
-        path: "variable",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
         path: "sliderCarousel9.currentSlide",
@@ -281,14 +275,42 @@ function PlasmicHomepage__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            activeCustomers={(() => {
+              try {
+                return localStorage.getItem("user").length != 0;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.layoutDefault)}
+            isVendor={(() => {
+              try {
+                return $props.isVendor;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
           >
-            <div
+            <Stack__
+              as={"div"}
               data-plasmic-name={"bodyContainer"}
               data-plasmic-override={overrides.bodyContainer}
+              hasGap={true}
               className={classNames(projectcss.all, sty.bodyContainer)}
             >
               <div
@@ -593,6 +615,46 @@ function PlasmicHomepage__RenderFunc(props) {
                   data-plasmic-name={"homeSearch"}
                   data-plasmic-override={overrides.homeSearch}
                   className={classNames("__wab_instance", sty.homeSearch)}
+                  data={(() => {
+                    try {
+                      return {
+                        vendors: $state.weddingVendors.map(
+                          item => item.attributes.title
+                        ),
+                        locations: $state.popularDestinations.map(
+                          item => item.attributes.title
+                        ),
+                        availability: ["1 Day", "2 Days", "3 Days", "4 Days"],
+
+                        pricing: [
+                          "Below INR 50,000",
+                          "INR 50,000 to INR 1,00,000",
+                          "INR 1,00,000 to INR 1,50,000",
+                          "INR 1,50,000 to INR 2,00,000",
+                          "INR 2,00,000 Above"
+                        ]
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {
+                          vendors: [],
+                          locations: [],
+                          availability: [],
+                          pricing: [
+                            "Below INR 50,000",
+                            "INR 50,000 to INR 1,00,000",
+                            "INR 1,00,000 to INR 1,50,000",
+                            "INR 1,50,000 to INR 2,00,000",
+                            "INR 2,00,000 Above"
+                          ]
+                        };
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
               </div>
               <Stack__
@@ -605,7 +667,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   data-plasmic-override={overrides.popularVenues}
                   btnLink={(() => {
                     try {
-                      return "/search?venue=All";
+                      return "/search/Venue";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -747,7 +809,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                         "__wab_instance",
                                         sty.popularVenueCard
                                       )}
-                                      images={(() => {
+                                      image={(() => {
                                         try {
                                           return $state.popularVenues2[
                                             currentIndex
@@ -799,7 +861,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   data-plasmic-override={overrides.weddingVendorCateogries}
                   btnLink={(() => {
                     try {
-                      return "/search?type=All";
+                      return "/search/vendor";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1017,6 +1079,19 @@ function PlasmicHomepage__RenderFunc(props) {
                 <SectionCardWrapper
                   data-plasmic-name={"featuringVendor"}
                   data-plasmic-override={overrides.featuringVendor}
+                  btnLink={(() => {
+                    try {
+                      return "/search/venue";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   cards2={
                     <Stack__
                       as={"div"}
@@ -1164,7 +1239,8 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )}
                                       featured={(() => {
                                         try {
-                                          return currentItem.attributes;
+                                          return currentItem.attributes
+                                            .Adv_Space;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -1191,9 +1267,10 @@ function PlasmicHomepage__RenderFunc(props) {
                                           throw e;
                                         }
                                       })()}
-                                      images={(() => {
+                                      image={(() => {
                                         try {
-                                          return currentItem.attributes;
+                                          return currentItem.attributes.Banner
+                                            .data.attributes.url;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -2064,8 +2141,8 @@ function PlasmicHomepage__RenderFunc(props) {
                   title={"Wedding Articles"}
                 />
               </Stack__>
-            </div>
-          </LayerDefault>
+            </Stack__>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -2075,7 +2152,7 @@ function PlasmicHomepage__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "layerDefault",
+    "layoutDefault",
     "bodyContainer",
     "heroContainer",
     "sliderCarousel",
@@ -2110,8 +2187,8 @@ const PlasmicDescendants = {
     "weddingArticlesCard2"
   ],
 
-  layerDefault: [
-    "layerDefault",
+  layoutDefault: [
+    "layoutDefault",
     "bodyContainer",
     "heroContainer",
     "sliderCarousel",
@@ -2324,7 +2401,7 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     bodyContainer: makeNodeComponent("bodyContainer"),
     heroContainer: makeNodeComponent("heroContainer"),
     sliderCarousel: makeNodeComponent("sliderCarousel"),

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -22,7 +22,7 @@ import {
   DataCtxReader as DataCtxReader__,
   useDataEnv
 } from "@plasmicapp/react-web/lib/host";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabButton } from "@plasmicpkgs/plasmic-tabs";
 import Button2 from "../../Button2"; // plasmic-import: x0IYxFtlqF54/component
@@ -130,10 +130,10 @@ function PlasmicUserSignup__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
             <TabsContainer
               data-plasmic-name={"tabsContainer"}
@@ -272,7 +272,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__yixjt
+                                    sty.formField__x9UOf
                                   )}
                                   label={"Username"}
                                   name={"username"}
@@ -280,14 +280,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdInput
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.input__i9Tt
+                                      sty.input__oX7F
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__i0M7Q
+                                    sty.formField__iVymm
                                   )}
                                   label={"Email"}
                                   name={"email"}
@@ -295,14 +295,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdInput
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.input__yZVmh
+                                      sty.input___158FT
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__nD9H9
+                                    sty.formField__kYir4
                                   )}
                                   label={"Password"}
                                   name={"password"}
@@ -310,14 +310,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdPassword
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.passwordInput__a5CGg
+                                      sty.passwordInput__gAzO7
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <AntdButton
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.button__rwzN1
+                                    sty.button___2LJJa
                                   )}
                                   danger={true}
                                   submitsForm={true}
@@ -327,7 +327,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__y6AY7
+                                      sty.text__yHx0
                                     )}
                                   >
                                     {"Submit"}
@@ -407,7 +407,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField___9Mo4Y
+                                    sty.formField___3LU8B
                                   )}
                                   label={"Email"}
                                   name={"email"}
@@ -415,14 +415,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdInput
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.input___4K9Pj
+                                      sty.input__mFupe
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <FormItemWrapper
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.formField__afW43
+                                    sty.formField__e7Ozz
                                   )}
                                   label={"Password"}
                                   name={"password"}
@@ -430,14 +430,14 @@ function PlasmicUserSignup__RenderFunc(props) {
                                   <AntdPassword
                                     className={classNames(
                                       "__wab_instance",
-                                      sty.passwordInput__hLwJ
+                                      sty.passwordInput__lYlhs
                                     )}
                                   />
                                 </FormItemWrapper>
                                 <AntdButton
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.button__oMHt
+                                    sty.button__aEoZn
                                   )}
                                   danger={true}
                                   submitsForm={true}
@@ -447,7 +447,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__b5DvY
+                                      sty.text___8MVhA
                                     )}
                                   >
                                     {"Submit"}
@@ -463,7 +463,7 @@ function PlasmicUserSignup__RenderFunc(props) {
                 )}
               </DataCtxReader__>
             </TabsContainer>
-          </LayerDefault>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -473,7 +473,7 @@ function PlasmicUserSignup__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "layerDefault",
+    "layoutDefault",
     "tabsContainer",
     "loginButton",
     "registerButton",
@@ -484,8 +484,8 @@ const PlasmicDescendants = {
     "loginForm"
   ],
 
-  layerDefault: [
-    "layerDefault",
+  layoutDefault: [
+    "layoutDefault",
     "tabsContainer",
     "loginButton",
     "registerButton",
@@ -548,7 +548,7 @@ export const PlasmicUserSignup = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     tabsContainer: makeNodeComponent("tabsContainer"),
     loginButton: makeNodeComponent("loginButton"),
     registerButton: makeNodeComponent("registerButton"),

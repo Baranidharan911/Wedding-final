@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -34,11 +34,11 @@ import sty from "./PlasmicDrawer.module.css"; // plasmic-import: RtpkUaMfTGUd/cs
 
 createPlasmicElementProxy;
 
-export const PlasmicDrawer__VariantProps = new Array("unnamedVariant");
+export const PlasmicDrawer__VariantProps = new Array("noTrigger");
 
 export const PlasmicDrawer__ArgProps = new Array(
-  "openCange",
   "open",
+  "onOpenChange",
   "trigger",
   "children",
   "slot"
@@ -51,7 +51,9 @@ function PlasmicDrawer__RenderFunc(props) {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          open: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -68,16 +70,16 @@ function PlasmicDrawer__RenderFunc(props) {
   const stateSpecs = React.useMemo(
     () => [
       {
-        path: "dialogCore.open",
+        path: "dialog.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "unnamedVariant",
+        path: "noTrigger",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noTrigger
       }
     ],
 
@@ -91,8 +93,8 @@ function PlasmicDrawer__RenderFunc(props) {
   });
   return (
     <Dialog
-      data-plasmic-name={"dialogCore"}
-      data-plasmic-override={overrides.dialogCore}
+      data-plasmic-name={"dialog"}
+      data-plasmic-override={overrides.dialog}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
@@ -103,16 +105,16 @@ function PlasmicDrawer__RenderFunc(props) {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.dialogCore
+        sty.dialog
       )}
       noContain={true}
       onOpenChange={async (...eventArgs) => {
-        generateStateOnChangeProp($state, ["dialogCore", "open"]).apply(
+        generateStateOnChangeProp($state, ["dialog", "open"]).apply(
           null,
           eventArgs
         );
       }}
-      open={generateStateValueProp($state, ["dialogCore", "open"])}
+      open={generateStateValueProp($state, ["dialog", "open"])}
       overlayClassName={classNames({ [sty["pcls_QksCxJv_jiAA"]]: true })}
       themeResetClass={classNames(
         projectcss.root_reset,
@@ -123,7 +125,7 @@ function PlasmicDrawer__RenderFunc(props) {
         plasmic_plasmic_rich_components_css.plasmic_tokens
       )}
       triggerSlot={
-        (hasVariant($state, "unnamedVariant", "unnamedVariant") ? false : true)
+        (hasVariant($state, "noTrigger", "noTrigger") ? false : true)
           ? renderPlasmicSlot({
               defaultContents: (
                 <Button2
@@ -216,14 +218,7 @@ function PlasmicDrawer__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  dialogCore: [
-    "dialogCore",
-    "drawerContent",
-    "freeBox",
-    "dialogTitle",
-    "dialogClose"
-  ],
-
+  dialog: ["dialog", "drawerContent", "freeBox", "dialogTitle", "dialogClose"],
   drawerContent: ["drawerContent", "freeBox", "dialogTitle", "dialogClose"],
   freeBox: ["freeBox", "dialogTitle"],
   dialogTitle: ["dialogTitle"],
@@ -249,7 +244,7 @@ function makeNodeComponent(nodeName) {
       forNode: nodeName
     });
   };
-  if (nodeName === "dialogCore") {
+  if (nodeName === "dialog") {
     func.displayName = "PlasmicDrawer";
   } else {
     func.displayName = `PlasmicDrawer.${nodeName}`;
@@ -259,7 +254,7 @@ function makeNodeComponent(nodeName) {
 
 export const PlasmicDrawer = Object.assign(
   // Top-level PlasmicDrawer renders the root element
-  makeNodeComponent("dialogCore"),
+  makeNodeComponent("dialog"),
   {
     // Helper components rendering sub-elements
     drawerContent: makeNodeComponent("drawerContent"),

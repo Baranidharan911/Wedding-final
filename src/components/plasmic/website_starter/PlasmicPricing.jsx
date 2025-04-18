@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -19,7 +19,7 @@ import {
   hasVariant
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import Button2 from "../../Button2"; // plasmic-import: x0IYxFtlqF54/component
 import { useScreenVariants as useScreenVariantszapf5SksSeNd } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: ZAPF5sksSeNd/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -78,10 +78,10 @@ function PlasmicPricing__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
             <div
               data-plasmic-name={"bodyContent"}
@@ -743,7 +743,6 @@ function PlasmicPricing__RenderFunc(props) {
                                   </React.Fragment>
                                 </PlasmicLink__>
                               }
-
                               <React.Fragment>{""}</React.Fragment>
                             </React.Fragment>
                           </div>
@@ -1329,7 +1328,7 @@ function PlasmicPricing__RenderFunc(props) {
                 </Stack__>
               </section>
             </div>
-          </LayerDefault>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -1339,7 +1338,7 @@ function PlasmicPricing__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "layerDefault",
+    "layoutDefault",
     "bodyContent",
     "headContent",
     "h1",
@@ -1348,8 +1347,8 @@ const PlasmicDescendants = {
     "link"
   ],
 
-  layerDefault: [
-    "layerDefault",
+  layoutDefault: [
+    "layoutDefault",
     "bodyContent",
     "headContent",
     "h1",
@@ -1406,7 +1405,7 @@ export const PlasmicPricing = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     bodyContent: makeNodeComponent("bodyContent"),
     headContent: makeNodeComponent("headContent"),
     h1: makeNodeComponent("h1"),

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -32,7 +32,7 @@ import {
   useDataEnv
 } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Prompt from "../../Prompt"; // plasmic-import: j21kCiisYxeO/component
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
@@ -219,18 +219,6 @@ function PlasmicVendorDetails__RenderFunc(props) {
         roleId: null
       };
     }),
-    userInfo: usePlasmicDataOp(() => {
-      return {
-        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "f3719b6d-3d46-47f7-960b-f2e953f80310",
-        userArgs: {
-          headers: [`bearer ${localStorage.getItem("strapi-jwt")}`]
-        },
-        cacheKey: `plasmic.$.f3719b6d-3d46-47f7-960b-f2e953f80310.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    }),
     reviews: usePlasmicDataOp(() => {
       return {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
@@ -282,11 +270,15 @@ function PlasmicVendorDetails__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
+            <section
+              className={classNames(projectcss.all, sty.section___1GaF)}
+            />
+
             <Stack__
               as={"div"}
               data-plasmic-name={"mainBodyContainer"}
@@ -2374,13 +2366,9 @@ function PlasmicVendorDetails__RenderFunc(props) {
                                                 }}
                                               >
                                                 <section
-                                                  data-plasmic-name={"section"}
-                                                  data-plasmic-override={
-                                                    overrides.section
-                                                  }
                                                   className={classNames(
                                                     projectcss.all,
-                                                    sty.section
+                                                    sty.section__r5JKo
                                                   )}
                                                 >
                                                   <div
@@ -3335,20 +3323,6 @@ function PlasmicVendorDetails__RenderFunc(props) {
                                 throw e;
                               }
                             })()}
-                            userId={(() => {
-                              try {
-                                return $queries.userInfo.data.response.data.me
-                                  .id;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
                           />
                         );
                       })}
@@ -3474,35 +3448,20 @@ function PlasmicVendorDetails__RenderFunc(props) {
                       >
                         {"Let\u2019s Hear How our client experiences"}
                       </div>
-                      {(() => {
-                        try {
-                          return $queries.userInfo?.data?.response?.data?.me
-                            ?.id;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          data-plasmic-name={"newReview"}
-                          data-plasmic-override={overrides.newReview}
-                          className={classNames(projectcss.all, sty.newReview)}
-                        >
-                          <WriteReview
-                            data-plasmic-name={"writeReview"}
-                            data-plasmic-override={overrides.writeReview}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.writeReview
-                            )}
-                          />
-                        </div>
-                      ) : null}
+                      <div
+                        data-plasmic-name={"newReview"}
+                        data-plasmic-override={overrides.newReview}
+                        className={classNames(projectcss.all, sty.newReview)}
+                      >
+                        <WriteReview
+                          data-plasmic-name={"writeReview"}
+                          data-plasmic-override={overrides.writeReview}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.writeReview
+                          )}
+                        />
+                      </div>
                     </div>
                     <div
                       data-plasmic-name={"reviews2"}
@@ -3647,20 +3606,6 @@ function PlasmicVendorDetails__RenderFunc(props) {
                                 throw e;
                               }
                             })()}
-                            userId={(() => {
-                              try {
-                                return $queries.userInfo.data.response.data.me
-                                  .id;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
                             username={(() => {
                               try {
                                 return currentItem.attributes
@@ -3696,7 +3641,7 @@ function PlasmicVendorDetails__RenderFunc(props) {
                 </div>
               </div>
             </Stack__>
-          </LayerDefault>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -3706,7 +3651,7 @@ function PlasmicVendorDetails__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "layerDefault",
+    "layoutDefault",
     "mainBodyContainer",
     "leftContainers",
     "vendorDetails",
@@ -3749,7 +3694,6 @@ const PlasmicDescendants = {
     "videosButton",
     "tabUnderline",
     "albums",
-    "section",
     "albumMedia2",
     "images",
     "images2",
@@ -3778,8 +3722,8 @@ const PlasmicDescendants = {
     "review"
   ],
 
-  layerDefault: [
-    "layerDefault",
+  layoutDefault: [
+    "layoutDefault",
     "mainBodyContainer",
     "leftContainers",
     "vendorDetails",
@@ -3822,7 +3766,6 @@ const PlasmicDescendants = {
     "videosButton",
     "tabUnderline",
     "albums",
-    "section",
     "albumMedia2",
     "images",
     "images2",
@@ -3894,7 +3837,6 @@ const PlasmicDescendants = {
     "videosButton",
     "tabUnderline",
     "albums",
-    "section",
     "albumMedia2",
     "images",
     "images2",
@@ -4070,7 +4012,6 @@ const PlasmicDescendants = {
     "videosButton",
     "tabUnderline",
     "albums",
-    "section",
     "albumMedia2",
     "images",
     "images2",
@@ -4115,7 +4056,6 @@ const PlasmicDescendants = {
     "videosButton",
     "tabUnderline",
     "albums",
-    "section",
     "albumMedia2",
     "images",
     "images2",
@@ -4155,7 +4095,6 @@ const PlasmicDescendants = {
     "videosButton",
     "tabUnderline",
     "albums",
-    "section",
     "albumMedia2",
     "images",
     "images2",
@@ -4172,7 +4111,6 @@ const PlasmicDescendants = {
     "videosButton",
     "tabUnderline",
     "albums",
-    "section",
     "albumMedia2",
     "images",
     "images2",
@@ -4194,8 +4132,7 @@ const PlasmicDescendants = {
   imagesButton: ["imagesButton"],
   videosButton: ["videosButton"],
   tabUnderline: ["tabUnderline"],
-  albums: ["albums", "section", "albumMedia2"],
-  section: ["section"],
+  albums: ["albums", "albumMedia2"],
   albumMedia2: ["albumMedia2"],
   images: ["images", "images2"],
   images2: ["images2"],
@@ -4284,7 +4221,7 @@ export const PlasmicVendorDetails = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     mainBodyContainer: makeNodeComponent("mainBodyContainer"),
     leftContainers: makeNodeComponent("leftContainers"),
     vendorDetails: makeNodeComponent("vendorDetails"),
@@ -4327,7 +4264,6 @@ export const PlasmicVendorDetails = Object.assign(
     videosButton: makeNodeComponent("videosButton"),
     tabUnderline: makeNodeComponent("tabUnderline"),
     albums: makeNodeComponent("albums"),
-    section: makeNodeComponent("section"),
     albumMedia2: makeNodeComponent("albumMedia2"),
     images: makeNodeComponent("images"),
     images2: makeNodeComponent("images2"),

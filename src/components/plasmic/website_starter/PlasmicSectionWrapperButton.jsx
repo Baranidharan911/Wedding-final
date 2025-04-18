@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -93,6 +93,9 @@ function PlasmicSectionWrapperButton__RenderFunc(props) {
             throw e;
           }
         })()}
+        onClick={async event => {
+          const $steps = {};
+        }}
         platform={"react"}
       >
         <React.Fragment>

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -36,7 +36,7 @@ import {
   usePlasmicDataOp,
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import Prompt from "../../Prompt"; // plasmic-import: j21kCiisYxeO/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabButton } from "@plasmicpkgs/plasmic-tabs";
@@ -818,10 +818,10 @@ function PlasmicDashboard__RenderFunc(props) {
             sty.vendorDashboard
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
             <div className={classNames(projectcss.all, sty.freeBox__uGiNb)}>
               <Prompt
@@ -4761,7 +4761,7 @@ function PlasmicDashboard__RenderFunc(props) {
                                                 throw e;
                                               }
                                             })()}
-                                            images={(() => {
+                                            image={(() => {
                                               try {
                                                 return $queries.storeInfo?.data
                                                   ?.response?.data?.store?.data
@@ -10086,7 +10086,7 @@ function PlasmicDashboard__RenderFunc(props) {
                 </div>
               ) : null}
             </div>
-          </LayerDefault>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -10096,7 +10096,7 @@ function PlasmicDashboard__RenderFunc(props) {
 const PlasmicDescendants = {
   vendorDashboard: [
     "vendorDashboard",
-    "layerDefault",
+    "layoutDefault",
     "sidebar",
     "columns",
     "button2",
@@ -10241,8 +10241,8 @@ const PlasmicDescendants = {
     "profilePicture4"
   ],
 
-  layerDefault: [
-    "layerDefault",
+  layoutDefault: [
+    "layoutDefault",
     "sidebar",
     "columns",
     "button2",
@@ -11499,7 +11499,7 @@ export const PlasmicDashboard = Object.assign(
   makeNodeComponent("vendorDashboard"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     sidebar: makeNodeComponent("sidebar"),
     columns: makeNodeComponent("columns"),
     button2: makeNodeComponent("button2"),

@@ -21,7 +21,7 @@
 .root > * {
   grid-column: 4;
 }
-.layerDefault:global(.__wab_instance) {
+.layoutDefault:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   grid-column-start: 1 !important;

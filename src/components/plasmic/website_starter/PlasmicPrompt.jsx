@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -101,6 +101,7 @@ function PlasmicPrompt__RenderFunc(props) {
         sty.noUser,
         {
           [sty.noUsertype_error]: hasVariant($state, "type", "error"),
+          [sty.noUsertype_login]: hasVariant($state, "type", "login"),
           [sty.noUsertype_success]: hasVariant($state, "type", "success")
         }
       )}
@@ -117,6 +118,7 @@ function PlasmicPrompt__RenderFunc(props) {
         }
         className={classNames(projectcss.all, sty.svg, {
           [sty.svgtype_error]: hasVariant($state, "type", "error"),
+          [sty.svgtype_login]: hasVariant($state, "type", "login"),
           [sty.svgtype_success]: hasVariant($state, "type", "success")
         })}
         role={"img"}

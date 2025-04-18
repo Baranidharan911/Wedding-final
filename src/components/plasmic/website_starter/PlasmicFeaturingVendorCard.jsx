@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -40,7 +40,7 @@ createPlasmicElementProxy;
 export const PlasmicFeaturingVendorCard__VariantProps = new Array();
 
 export const PlasmicFeaturingVendorCard__ArgProps = new Array(
-  "images",
+  "image",
   "name",
   "location",
   "rating",
@@ -57,7 +57,7 @@ function PlasmicFeaturingVendorCard__RenderFunc(props) {
     () =>
       Object.assign(
         {
-          images:
+          image:
             "https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8d2VkZGluZ3xlbnwwfDF8MHx8fDA%3D",
           name: "Dream Capture Photography",
           location: "Mumbai, Maharashtra",

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -18,7 +18,7 @@ import {
   DataCtxReader as DataCtxReader__,
   useDataEnv
 } from "@plasmicapp/react-web/lib/host";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -73,10 +73,10 @@ function PlasmicSigninProcessing__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
             <div
               data-plasmic-name={"freeBox"}
@@ -210,7 +210,7 @@ function PlasmicSigninProcessing__RenderFunc(props) {
                 </DataCtxReader__>
               </DataFetcher>
             </div>
-          </LayerDefault>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -218,8 +218,14 @@ function PlasmicSigninProcessing__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "layerDefault", "freeBox", "httpRestApiFetcher", "embedHtml"],
-  layerDefault: ["layerDefault", "freeBox", "httpRestApiFetcher", "embedHtml"],
+  root: ["root", "layoutDefault", "freeBox", "httpRestApiFetcher", "embedHtml"],
+  layoutDefault: [
+    "layoutDefault",
+    "freeBox",
+    "httpRestApiFetcher",
+    "embedHtml"
+  ],
+
   freeBox: ["freeBox", "httpRestApiFetcher", "embedHtml"],
   httpRestApiFetcher: ["httpRestApiFetcher", "embedHtml"],
   embedHtml: ["embedHtml"]
@@ -257,7 +263,7 @@ export const PlasmicSigninProcessing = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     freeBox: makeNodeComponent("freeBox"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     embedHtml: makeNodeComponent("embedHtml"),

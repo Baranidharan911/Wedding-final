@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -1861,7 +1861,13 @@ function PlasmicLocationForm__RenderFunc(props) {
         <ButtonContainer
           data-plasmic-name={"buttonContainer"}
           data-plasmic-override={overrides.buttonContainer}
-          className={classNames("__wab_instance", sty.buttonContainer)}
+          className={classNames("__wab_instance", sty.buttonContainer, {
+            [sty.buttonContainernoButton]: hasVariant(
+              $state,
+              "noButton",
+              "noButton"
+            )
+          })}
         >
           <AntdButton
             data-plasmic-name={"button"}

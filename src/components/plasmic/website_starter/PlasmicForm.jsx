@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -16,7 +16,7 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
-import LayerDefault from "../../LayerDefault"; // plasmic-import: 4uZwDUl-gHmp/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import EnquiryFormBuilder from "../../EnquiryFormBuilder"; // plasmic-import: LGQvbE5rkMbS/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -107,10 +107,10 @@ function PlasmicForm__RenderFunc(props) {
             sty.root
           )}
         >
-          <LayerDefault
-            data-plasmic-name={"layerDefault"}
-            data-plasmic-override={overrides.layerDefault}
-            className={classNames("__wab_instance", sty.layerDefault)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
             <div className={classNames(projectcss.all, sty.freeBox__pmmjE)}>
               {(() => {
@@ -253,7 +253,7 @@ function PlasmicForm__RenderFunc(props) {
                 />
               ) : null}
             </div>
-          </LayerDefault>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -261,8 +261,8 @@ function PlasmicForm__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "layerDefault", "h1", "enquiryFormBuilder"],
-  layerDefault: ["layerDefault", "h1", "enquiryFormBuilder"],
+  root: ["root", "layoutDefault", "h1", "enquiryFormBuilder"],
+  layoutDefault: ["layoutDefault", "h1", "enquiryFormBuilder"],
   h1: ["h1"],
   enquiryFormBuilder: ["enquiryFormBuilder"]
 };
@@ -299,7 +299,7 @@ export const PlasmicForm = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    layerDefault: makeNodeComponent("layerDefault"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     h1: makeNodeComponent("h1"),
     enquiryFormBuilder: makeNodeComponent("enquiryFormBuilder"),
     // Metadata about props expected for PlasmicForm

@@ -1,4 +1,4 @@
-.dialogCore:global(.__wab_instance) {
+.dialog:global(.__wab_instance) {
   background: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;

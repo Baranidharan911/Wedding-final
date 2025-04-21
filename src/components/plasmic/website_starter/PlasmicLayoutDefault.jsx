@@ -257,7 +257,23 @@ function PlasmicLayoutDefault__RenderFunc(props) {
             />
           </Stack__>
           <NavMenuItem
-            activeCustomers={false}
+            activeCustomers={(() => {
+              try {
+                return (() => {
+                  const user = localStorage.getItem("user");
+                  const activeCustomers = !!(user && user.length > 0);
+                  return activeCustomers;
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
             cards={(() => {
               try {
                 return $queries.cards.data.response.data.homeCards.data;
@@ -336,6 +352,23 @@ function PlasmicLayoutDefault__RenderFunc(props) {
                   className={classNames(projectcss.all, sty.freeBox___560Sc)}
                 >
                   <NavMenuItem
+                    activeCustomers={(() => {
+                      try {
+                        return (() => {
+                          const user = localStorage.getItem("user");
+                          const activeCustomers = !!(user && user.length > 0);
+                          return activeCustomers;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()}
                     cards={(() => {
                       try {
                         return $queries.cards.data.response.data.homeCards.data;

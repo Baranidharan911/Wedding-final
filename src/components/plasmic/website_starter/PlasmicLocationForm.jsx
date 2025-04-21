@@ -21,6 +21,7 @@ import {
   generateStateValueProp,
   hasVariant,
   initializeCodeComponentStates,
+  initializePlasmicStates,
   useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv, useGlobalActions } from "@plasmicapp/react-web/lib/host";
@@ -102,26 +103,82 @@ function PlasmicLocationForm__RenderFunc(props) {
         path: "input.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.locationInfo?.Street;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
         path: "city.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.locationInfo?.City;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "state.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                Object.keys($state.cities).find(key =>
+                  $state.cities[key].includes($state.city.value)
+                ) || $props.locationInfo?.State
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "input2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.locationInfo?.Pincode;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
@@ -1455,7 +1512,7 @@ function PlasmicLocationForm__RenderFunc(props) {
       mode: "advanced",
       onFinish: async values => {
         const $steps = {};
-        $steps["graphqlMutation"] = true
+        $steps["updateLocation"] = $props.locationId
           ? (() => {
               const actionArgs = {
                 continueOnError: true,
@@ -1494,11 +1551,11 @@ function PlasmicLocationForm__RenderFunc(props) {
             })()
           : undefined;
         if (
-          $steps["graphqlMutation"] != null &&
-          typeof $steps["graphqlMutation"] === "object" &&
-          typeof $steps["graphqlMutation"].then === "function"
+          $steps["updateLocation"] != null &&
+          typeof $steps["updateLocation"] === "object" &&
+          typeof $steps["updateLocation"].then === "function"
         ) {
-          $steps["graphqlMutation"] = await $steps["graphqlMutation"];
+          $steps["updateLocation"] = await $steps["updateLocation"];
         }
         $steps["graphqlMutation2"] =
           $props.userInfo && !$props.locationId
@@ -1565,7 +1622,7 @@ function PlasmicLocationForm__RenderFunc(props) {
         $steps["refreshData"] = true
           ? (() => {
               const actionArgs = {
-                queryInvalidation: ["d601eccc-4ce0-4155-aadf-df759265513a"]
+                queryInvalidation: ["1a9e5a2b-2685-4a88-991d-5264d66406e6"]
               };
               return (async ({ queryInvalidation }) => {
                 if (!queryInvalidation) {
@@ -1629,6 +1686,7 @@ function PlasmicLocationForm__RenderFunc(props) {
         >
           <FormItemWrapper
             className={classNames("__wab_instance", sty.formField__sS0A)}
+            initialValue={$props.locationInfo?.Street}
             label={
               <div
                 className={classNames(
@@ -1684,6 +1742,7 @@ function PlasmicLocationForm__RenderFunc(props) {
           </FormItemWrapper>
           <FormItemWrapper
             className={classNames("__wab_instance", sty.formField__ycyre)}
+            initialValue={$props.locationInfo?.City}
             label={
               <div
                 className={classNames(
@@ -1712,16 +1771,44 @@ function PlasmicLocationForm__RenderFunc(props) {
                   plasmic_antd_5_hostless_css.plasmic_tokens,
                   plasmic_plasmic_rich_components_css.plasmic_tokens
                 )}
+                defaultValue={(() => {
+                  try {
+                    return $props.locationInfo?.City;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 onChange={async (...eventArgs) => {
                   generateStateOnChangeProp($state, ["city", "value"]).apply(
                     null,
                     eventArgs
                   );
                 }}
-                options={[
-                  { value: "option1", label: "Option 1", type: "option" },
-                  { value: "option2", label: "Option 2", type: "option" }
-                ]}
+                options={(() => {
+                  try {
+                    return Object.values($state.cities)
+                      .flat()
+                      .sort()
+                      .map(city => ({ label: city, value: city }));
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [
+                        { value: "option1", label: "Option 1", type: "option" },
+                        { value: "option2", label: "Option 2", type: "option" }
+                      ];
+                    }
+                    throw e;
+                  }
+                })()}
                 placeholder={
                   <div
                     className={classNames(
@@ -1747,6 +1834,7 @@ function PlasmicLocationForm__RenderFunc(props) {
         >
           <FormItemWrapper
             className={classNames("__wab_instance", sty.formField__zXsbB)}
+            initialValue={$props.locationInfo?.State}
             label={
               <div
                 className={classNames(
@@ -1762,48 +1850,141 @@ function PlasmicLocationForm__RenderFunc(props) {
             noLabel={true}
           >
             <div className={classNames(projectcss.all, sty.freeBox___09NY0)}>
-              <AntdSelect
-                data-plasmic-name={"state"}
-                data-plasmic-override={overrides.state}
-                bordered={false}
-                className={classNames("__wab_instance", sty.state)}
-                defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
-                  projectcss.plasmic_tokens,
-                  plasmic_antd_5_hostless_css.plasmic_tokens,
-                  plasmic_plasmic_rich_components_css.plasmic_tokens
-                )}
-                onChange={async (...eventArgs) => {
-                  generateStateOnChangeProp($state, ["state", "value"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                options={[
-                  { value: "option1", label: "Option 1", type: "option" },
-                  { value: "option2", label: "Option 2", type: "option" }
-                ]}
-                placeholder={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rpldv
-                    )}
-                  >
-                    {"State"}
-                  </div>
-                }
-                popupScopeClassName={sty["state__popup"]}
-                showSearch={true}
-                value={generateStateValueProp($state, ["state", "value"])}
-              />
+              {(() => {
+                const child$Props = {
+                  bordered: false,
+                  className: classNames("__wab_instance", sty.state),
+                  defaultStylesClassName: classNames(
+                    projectcss.root_reset,
+                    projectcss.plasmic_default_styles,
+                    projectcss.plasmic_mixins,
+                    projectcss.plasmic_tokens,
+                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
+                  ),
+                  defaultValue: (() => {
+                    try {
+                      return (
+                        Object.keys($state.cities).find(key =>
+                          $state.cities[key].includes($state.city.value)
+                        ) || $props.locationInfo?.State
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
+                  onChange: async (...eventArgs) => {
+                    generateStateOnChangeProp($state, ["state", "value"]).apply(
+                      null,
+                      eventArgs
+                    );
+                  },
+                  options: (() => {
+                    try {
+                      return Object.keys($state.cities)
+                        .flat()
+                        .sort()
+                        .map(city => ({
+                          label: city,
+                          value: city
+                        }));
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [
+                          {
+                            value: "option1",
+                            label: "Option 1",
+                            type: "option"
+                          },
+                          {
+                            value: "option2",
+                            label: "Option 2",
+                            type: "option"
+                          }
+                        ];
+                      }
+                      throw e;
+                    }
+                  })(),
+                  placeholder: (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rpldv
+                      )}
+                    >
+                      {"State"}
+                    </div>
+                  ),
+
+                  popupScopeClassName: sty["state__popup"],
+                  showSearch: true,
+                  value: generateStateValueProp($state, ["state", "value"])
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "value",
+                      plasmicStateName: "state.value"
+                    }
+                  ],
+
+                  [],
+                  undefined ?? {},
+                  child$Props
+                );
+                initializePlasmicStates(
+                  $state,
+                  [
+                    {
+                      name: "state.value",
+                      initFunc: ({ $props, $state, $queries }) =>
+                        (() => {
+                          try {
+                            return (
+                              Object.keys($state.cities).find(key =>
+                                $state.cities[key].includes($state.city.value)
+                              ) || $props.locationInfo?.State
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                    }
+                  ],
+
+                  []
+                );
+                return (
+                  <AntdSelect
+                    data-plasmic-name={"state"}
+                    data-plasmic-override={overrides.state}
+                    {...child$Props}
+                  />
+                );
+              })()}
             </div>
           </FormItemWrapper>
           <FormItemWrapper
             className={classNames("__wab_instance", sty.formField__jf3Ht)}
+            initialValue={$props.locationInfo?.Pincode}
             label={
               <div
                 className={classNames(

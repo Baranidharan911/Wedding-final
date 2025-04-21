@@ -242,6 +242,18 @@ function PlasmicVendorDetails__RenderFunc(props) {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    userInfo: usePlasmicDataOp(() => {
+      return {
+        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
+        opId: "f3719b6d-3d46-47f7-960b-f2e953f80310",
+        userArgs: {
+          headers: [`bearer ${localStorage.getItem("token")}`]
+        },
+        cacheKey: `plasmic.$.f3719b6d-3d46-47f7-960b-f2e953f80310.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -3433,6 +3445,7 @@ function PlasmicVendorDetails__RenderFunc(props) {
                     data-plasmic-override={overrides.reviews}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.reviews)}
+                    id={"reviews"}
                   >
                     <div
                       data-plasmic-name={"heading4"}
@@ -3448,20 +3461,75 @@ function PlasmicVendorDetails__RenderFunc(props) {
                       >
                         {"Let\u2019s Hear How our client experiences"}
                       </div>
-                      <div
-                        data-plasmic-name={"newReview"}
-                        data-plasmic-override={overrides.newReview}
-                        className={classNames(projectcss.all, sty.newReview)}
-                      >
-                        <WriteReview
-                          data-plasmic-name={"writeReview"}
-                          data-plasmic-override={overrides.writeReview}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.writeReview
-                          )}
-                        />
-                      </div>
+                      {(() => {
+                        try {
+                          return $queries.userInfo?.data?.response?.data?.me
+                            ?.id;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          data-plasmic-name={"newReview"}
+                          data-plasmic-override={overrides.newReview}
+                          className={classNames(projectcss.all, sty.newReview)}
+                        >
+                          <WriteReview
+                            data-plasmic-name={"writeReview"}
+                            data-plasmic-override={overrides.writeReview}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.writeReview
+                            )}
+                            userId={(() => {
+                              try {
+                                return $queries.userInfo.data.response.data.me
+                                  .id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            vendor={(() => {
+                              try {
+                                return $state.vendorDetails2.attributes.Name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            vendorId={(() => {
+                              try {
+                                return $state.vendorDetails2.id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          />
+                        </div>
+                      ) : null}
                     </div>
                     <div
                       data-plasmic-name={"reviews2"}
@@ -3579,6 +3647,21 @@ function PlasmicVendorDetails__RenderFunc(props) {
                                 throw e;
                               }
                             })()}
+                            replies={(() => {
+                              try {
+                                return {
+                                  replies: currentItem.attributes.replies.data
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return { replies: [{ comment: "hi" }] };
+                                }
+                                throw e;
+                              }
+                            })()}
                             reviewId={(() => {
                               try {
                                 return currentItem.id;
@@ -3596,6 +3679,20 @@ function PlasmicVendorDetails__RenderFunc(props) {
                               try {
                                 return currentItem.attributes
                                   .users_permissions_user.data;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            userId={(() => {
+                              try {
+                                return $queries.userInfo.data.response.data.me
+                                  .id;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||

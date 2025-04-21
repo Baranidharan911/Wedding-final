@@ -84,7 +84,7 @@ function PlasmicPopularWeddingDestinationCard2__RenderFunc(props) {
       )}
       href={(() => {
         try {
-          return `/search?city=${$props.title}`;
+          return `/city/${$props.title}`;
         } catch (e) {
           if (
             e instanceof TypeError ||

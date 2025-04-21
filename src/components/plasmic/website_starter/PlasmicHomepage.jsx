@@ -278,19 +278,7 @@ function PlasmicHomepage__RenderFunc(props) {
           <LayoutDefault
             data-plasmic-name={"layoutDefault"}
             data-plasmic-override={overrides.layoutDefault}
-            activeCustomers={(() => {
-              try {
-                return localStorage.getItem("user").length != 0;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
+            activeCustomers={false}
             className={classNames("__wab_instance", sty.layoutDefault)}
             isVendor={(() => {
               try {
@@ -1081,7 +1069,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   data-plasmic-override={overrides.featuringVendor}
                   btnLink={(() => {
                     try {
-                      return "/search/venue";
+                      return "/search/Vendors";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1092,6 +1080,7 @@ function PlasmicHomepage__RenderFunc(props) {
                       throw e;
                     }
                   })()}
+                  btnName={"View All Vendors"}
                   cards2={
                     <Stack__
                       as={"div"}
@@ -1368,6 +1357,7 @@ function PlasmicHomepage__RenderFunc(props) {
                     </Stack__>
                   }
                   className={classNames("__wab_instance", sty.featuringVendor)}
+                  title={"Featuring Vendors"}
                 />
 
                 <SectionCardWrapper2
@@ -1375,7 +1365,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   data-plasmic-override={overrides.popularWeddingDestinations}
                   btnLink={(() => {
                     try {
-                      return "/search?city=All";
+                      return "/city/Pune";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

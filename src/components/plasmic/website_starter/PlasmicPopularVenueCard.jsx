@@ -84,8 +84,8 @@ function PlasmicPopularVenueCard__RenderFunc(props) {
       href={(() => {
         try {
           return $props.city
-            ? `/search/venues?city=${$props.city}&venue=${$props.title}`
-            : `/search/venues?venue=${$props.title}`;
+            ? `/search/Venue?city=${$props.city}&Venue=${$props.title}`
+            : `/search/Venue?Venue=${$props.title}`;
         } catch (e) {
           if (
             e instanceof TypeError ||

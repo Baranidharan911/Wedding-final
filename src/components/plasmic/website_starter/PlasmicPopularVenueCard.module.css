@@ -86,6 +86,9 @@
 .section > * {
   grid-column: 4;
 }
+.root:hover .section > * {
+  grid-column: 4;
+}
 .text {
   position: relative;
   width: 100%;

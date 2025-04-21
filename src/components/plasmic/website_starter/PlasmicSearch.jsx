@@ -36,13 +36,14 @@ import { AntdBreadcrumb } from "@plasmicpkgs/antd5/skinny/registerBreadcrumb";
 import { AntdBreadcrumbItem } from "@plasmicpkgs/antd5/skinny/registerBreadcrumb";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import Promotions from "../../Promotions"; // plasmic-import: zGFI5NjGDbek/component
+import FeaturingVendorCard from "../../FeaturingVendorCard"; // plasmic-import: FymR_Rf9uBOI/component
+import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
+import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
+import PopularVenueCard from "../../PopularVenueCard"; // plasmic-import: 84EAZ_bZRjmv/component
 import SectionCardWrapper2 from "../../SectionCardWrapper2"; // plasmic-import: 60GYi7c5AWbx/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { SliderWrapper } from "@plasmicpkgs/react-slick";
 import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
-import FeaturingVendorCard from "../../FeaturingVendorCard"; // plasmic-import: FymR_Rf9uBOI/component
-import { AntdPagination } from "@plasmicpkgs/antd5/skinny/registerPagination";
-import { paginationHelpers as AntdPagination_Helpers } from "@plasmicpkgs/antd5/skinny/registerPagination";
 import WeddingArticlesCard2 from "../../WeddingArticlesCard2"; // plasmic-import: Gtd0WTfGHInR/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { useScreenVariants as useScreenVariantszapf5SksSeNd } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: ZAPF5sksSeNd/globalVariant
@@ -376,14 +377,6 @@ function PlasmicSearch__RenderFunc(props) {
           })()
       },
       {
-        path: "sliderCarousel8.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-        refName: "sliderCarousel8",
-        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
-      },
-      {
         path: "pagination.currentPage",
         type: "private",
         variableType: "number",
@@ -418,6 +411,27 @@ function PlasmicSearch__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
         refName: "sliderCarousel7",
         onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      },
+      {
+        path: "weddingVendors",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.cards.data.response.data.homeCards.data.filter(
+                item => item.attributes.type === "Wedding_Vendor"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       }
     ],
 
@@ -597,10 +611,7 @@ function PlasmicSearch__RenderFunc(props) {
                                           variablePath: ["filterState", "city"]
                                         },
                                         operation: 0,
-                                        value:
-                                          $state.city.value === "All"
-                                            ? ""
-                                            : $state.city.value
+                                        value: $state.filterState.city
                                       };
                                       return (({
                                         variable,
@@ -744,7 +755,7 @@ function PlasmicSearch__RenderFunc(props) {
                 </Stack__>
                 {(() => {
                   try {
-                    return $ctx.params.slug === "venue";
+                    return $ctx.params.slug === "Venue";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1044,10 +1055,10 @@ function PlasmicSearch__RenderFunc(props) {
                 })() ? (
                   <Stack__
                     as={"div"}
-                    data-plasmic-name={"filterType"}
-                    data-plasmic-override={overrides.filterType}
+                    data-plasmic-name={"filterVendor"}
+                    data-plasmic-override={overrides.filterVendor}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.filterType)}
+                    className={classNames(projectcss.all, sty.filterVendor)}
                   >
                     {(() => {
                       const child$Props = {
@@ -2137,7 +2148,22 @@ function PlasmicSearch__RenderFunc(props) {
                               sty.text__hxvuE
                             )}
                           >
-                            {"Vendor"}
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $ctx.params.slug;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Service";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
                           </div>
                         </AntdBreadcrumbItem>
                         <AntdBreadcrumbItem
@@ -2181,846 +2207,145 @@ function PlasmicSearch__RenderFunc(props) {
                     }
                   />
                 </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"productCardDetails"}
-                  data-plasmic-override={overrides.productCardDetails}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.productCardDetails)}
-                >
-                  <Fetcher
-                    data-plasmic-name={"productData"}
-                    data-plasmic-override={overrides.productData}
-                    dataOp={{
-                      sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-                      opId: "2d5ae80c-c550-48d5-b597-347432e6f811",
-                      userArgs: {},
-                      cacheKey: `plasmic.$.m8Aerz2eBHjb.$.2d5ae80c-c550-48d5-b597-347432e6f811.$.`,
-                      invalidatedKeys: null,
-                      roleId: null
-                    }}
-                    name={"vendors"}
-                    queries={$queries}
-                  >
-                    {$queries => (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $queries.advertisements.data.response.data.advSlots.data.filter(
-                              item =>
-                                item.attributes.Adv_Space.includes("Banner")
-                            ).length;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <Promotions
-                            data-plasmic-name={"promotions"}
-                            data-plasmic-override={overrides.promotions}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.promotions
-                            )}
-                            featuredVendors={(() => {
-                              try {
-                                return $queries.advertisements.data.response.data.advSlots.data.filter(
-                                  item =>
-                                    item.attributes.Adv_Space.includes("Banner")
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return $queries.advertisements.data.response.data.advSlots.data.filter(
-                              item => item.attributes.Adv_Space.includes("Card")
-                            ).length;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <SectionCardWrapper2
-                            data-plasmic-name={"featuringVendor"}
-                            data-plasmic-override={overrides.featuringVendor}
-                            btnLink={(() => {
-                              try {
-                                return "/city";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                            btnName={"View All Vendors"}
-                            cards2={
-                              <Stack__
-                                as={"div"}
-                                data-plasmic-name={"featuringVendorCard"}
-                                data-plasmic-override={
-                                  overrides.featuringVendorCard
-                                }
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.featuringVendorCard
-                                )}
-                              >
-                                <Reveal
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.reveal__b01OU
-                                  )}
-                                  triggerOnce={true}
-                                >
-                                  {(() => {
-                                    const child$Props = {
-                                      arrows: false,
-                                      autoplay: true,
-                                      beforeChange: async (...eventArgs) => {
-                                        generateStateOnChangePropForCodeComponents(
-                                          $state,
-                                          "currentSlide",
-                                          ["sliderCarousel8", "currentSlide"],
-                                          SliderWrapper_Helpers
-                                        ).apply(null, eventArgs);
-                                      },
-                                      centerMode: hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobileOnly"
-                                      )
-                                        ? false
-                                        : false,
-                                      centerPadding: hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobileOnly"
-                                      )
-                                        ? "0"
-                                        : undefined,
-                                      className: classNames(
-                                        "__wab_instance",
-                                        sty.sliderCarousel8
-                                      ),
-                                      initialSlide: generateStateValueProp(
-                                        $state,
-                                        ["sliderCarousel8", "currentSlide"]
-                                      ),
-                                      lazyLoad: "ondemand",
-                                      ref: ref => {
-                                        $refs["sliderCarousel8"] = ref;
-                                      },
-                                      sliderScopeClassName:
-                                        sty["sliderCarousel8__slider"],
-                                      slidesPerRow: hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobileOnly"
-                                      )
-                                        ? 1
-                                        : 3
-                                    };
-                                    initializeCodeComponentStates(
-                                      $state,
-                                      [
-                                        {
-                                          name: "currentSlide",
-                                          plasmicStateName:
-                                            "sliderCarousel8.currentSlide"
-                                        }
-                                      ],
-
-                                      [],
-                                      SliderWrapper_Helpers ?? {},
-                                      child$Props
-                                    );
-                                    return (
-                                      <SliderWrapper
-                                        data-plasmic-name={"sliderCarousel8"}
-                                        data-plasmic-override={
-                                          overrides.sliderCarousel8
-                                        }
-                                        {...child$Props}
-                                      >
-                                        {(_par =>
-                                          !_par
-                                            ? []
-                                            : Array.isArray(_par)
-                                            ? _par
-                                            : [_par])(
-                                          (() => {
-                                            try {
-                                              return $queries.advertisements.data.response.data.advSlots.data.filter(
-                                                item =>
-                                                  item.attributes.Adv_Space.includes(
-                                                    "Card"
-                                                  )
-                                              );
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return [];
-                                              }
-                                              throw e;
-                                            }
-                                          })()
-                                        ).map(
-                                          (
-                                            __plasmic_item_0,
-                                            __plasmic_idx_0
-                                          ) => {
-                                            const currentItem =
-                                              __plasmic_item_0;
-                                            const currentIndex =
-                                              __plasmic_idx_0;
-                                            return (
-                                              <div
-                                                className={classNames(
-                                                  projectcss.all,
-                                                  sty.freeBox__m13Hf
-                                                )}
-                                                key={currentIndex}
-                                              >
-                                                <FeaturingVendorCard
-                                                  className={classNames(
-                                                    "__wab_instance",
-                                                    sty.featuringVendorCard__nzJra
-                                                  )}
-                                                  featured={false}
-                                                  id={(() => {
-                                                    try {
-                                                      return currentItem
-                                                        .attributes.store.data
-                                                        .id;
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}
-                                                  image={(() => {
-                                                    try {
-                                                      return currentItem
-                                                        .attributes.Banner.data
-                                                        .attributes.url;
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}
-                                                  location={(() => {
-                                                    try {
-                                                      return (() => {
-                                                        const location =
-                                                          currentItem.attributes
-                                                            .store.data
-                                                            .attributes
-                                                            .locations.data[0]
-                                                            .attributes;
-                                                        return `${location.City}, ${location.State}`;
-                                                      })();
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}
-                                                  name={(() => {
-                                                    try {
-                                                      return currentItem
-                                                        .attributes.store.data
-                                                        .attributes.Name;
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}
-                                                  price={(() => {
-                                                    try {
-                                                      return (() => {
-                                                        const services =
-                                                          currentItem.attributes
-                                                            .store.data
-                                                            .attributes.services
-                                                            .data;
-                                                        const price =
-                                                          services.map(
-                                                            item =>
-                                                              item.attributes
-                                                                .serviceCharge
-                                                          );
-                                                        return price.length
-                                                          ? Math.min(...price)
-                                                          : 0;
-                                                      })();
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return undefined;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}
-                                                  rating={(() => {
-                                                    try {
-                                                      return currentItem
-                                                        .attributes.store.data
-                                                        .attributes.rating;
-                                                    } catch (e) {
-                                                      if (
-                                                        e instanceof
-                                                          TypeError ||
-                                                        e?.plasmicType ===
-                                                          "PlasmicUndefinedDataError"
-                                                      ) {
-                                                        return 4;
-                                                      }
-                                                      throw e;
-                                                    }
-                                                  })()}
-                                                />
-                                              </div>
-                                            );
-                                          }
-                                        )}
-                                      </SliderWrapper>
-                                    );
-                                  })()}
-                                </Reveal>
-                              </Stack__>
-                            }
-                            className={classNames(
-                              "__wab_instance",
-                              sty.featuringVendor
-                            )}
-                            title={"Featuring Vendors"}
-                          />
-                        ) : null}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__qoGqN
-                          )}
-                        >
-                          {(_par =>
-                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                            (() => {
-                              try {
-                                return (() => {
-                                  const rating =
-                                    $state.filterState.rating.split(" ");
-                                  const ratingDirection = rating[0];
-                                  const ratingValue = Number.parseFloat(
-                                    rating[1]
-                                  );
-                                  const review =
-                                    $state.filterState.review.split(" ");
-                                  const reviewDirection = review[0];
-                                  const reviewValue = review[1];
-                                  const result =
-                                    $queries.vendors.data.response.data.stores.data.filter(
-                                      item => {
-                                        return (
-                                          (!$state.filterState.city ||
-                                            item.attributes?.locations?.data[0]
-                                              ?.attributes?.City ===
-                                              $state.filterState.city) &&
-                                          (!$state.filterState.type ||
-                                            item.attributes?.tags.includes(
-                                              $state.filterState.type
-                                            )) &&
-                                          (!$state.filterState.venue ||
-                                            item.attributes?.tags.includes(
-                                              $state.filterState.venue
-                                            )) &&
-                                          (!$state.filterState.rating ||
-                                            (ratingDirection === "Above"
-                                              ? item.attributes?.rating >=
-                                                ratingValue
-                                              : item.attributes?.rating <=
-                                                ratingValue)) &&
-                                          (!$state.filterState.review ||
-                                            (reviewDirection === "Above"
-                                              ? item.attributes?.reviews?.data
-                                                  ?.length >= reviewValue
-                                              : item.attributes?.reviews?.data
-                                                  ?.length <= ratingValue)) &&
-                                          (!$state.filterState.searchTerm ||
-                                            item.attributes?.Name.toLowerCase().includes(
-                                              $ctx.query.key.toLowerCase()
-                                            ))
-                                        );
-                                      }
-                                    );
-                                  return result;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                            const currentItem = __plasmic_item_0;
-                            const currentIndex = __plasmic_idx_0;
-                            return (
-                              <FeaturingVendorCard
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.featuringVendorCard__wVpL
-                                )}
-                                id={(() => {
-                                  try {
-                                    return currentItem.id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                                image={(() => {
-                                  try {
-                                    return currentItem?.attributes
-                                      ?.profile_picture?.data?.attributes?.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                                key={currentIndex}
-                                location={(() => {
-                                  try {
-                                    return `${currentItem.attributes.locations.data[0].attributes.City}, ${currentItem.attributes.locations.data[0].attributes.State}`;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                                name={(() => {
-                                  try {
-                                    return currentItem.attributes.Name;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                                price={(() => {
-                                  try {
-                                    return (() => {
-                                      const services =
-                                        currentItem.attributes.services.data;
-                                      const price = services.map(
-                                        item => item.attributes.serviceCharge
-                                      );
-                                      return price.length
-                                        ? Math.min(...price)
-                                        : 0;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                                rating={(() => {
-                                  try {
-                                    return currentItem.attributes.rating;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return 4;
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
-                            );
-                          })}
-                        </div>
-                        {(() => {
-                          const child$Props = {
-                            className: classNames(
-                              "__wab_instance",
-                              sty.pagination
-                            ),
-                            current: generateStateValueProp($state, [
-                              "pagination",
-                              "currentPage"
-                            ]),
-                            defaultCurrent: 1,
-                            defaultPageSize: 15,
-                            onChange: async (...eventArgs) => {
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "currentPage",
-                                ["pagination", "currentPage"],
-                                AntdPagination_Helpers
-                              ).apply(null, eventArgs);
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "startIndex",
-                                ["pagination", "startIndex"],
-                                AntdPagination_Helpers
-                              ).apply(null, eventArgs);
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "endIndex",
-                                ["pagination", "endIndex"],
-                                AntdPagination_Helpers
-                              ).apply(null, eventArgs);
-                            },
-                            onShowSizeChange: async (...eventArgs) => {
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "pageSize",
-                                ["pagination", "pageSize"],
-                                AntdPagination_Helpers
-                              ).apply(null, eventArgs);
-                            },
-                            pageSize: generateStateValueProp($state, [
-                              "pagination",
-                              "pageSize"
-                            ]),
-                            pageSizeOptions: [
-                              { pageSize: 10 },
-                              { pageSize: 20 },
-                              { pageSize: 50 },
-                              { pageSize: 100 }
-                            ],
-
-                            simple: false,
-                            total: (() => {
-                              try {
-                                return $queries.vendors.data.response.data
-                                  .stores.meta.pagination.total;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return 30;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "currentPage",
-                                plasmicStateName: "pagination.currentPage"
-                              },
-                              {
-                                name: "pageSize",
-                                plasmicStateName: "pagination.pageSize"
-                              },
-                              {
-                                name: "startIndex",
-                                plasmicStateName: "pagination.startIndex"
-                              },
-                              {
-                                name: "endIndex",
-                                plasmicStateName: "pagination.endIndex"
-                              }
-                            ],
-
-                            [],
-                            AntdPagination_Helpers ?? {},
-                            child$Props
-                          );
-                          return (
-                            <AntdPagination
-                              data-plasmic-name={"pagination"}
-                              data-plasmic-override={overrides.pagination}
-                              {...child$Props}
-                            />
-                          );
-                        })()}
-                      </React.Fragment>
-                    )}
-                  </Fetcher>
-                </Stack__>
-              </Stack__>
-            </div>
-            {false ? (
-              <SectionCardWrapper2
-                data-plasmic-name={"weddingArticles"}
-                data-plasmic-override={overrides.weddingArticles}
-                btnName={"View All Articles"}
-                cards2={
+                {(() => {
+                  try {
+                    return $ctx.params.slug === "Vendor";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <Stack__
                     as={"div"}
-                    data-plasmic-name={"weddingArticlesCard"}
-                    data-plasmic-override={overrides.weddingArticlesCard}
+                    data-plasmic-name={"productCardDetails"}
+                    data-plasmic-override={overrides.productCardDetails}
                     hasGap={true}
                     className={classNames(
                       projectcss.all,
-                      sty.weddingArticlesCard
+                      sty.productCardDetails
                     )}
                   >
-                    <Reveal
-                      className={classNames(
-                        "__wab_instance",
-                        sty.reveal___0HGeQ
-                      )}
-                      triggerOnce={true}
+                    <Fetcher
+                      data-plasmic-name={"productData"}
+                      data-plasmic-override={overrides.productData}
+                      dataOp={{
+                        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
+                        opId: "2d5ae80c-c550-48d5-b597-347432e6f811",
+                        userArgs: {},
+                        cacheKey: `plasmic.$.m8Aerz2eBHjb.$.2d5ae80c-c550-48d5-b597-347432e6f811.$.`,
+                        invalidatedKeys: null,
+                        roleId: null
+                      }}
+                      name={"vendors"}
+                      queries={$queries}
                     >
-                      {(() => {
-                        const child$Props = {
-                          arrows: false,
-                          autoplay: true,
-                          beforeChange: async (...eventArgs) => {
-                            generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "currentSlide",
-                              ["sliderCarousel7", "currentSlide"],
-                              SliderWrapper_Helpers
-                            ).apply(null, eventArgs);
-                          },
-                          centerMode: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? false
-                            : false,
-                          centerPadding: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? "0"
-                            : undefined,
-                          className: classNames(
-                            "__wab_instance",
-                            sty.sliderCarousel7
-                          ),
-                          initialSlide: generateStateValueProp($state, [
-                            "sliderCarousel7",
-                            "currentSlide"
-                          ]),
-                          ref: ref => {
-                            $refs["sliderCarousel7"] = ref;
-                          },
-                          sliderScopeClassName: sty["sliderCarousel7__slider"],
-                          slidesPerRow: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? 1
-                            : 4
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "currentSlide",
-                              plasmicStateName: "sliderCarousel7.currentSlide"
+                      {$queries => (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $queries.advertisements.data.response.data.advSlots.data.filter(
+                                item =>
+                                  item.attributes.Adv_Space.includes("Banner")
+                              ).length;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
                             }
-                          ],
-
-                          [],
-                          SliderWrapper_Helpers ?? {},
-                          child$Props
-                        );
-                        return (
-                          <SliderWrapper
-                            data-plasmic-name={"sliderCarousel7"}
-                            data-plasmic-override={overrides.sliderCarousel7}
-                            {...child$Props}
+                          })() ? (
+                            <Promotions
+                              className={classNames(
+                                "__wab_instance",
+                                sty.promotions__vFeHk
+                              )}
+                              featuredVendors={(() => {
+                                try {
+                                  return $queries.advertisements.data.response.data.advSlots.data.filter(
+                                    item =>
+                                      item.attributes.Adv_Space.includes(
+                                        "Banner"
+                                      )
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+                          ) : null}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__qoGqN
+                            )}
                           >
                             {(_par =>
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                               (() => {
                                 try {
-                                  return [
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/f759/226d/9e7119048aa3678d20f59e1dbbe61957?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UnzcYpPY5u6oQi45PXimhQEtChRrIEgV~cXddtOOXEf3oFuHyleOeAynbwikRy0nv4PfMI3B2GsbJbuTo5Q2bEgcdKuOpuZQI1EDj3v8-RdKXHMQDNw5d--YYdOSZWkeADMtBH3-Yxn7PiOqc1myldgDOPmPbQb4Sq8ZqeKWVvX9rJqN4f-3I6ltSBhtGxiTh75xXjZLLhkBR7SJqIqst116JPSgp0~wrviMkCrLbHTuiK2EJ~AJgafIM-0Y6ypNsa4PjuLH6NKTqbM7fv7wYRTrH7ct9lOL6MKUEjUORX2Yf9G6Z8efhtNX~VY5~HUzi8fEEWJcUFbqC~0i2lHrPw__",
-                                      title:
-                                        "Choose the Perfect wedding Photographer",
-                                      description: `Discover tips for selecting a wedding photographer who can capture your special moments beautifully.`,
-                                      tags: [
-                                        "Photography",
-                                        "WeddingPlanning",
-                                        "Tips"
-                                      ]
-                                    },
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/2740/c2ae/4fc573a120d4080b70011dc291162357?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S22YTCWi1NUlhH5zWH12-u1lsA7ZdP8lja2ZfdMZB6pjPIPRzQgpF-wiaDAWlGxxrX5rjJkIYyFroRhWwJNuRGi2JKOecl1Zjd7DlUUijbq5shKkF5gflC4b1nL1vbBBDZ1mzi0sGFNnKL5uimZV9m1QZZZeyleSQtGX9-sDYGX~rZoL5an~4C1kibKoGzhYfU5NlgQXAOvBr7-Tf3k8BbM0Kq5kbpBgxxzp6ymJrCMlcqd4nLxryPXOah7dKgXx4FLLZkTPBTp3hhf6k~yNFPqt6PGuGZP1vl3voD5N8~tNJ5E9k4PDZ9bvTipFpGezBTxzJoB~4H~huu9Pr~7ehA__",
-                                      title: "Gourmet Catering Ideas",
-                                      description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
-                                      tags: [
-                                        "Catering",
-                                        "WeddingFood",
-                                        "Gourmet"
-                                      ]
-                                    },
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/950d/2845/9d364bfe0e1fc1d9ba5fc985046784bf?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hkNpTdx-XO-G8DHgc~1eCoFVHxZEnxsXniQ2eVuiYHjLr-U2hn2BO55NsthjhmLSSNYtV5riaBhEXEZB-BWdtnSJ7adSXdl64WsLsXX4~gWrZMuc7YD2o5O3IZLZdshUX-TsImohNdXE1xexAk9ijn7-6jFgHD2Xz~vemhnUsxqz028n5W36j~R492ajYNQ7V74Z8R~886CFUYV9aO8keuwuk5dhJWpv6xER3lcgkZj1MnRU1oAIWXFAqiq89PN4hYHXZ76wm1Res1ZtjvskocOLzaHjcxAtWf0l19iXUO3UU13XhcyjHwSXPW54FjhUGLsc1MwUcM-fs4MP02gQ~g__",
-                                      title: "Stunning Floral Arrangements",
-                                      description: `Learn how to transform your wedding venue with breathtaking floral designs.`,
-                                      tags: [
-                                        "Florists",
-                                        "FloralDesign",
-                                        "WeddingDecor"
-                                      ]
-                                    },
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/5125/cfe1/3b4ad08956f66a7fa5f0869a3a16b57b?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a7OXwNKh6xZX66yHWd9THoP0~uJVteBRCvYXIxJ8Gl~X2ZTT2wq54dn2521U9HnDSVM5q6qVE-iSPFNSOOentPSraaJ-N5qQXXrEGqoPftC8XtO1HZc9BMGr0DKh9IaCbRz0ZfpaT1UrZYR-9ZXX0TgQbMD-AH9-BBxT4wFlZyDk04SHiGvA5bpqMQPqW6LXdW8zKJ-w-ynzmblFnCl9Lu6GXq0ZQOcF1ps9I5CI1ve5tu8OM2nfJr77mIqOB7z21U5gZjFOvOgLl5cVS5anW8TB-f1QiseI08eSXo8MXMv4ao0-E-JtzrnqPWbJY~7TtIFekYIAfusCAglWZ1rDMQ__",
-                                      title:
-                                        "Top Wedding Entertainment Options for your wedding.",
-                                      description: `Find the best live music and entertainment options to set the perfect mood for your wedding.`,
-                                      tags: [
-                                        "Music",
-                                        "Entertainment",
-                                        "WeddingIdeas"
-                                      ]
-                                    },
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/d0f7/7a2b/002ddab225b508929febd8ab1f845102?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GsfmUOdWBdr3lVqs8pW0SOwrV~aA-G~na924W-BC8RlNZ7jTQJ73TRLLotopDMFSHCiZ-QFOm1AgLPFJaY4mPDdsMZKC8JWroDVsMhAhVKx7Mn3PoxGq7xM4mpvEf1VPwaf~u6RF~L0naVl9-J9s5-N5bBsNdatsIJR20w03Kw2tEpzUG6YqWkx4Hs3tUusH-Vp9fcfG8ENilht8V-ByrcNrWTe5H8b~cDJQn7siudS5Ew0TLWnFXy5OL8VTdV~Bj7cmZ-nQYTig8ajZQDcOvhr9w4TuOjGqd3UIlr96uyHctlMDASKYQP7RnvCRO9ZuS0c8mOgoZ-hpTiMCBVS4MA__",
-                                      title: "Gourmet Catering Ideas",
-                                      description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
-                                      tags: [
-                                        "Catering",
-                                        "WeddingFood",
-                                        "Gourmet"
-                                      ]
-                                    },
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/f759/226d/9e7119048aa3678d20f59e1dbbe61957?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UnzcYpPY5u6oQi45PXimhQEtChRrIEgV~cXddtOOXEf3oFuHyleOeAynbwikRy0nv4PfMI3B2GsbJbuTo5Q2bEgcdKuOpuZQI1EDj3v8-RdKXHMQDNw5d--YYdOSZWkeADMtBH3-Yxn7PiOqc1myldgDOPmPbQb4Sq8ZqeKWVvX9rJqN4f-3I6ltSBhtGxiTh75xXjZLLhkBR7SJqIqst116JPSgp0~wrviMkCrLbHTuiK2EJ~AJgafIM-0Y6ypNsa4PjuLH6NKTqbM7fv7wYRTrH7ct9lOL6MKUEjUORX2Yf9G6Z8efhtNX~VY5~HUzi8fEEWJcUFbqC~0i2lHrPw__",
-                                      title:
-                                        "Choose the Perfect wedding Photographer",
-                                      description: `Discover tips for selecting a wedding photographer who can capture your special moments beautifully.`,
-                                      tags: [
-                                        "Photography",
-                                        "WeddingPlanning",
-                                        "Tips"
-                                      ]
-                                    },
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/2740/c2ae/4fc573a120d4080b70011dc291162357?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S22YTCWi1NUlhH5zWH12-u1lsA7ZdP8lja2ZfdMZB6pjPIPRzQgpF-wiaDAWlGxxrX5rjJkIYyFroRhWwJNuRGi2JKOecl1Zjd7DlUUijbq5shKkF5gflC4b1nL1vbBBDZ1mzi0sGFNnKL5uimZV9m1QZZZeyleSQtGX9-sDYGX~rZoL5an~4C1kibKoGzhYfU5NlgQXAOvBr7-Tf3k8BbM0Kq5kbpBgxxzp6ymJrCMlcqd4nLxryPXOah7dKgXx4FLLZkTPBTp3hhf6k~yNFPqt6PGuGZP1vl3voD5N8~tNJ5E9k4PDZ9bvTipFpGezBTxzJoB~4H~huu9Pr~7ehA__",
-                                      title: "Gourmet Catering Ideas",
-                                      description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
-                                      tags: [
-                                        "Catering",
-                                        "WeddingFood",
-                                        "Gourmet"
-                                      ]
-                                    },
-                                    {
-                                      image:
-                                        "https://s3-alpha-sig.figma.com/img/950d/2845/9d364bfe0e1fc1d9ba5fc985046784bf?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hkNpTdx-XO-G8DHgc~1eCoFVHxZEnxsXniQ2eVuiYHjLr-U2hn2BO55NsthjhmLSSNYtV5riaBhEXEZB-BWdtnSJ7adSXdl64WsLsXX4~gWrZMuc7YD2o5O3IZLZdshUX-TsImohNdXE1xexAk9ijn7-6jFgHD2Xz~vemhnUsxqz028n5W36j~R492ajYNQ7V74Z8R~886CFUYV9aO8keuwuk5dhJWpv6xER3lcgkZj1MnRU1oAIWXFAqiq89PN4hYHXZ76wm1Res1ZtjvskocOLzaHjcxAtWf0l19iXUO3UU13XhcyjHwSXPW54FjhUGLsc1MwUcM-fs4MP02gQ~g__",
-                                      title: "Stunning Floral Arrangements",
-                                      description: `Learn how to transform your wedding venue with breathtaking floral designs.`,
-                                      tags: [
-                                        "Florists",
-                                        "FloralDesign",
-                                        "WeddingDecor"
-                                      ]
-                                    }
-                                  ];
+                                  return (() => {
+                                    const rating =
+                                      $state.filterState.rating.split(" ");
+                                    const ratingDirection = rating[0];
+                                    const ratingValue = Number.parseFloat(
+                                      rating[1]
+                                    );
+                                    const review =
+                                      $state.filterState.review.split(" ");
+                                    const reviewDirection = review[0];
+                                    const reviewValue = review[1];
+                                    const result =
+                                      $queries.vendors.data.response.data.stores.data.filter(
+                                        item => {
+                                          return (
+                                            (!$state.filterState.city ||
+                                              item.attributes?.locations
+                                                ?.data[0]?.attributes?.City ===
+                                                $state.filterState.city) &&
+                                            (!$state.filterState.type ||
+                                              item.attributes?.tags.includes(
+                                                $state.filterState.type
+                                              )) &&
+                                            (!$state.filterState.venue ||
+                                              item.attributes?.tags.includes(
+                                                $state.filterState.venue
+                                              )) &&
+                                            (!$state.filterState.rating ||
+                                              (ratingDirection === "Above"
+                                                ? item.attributes?.rating >=
+                                                  ratingValue
+                                                : item.attributes?.rating <=
+                                                  ratingValue)) &&
+                                            (!$state.filterState.review ||
+                                              (reviewDirection === "Above"
+                                                ? item.attributes?.reviews?.data
+                                                    ?.length >= reviewValue
+                                                : item.attributes?.reviews?.data
+                                                    ?.length <= ratingValue)) &&
+                                            (!$state.filterState.searchTerm ||
+                                              item.attributes?.Name.toLowerCase().includes(
+                                                $ctx.query.key.toLowerCase()
+                                              ))
+                                          );
+                                        }
+                                      );
+                                    return result;
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3036,98 +2361,695 @@ function PlasmicSearch__RenderFunc(props) {
                               const currentItem = __plasmic_item_0;
                               const currentIndex = __plasmic_idx_0;
                               return (
-                                <div
+                                <FeaturingVendorCard
+                                  data-plasmic-name={"featuringVendorCard"}
+                                  data-plasmic-override={
+                                    overrides.featuringVendorCard
+                                  }
                                   className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__gtHob
+                                    "__wab_instance",
+                                    sty.featuringVendorCard
                                   )}
-                                  key={currentIndex}
-                                >
-                                  <WeddingArticlesCard2
-                                    data-plasmic-name={"weddingArticlesCard2"}
-                                    data-plasmic-override={
-                                      overrides.weddingArticlesCard2
+                                  id={(() => {
+                                    try {
+                                      return $queries.vendors.data.response.data
+                                        .stores.data[currentIndex].id;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
                                     }
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.weddingArticlesCard2
-                                    )}
-                                    description={(() => {
-                                      try {
-                                        return currentItem.description;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
+                                  })()}
+                                  image={(() => {
+                                    try {
+                                      return currentItem?.attributes
+                                        ?.profile_picture?.data?.attributes
+                                        ?.url;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()}
-                                    image={(() => {
-                                      try {
-                                        return currentItem.image;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
+                                      throw e;
+                                    }
+                                  })()}
+                                  key={currentIndex}
+                                  location={(() => {
+                                    try {
+                                      return (() => {
+                                        const location =
+                                          $queries.vendors.data.response.data
+                                            .stores.data[currentIndex]
+                                            .attributes.locations.data[
+                                            currentIndex
+                                          ].attributes;
+                                        return `${location.City}, ${location.State}`;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()}
-                                    name={(() => {
-                                      try {
-                                        return currentItem.title;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
+                                      throw e;
+                                    }
+                                  })()}
+                                  name={(() => {
+                                    try {
+                                      return $queries.vendors.data.response.data
+                                        .stores.data[currentIndex].attributes
+                                        .Name;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()}
-                                    tags={(() => {
-                                      try {
-                                        return { tag: currentItem.tags };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {
-                                            tag: [
-                                              "Photography",
-                                              "WeddingPlanning",
-                                              "Tips"
-                                            ]
-                                          };
-                                        }
-                                        throw e;
+                                      throw e;
+                                    }
+                                  })()}
+                                  price={(() => {
+                                    try {
+                                      return (() => {
+                                        const services =
+                                          currentItem.attributes.services.data;
+                                        const price = services.map(
+                                          item => item.attributes.serviceCharge
+                                        );
+                                        return price.length
+                                          ? Math.min(...price)
+                                          : 0;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()}
-                                  />
-                                </div>
+                                      throw e;
+                                    }
+                                  })()}
+                                  rating={(() => {
+                                    try {
+                                      return $queries.vendors.data.response.data
+                                        .stores.data[currentIndex].attributes
+                                        .rating;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return 4;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                />
                               );
                             })}
-                          </SliderWrapper>
-                        );
-                      })()}
-                    </Reveal>
+                          </div>
+                          {(() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.pagination
+                              ),
+                              current: generateStateValueProp($state, [
+                                "pagination",
+                                "currentPage"
+                              ]),
+                              defaultCurrent: 1,
+                              defaultPageSize: 15,
+                              onChange: async (...eventArgs) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "currentPage",
+                                  ["pagination", "currentPage"],
+                                  AntdPagination_Helpers
+                                ).apply(null, eventArgs);
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "startIndex",
+                                  ["pagination", "startIndex"],
+                                  AntdPagination_Helpers
+                                ).apply(null, eventArgs);
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "endIndex",
+                                  ["pagination", "endIndex"],
+                                  AntdPagination_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              onShowSizeChange: async (...eventArgs) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "pageSize",
+                                  ["pagination", "pageSize"],
+                                  AntdPagination_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              pageSize: generateStateValueProp($state, [
+                                "pagination",
+                                "pageSize"
+                              ]),
+                              pageSizeOptions: [
+                                { pageSize: 10 },
+                                { pageSize: 20 },
+                                { pageSize: 50 },
+                                { pageSize: 100 }
+                              ],
+
+                              simple: false,
+                              total: (() => {
+                                try {
+                                  return $queries.vendors.data.response.data
+                                    .stores.meta.pagination.total;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return 30;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "currentPage",
+                                  plasmicStateName: "pagination.currentPage"
+                                },
+                                {
+                                  name: "pageSize",
+                                  plasmicStateName: "pagination.pageSize"
+                                },
+                                {
+                                  name: "startIndex",
+                                  plasmicStateName: "pagination.startIndex"
+                                },
+                                {
+                                  name: "endIndex",
+                                  plasmicStateName: "pagination.endIndex"
+                                }
+                              ],
+
+                              [],
+                              AntdPagination_Helpers ?? {},
+                              child$Props
+                            );
+                            return (
+                              <AntdPagination
+                                data-plasmic-name={"pagination"}
+                                data-plasmic-override={overrides.pagination}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
+                        </React.Fragment>
+                      )}
+                    </Fetcher>
                   </Stack__>
-                }
-                className={classNames("__wab_instance", sty.weddingArticles)}
-                title={"Wedding Articles"}
-              />
-            ) : null}
+                ) : null}
+                {(() => {
+                  try {
+                    return $ctx.params.slug === "Venue";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"venueDetails"}
+                    data-plasmic-override={overrides.venueDetails}
+                    className={classNames(projectcss.all, sty.venueDetails)}
+                  >
+                    <Fetcher
+                      data-plasmic-name={"venueData"}
+                      data-plasmic-override={overrides.venueData}
+                      dataOp={{
+                        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
+                        opId: "642798de-b8f9-4470-a204-3e1e24e15446",
+                        userArgs: {},
+                        cacheKey: `plasmic.$.mu3qn4V0QBsA.$.642798de-b8f9-4470-a204-3e1e24e15446.$.`,
+                        invalidatedKeys: null,
+                        roleId: null
+                      }}
+                      name={"Venue"}
+                      queries={$queries}
+                    >
+                      {$queries => (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $queries.advertisements.data.response.data.advSlots.data.filter(
+                                item =>
+                                  item.attributes.Adv_Space.includes("Banner")
+                              ).length;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Promotions
+                              className={classNames(
+                                "__wab_instance",
+                                sty.promotions__b0N53
+                              )}
+                              featuredVendors={(() => {
+                                try {
+                                  return $queries.advertisements.data.response.data.advSlots.data.filter(
+                                    item =>
+                                      item.attributes.Adv_Space.includes(
+                                        "Banner"
+                                      )
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+                          ) : null}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ysLXl
+                            )}
+                          >
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
+                                try {
+                                  return (() => {
+                                    const searchTerm =
+                                      $state.filterState.searchTerm?.toLowerCase();
+                                    const typeFilter = $state.filterState.type;
+                                    const venueFilter =
+                                      $state.filterState.venue;
+                                    const cityFilter = $state.filterState.city;
+                                    const result =
+                                      $queries.cards.data.response.data.homeCards.data.filter(
+                                        item => {
+                                          const attrs = item.attributes;
+                                          const city =
+                                            attrs?.locations?.data?.[0]
+                                              ?.attributes?.City;
+                                          return (
+                                            (!typeFilter ||
+                                              attrs.type === typeFilter) &&
+                                            (!venueFilter ||
+                                              attrs.type === venueFilter) &&
+                                            (!cityFilter ||
+                                              city === cityFilter ||
+                                              cityFilter === "All") &&
+                                            (!searchTerm ||
+                                              attrs.title
+                                                .toLowerCase()
+                                                .includes(searchTerm))
+                                          );
+                                        }
+                                      );
+                                    return result.slice(0, 10);
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                              const currentItem = __plasmic_item_0;
+                              const currentIndex = __plasmic_idx_0;
+                              return (
+                                <PopularVenueCard
+                                  data-plasmic-name={"popularVenueCard"}
+                                  data-plasmic-override={
+                                    overrides.popularVenueCard
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.popularVenueCard
+                                  )}
+                                  image={(() => {
+                                    try {
+                                      return $queries.Venue.data.response.data
+                                        .homeCards.data[currentIndex].attributes
+                                        .image.data.attributes.url;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  key={currentIndex}
+                                  title={(() => {
+                                    try {
+                                      return $queries.Venue.data.response.data
+                                        .homeCards.data[currentIndex].attributes
+                                        .title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                />
+                              );
+                            })}
+                          </div>
+                        </React.Fragment>
+                      )}
+                    </Fetcher>
+                  </div>
+                ) : null}
+              </Stack__>
+            </div>
+            <SectionCardWrapper2
+              data-plasmic-name={"weddingArticles"}
+              data-plasmic-override={overrides.weddingArticles}
+              btnName={"View All Articles"}
+              cards2={
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"weddingArticlesCard"}
+                  data-plasmic-override={overrides.weddingArticlesCard}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.weddingArticlesCard
+                  )}
+                >
+                  <Reveal
+                    data-plasmic-name={"reveal"}
+                    data-plasmic-override={overrides.reveal}
+                    className={classNames("__wab_instance", sty.reveal)}
+                    triggerOnce={true}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        arrows: false,
+                        autoplay: true,
+                        beforeChange: async (...eventArgs) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "currentSlide",
+                            ["sliderCarousel7", "currentSlide"],
+                            SliderWrapper_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        centerMode: hasVariant(
+                          globalVariants,
+                          "screen",
+                          "mobileOnly"
+                        )
+                          ? false
+                          : false,
+                        centerPadding: hasVariant(
+                          globalVariants,
+                          "screen",
+                          "mobileOnly"
+                        )
+                          ? "0"
+                          : undefined,
+                        className: classNames(
+                          "__wab_instance",
+                          sty.sliderCarousel7
+                        ),
+                        initialSlide: generateStateValueProp($state, [
+                          "sliderCarousel7",
+                          "currentSlide"
+                        ]),
+                        ref: ref => {
+                          $refs["sliderCarousel7"] = ref;
+                        },
+                        sliderScopeClassName: sty["sliderCarousel7__slider"],
+                        slidesPerRow: hasVariant(
+                          globalVariants,
+                          "screen",
+                          "mobileOnly"
+                        )
+                          ? 1
+                          : 4
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "currentSlide",
+                            plasmicStateName: "sliderCarousel7.currentSlide"
+                          }
+                        ],
+
+                        [],
+                        SliderWrapper_Helpers ?? {},
+                        child$Props
+                      );
+                      return (
+                        <SliderWrapper
+                          data-plasmic-name={"sliderCarousel7"}
+                          data-plasmic-override={overrides.sliderCarousel7}
+                          {...child$Props}
+                        >
+                          {(_par =>
+                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                            (() => {
+                              try {
+                                return [
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/f759/226d/9e7119048aa3678d20f59e1dbbe61957?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UnzcYpPY5u6oQi45PXimhQEtChRrIEgV~cXddtOOXEf3oFuHyleOeAynbwikRy0nv4PfMI3B2GsbJbuTo5Q2bEgcdKuOpuZQI1EDj3v8-RdKXHMQDNw5d--YYdOSZWkeADMtBH3-Yxn7PiOqc1myldgDOPmPbQb4Sq8ZqeKWVvX9rJqN4f-3I6ltSBhtGxiTh75xXjZLLhkBR7SJqIqst116JPSgp0~wrviMkCrLbHTuiK2EJ~AJgafIM-0Y6ypNsa4PjuLH6NKTqbM7fv7wYRTrH7ct9lOL6MKUEjUORX2Yf9G6Z8efhtNX~VY5~HUzi8fEEWJcUFbqC~0i2lHrPw__",
+                                    title:
+                                      "Choose the Perfect wedding Photographer",
+                                    description: `Discover tips for selecting a wedding photographer who can capture your special moments beautifully.`,
+                                    tags: [
+                                      "Photography",
+                                      "WeddingPlanning",
+                                      "Tips"
+                                    ]
+                                  },
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/2740/c2ae/4fc573a120d4080b70011dc291162357?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S22YTCWi1NUlhH5zWH12-u1lsA7ZdP8lja2ZfdMZB6pjPIPRzQgpF-wiaDAWlGxxrX5rjJkIYyFroRhWwJNuRGi2JKOecl1Zjd7DlUUijbq5shKkF5gflC4b1nL1vbBBDZ1mzi0sGFNnKL5uimZV9m1QZZZeyleSQtGX9-sDYGX~rZoL5an~4C1kibKoGzhYfU5NlgQXAOvBr7-Tf3k8BbM0Kq5kbpBgxxzp6ymJrCMlcqd4nLxryPXOah7dKgXx4FLLZkTPBTp3hhf6k~yNFPqt6PGuGZP1vl3voD5N8~tNJ5E9k4PDZ9bvTipFpGezBTxzJoB~4H~huu9Pr~7ehA__",
+                                    title: "Gourmet Catering Ideas",
+                                    description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
+                                    tags: ["Catering", "WeddingFood", "Gourmet"]
+                                  },
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/950d/2845/9d364bfe0e1fc1d9ba5fc985046784bf?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hkNpTdx-XO-G8DHgc~1eCoFVHxZEnxsXniQ2eVuiYHjLr-U2hn2BO55NsthjhmLSSNYtV5riaBhEXEZB-BWdtnSJ7adSXdl64WsLsXX4~gWrZMuc7YD2o5O3IZLZdshUX-TsImohNdXE1xexAk9ijn7-6jFgHD2Xz~vemhnUsxqz028n5W36j~R492ajYNQ7V74Z8R~886CFUYV9aO8keuwuk5dhJWpv6xER3lcgkZj1MnRU1oAIWXFAqiq89PN4hYHXZ76wm1Res1ZtjvskocOLzaHjcxAtWf0l19iXUO3UU13XhcyjHwSXPW54FjhUGLsc1MwUcM-fs4MP02gQ~g__",
+                                    title: "Stunning Floral Arrangements",
+                                    description: `Learn how to transform your wedding venue with breathtaking floral designs.`,
+                                    tags: [
+                                      "Florists",
+                                      "FloralDesign",
+                                      "WeddingDecor"
+                                    ]
+                                  },
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/5125/cfe1/3b4ad08956f66a7fa5f0869a3a16b57b?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a7OXwNKh6xZX66yHWd9THoP0~uJVteBRCvYXIxJ8Gl~X2ZTT2wq54dn2521U9HnDSVM5q6qVE-iSPFNSOOentPSraaJ-N5qQXXrEGqoPftC8XtO1HZc9BMGr0DKh9IaCbRz0ZfpaT1UrZYR-9ZXX0TgQbMD-AH9-BBxT4wFlZyDk04SHiGvA5bpqMQPqW6LXdW8zKJ-w-ynzmblFnCl9Lu6GXq0ZQOcF1ps9I5CI1ve5tu8OM2nfJr77mIqOB7z21U5gZjFOvOgLl5cVS5anW8TB-f1QiseI08eSXo8MXMv4ao0-E-JtzrnqPWbJY~7TtIFekYIAfusCAglWZ1rDMQ__",
+                                    title:
+                                      "Top Wedding Entertainment Options for your wedding.",
+                                    description: `Find the best live music and entertainment options to set the perfect mood for your wedding.`,
+                                    tags: [
+                                      "Music",
+                                      "Entertainment",
+                                      "WeddingIdeas"
+                                    ]
+                                  },
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/d0f7/7a2b/002ddab225b508929febd8ab1f845102?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GsfmUOdWBdr3lVqs8pW0SOwrV~aA-G~na924W-BC8RlNZ7jTQJ73TRLLotopDMFSHCiZ-QFOm1AgLPFJaY4mPDdsMZKC8JWroDVsMhAhVKx7Mn3PoxGq7xM4mpvEf1VPwaf~u6RF~L0naVl9-J9s5-N5bBsNdatsIJR20w03Kw2tEpzUG6YqWkx4Hs3tUusH-Vp9fcfG8ENilht8V-ByrcNrWTe5H8b~cDJQn7siudS5Ew0TLWnFXy5OL8VTdV~Bj7cmZ-nQYTig8ajZQDcOvhr9w4TuOjGqd3UIlr96uyHctlMDASKYQP7RnvCRO9ZuS0c8mOgoZ-hpTiMCBVS4MA__",
+                                    title: "Gourmet Catering Ideas",
+                                    description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
+                                    tags: ["Catering", "WeddingFood", "Gourmet"]
+                                  },
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/f759/226d/9e7119048aa3678d20f59e1dbbe61957?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UnzcYpPY5u6oQi45PXimhQEtChRrIEgV~cXddtOOXEf3oFuHyleOeAynbwikRy0nv4PfMI3B2GsbJbuTo5Q2bEgcdKuOpuZQI1EDj3v8-RdKXHMQDNw5d--YYdOSZWkeADMtBH3-Yxn7PiOqc1myldgDOPmPbQb4Sq8ZqeKWVvX9rJqN4f-3I6ltSBhtGxiTh75xXjZLLhkBR7SJqIqst116JPSgp0~wrviMkCrLbHTuiK2EJ~AJgafIM-0Y6ypNsa4PjuLH6NKTqbM7fv7wYRTrH7ct9lOL6MKUEjUORX2Yf9G6Z8efhtNX~VY5~HUzi8fEEWJcUFbqC~0i2lHrPw__",
+                                    title:
+                                      "Choose the Perfect wedding Photographer",
+                                    description: `Discover tips for selecting a wedding photographer who can capture your special moments beautifully.`,
+                                    tags: [
+                                      "Photography",
+                                      "WeddingPlanning",
+                                      "Tips"
+                                    ]
+                                  },
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/2740/c2ae/4fc573a120d4080b70011dc291162357?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S22YTCWi1NUlhH5zWH12-u1lsA7ZdP8lja2ZfdMZB6pjPIPRzQgpF-wiaDAWlGxxrX5rjJkIYyFroRhWwJNuRGi2JKOecl1Zjd7DlUUijbq5shKkF5gflC4b1nL1vbBBDZ1mzi0sGFNnKL5uimZV9m1QZZZeyleSQtGX9-sDYGX~rZoL5an~4C1kibKoGzhYfU5NlgQXAOvBr7-Tf3k8BbM0Kq5kbpBgxxzp6ymJrCMlcqd4nLxryPXOah7dKgXx4FLLZkTPBTp3hhf6k~yNFPqt6PGuGZP1vl3voD5N8~tNJ5E9k4PDZ9bvTipFpGezBTxzJoB~4H~huu9Pr~7ehA__",
+                                    title: "Gourmet Catering Ideas",
+                                    description: `Explore delicious and customizable menu ideas to make your wedding feast unforgettable.`,
+                                    tags: ["Catering", "WeddingFood", "Gourmet"]
+                                  },
+                                  {
+                                    image:
+                                      "https://s3-alpha-sig.figma.com/img/950d/2845/9d364bfe0e1fc1d9ba5fc985046784bf?Expires=1721001600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hkNpTdx-XO-G8DHgc~1eCoFVHxZEnxsXniQ2eVuiYHjLr-U2hn2BO55NsthjhmLSSNYtV5riaBhEXEZB-BWdtnSJ7adSXdl64WsLsXX4~gWrZMuc7YD2o5O3IZLZdshUX-TsImohNdXE1xexAk9ijn7-6jFgHD2Xz~vemhnUsxqz028n5W36j~R492ajYNQ7V74Z8R~886CFUYV9aO8keuwuk5dhJWpv6xER3lcgkZj1MnRU1oAIWXFAqiq89PN4hYHXZ76wm1Res1ZtjvskocOLzaHjcxAtWf0l19iXUO3UU13XhcyjHwSXPW54FjhUGLsc1MwUcM-fs4MP02gQ~g__",
+                                    title: "Stunning Floral Arrangements",
+                                    description: `Learn how to transform your wedding venue with breathtaking floral designs.`,
+                                    tags: [
+                                      "Florists",
+                                      "FloralDesign",
+                                      "WeddingDecor"
+                                    ]
+                                  }
+                                ];
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                            const currentItem = __plasmic_item_0;
+                            const currentIndex = __plasmic_idx_0;
+                            return (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__gtHob
+                                )}
+                                key={currentIndex}
+                              >
+                                <WeddingArticlesCard2
+                                  data-plasmic-name={"weddingArticlesCard2"}
+                                  data-plasmic-override={
+                                    overrides.weddingArticlesCard2
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.weddingArticlesCard2
+                                  )}
+                                  description={(() => {
+                                    try {
+                                      return currentItem.description;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  image={(() => {
+                                    try {
+                                      return currentItem.image;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  name={(() => {
+                                    try {
+                                      return currentItem.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  tags={(() => {
+                                    try {
+                                      return { tag: currentItem.tags };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return {
+                                          tag: [
+                                            "Photography",
+                                            "WeddingPlanning",
+                                            "Tips"
+                                          ]
+                                        };
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                />
+                              </div>
+                            );
+                          })}
+                        </SliderWrapper>
+                      );
+                    })()}
+                  </Reveal>
+                </Stack__>
+              }
+              className={classNames("__wab_instance", sty.weddingArticles)}
+              title={"Wedding Articles"}
+            />
           </LayoutDefault>
           <Embed
             data-plasmic-name={"embedHtml"}
@@ -3165,7 +3087,7 @@ const PlasmicDescendants = {
     "filterVenue",
     "collapse7",
     "venue",
-    "filterType",
+    "filterVendor",
     "collapse2",
     "vendor",
     "filterBudget",
@@ -3182,13 +3104,14 @@ const PlasmicDescendants = {
     "breadcrumb",
     "productCardDetails",
     "productData",
-    "promotions",
-    "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8",
     "pagination",
+    "venueDetails",
+    "venueData",
+    "popularVenueCard",
     "weddingArticles",
     "weddingArticlesCard",
+    "reveal",
     "sliderCarousel7",
     "weddingArticlesCard2",
     "embedHtml"
@@ -3204,7 +3127,7 @@ const PlasmicDescendants = {
     "filterVenue",
     "collapse7",
     "venue",
-    "filterType",
+    "filterVendor",
     "collapse2",
     "vendor",
     "filterBudget",
@@ -3221,13 +3144,14 @@ const PlasmicDescendants = {
     "breadcrumb",
     "productCardDetails",
     "productData",
-    "promotions",
-    "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8",
     "pagination",
+    "venueDetails",
+    "venueData",
+    "popularVenueCard",
     "weddingArticles",
     "weddingArticlesCard",
+    "reveal",
     "sliderCarousel7",
     "weddingArticlesCard2"
   ],
@@ -3241,7 +3165,7 @@ const PlasmicDescendants = {
     "filterVenue",
     "collapse7",
     "venue",
-    "filterType",
+    "filterVendor",
     "collapse2",
     "vendor",
     "filterBudget",
@@ -3258,11 +3182,11 @@ const PlasmicDescendants = {
     "breadcrumb",
     "productCardDetails",
     "productData",
-    "promotions",
-    "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8",
-    "pagination"
+    "pagination",
+    "venueDetails",
+    "venueData",
+    "popularVenueCard"
   ],
 
   leftContainer: [
@@ -3273,7 +3197,7 @@ const PlasmicDescendants = {
     "filterVenue",
     "collapse7",
     "venue",
-    "filterType",
+    "filterVendor",
     "collapse2",
     "vendor",
     "filterBudget",
@@ -3293,7 +3217,7 @@ const PlasmicDescendants = {
   filterVenue: ["filterVenue", "collapse7", "venue"],
   collapse7: ["collapse7", "venue"],
   venue: ["venue"],
-  filterType: ["filterType", "collapse2", "vendor"],
+  filterVendor: ["filterVendor", "collapse2", "vendor"],
   collapse2: ["collapse2", "vendor"],
   vendor: ["vendor"],
   filterBudget: ["filterBudget", "collapse4", "budget"],
@@ -3311,11 +3235,11 @@ const PlasmicDescendants = {
     "breadcrumb",
     "productCardDetails",
     "productData",
-    "promotions",
-    "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8",
-    "pagination"
+    "pagination",
+    "venueDetails",
+    "venueData",
+    "popularVenueCard"
   ],
 
   breadcrumbContainer: ["breadcrumbContainer", "breadcrumb"],
@@ -3323,45 +3247,32 @@ const PlasmicDescendants = {
   productCardDetails: [
     "productCardDetails",
     "productData",
-    "promotions",
-    "featuringVendor",
     "featuringVendorCard",
-    "sliderCarousel8",
     "pagination"
   ],
 
-  productData: [
-    "productData",
-    "promotions",
-    "featuringVendor",
-    "featuringVendorCard",
-    "sliderCarousel8",
-    "pagination"
-  ],
-
-  promotions: ["promotions"],
-  featuringVendor: [
-    "featuringVendor",
-    "featuringVendorCard",
-    "sliderCarousel8"
-  ],
-
-  featuringVendorCard: ["featuringVendorCard", "sliderCarousel8"],
-  sliderCarousel8: ["sliderCarousel8"],
+  productData: ["productData", "featuringVendorCard", "pagination"],
+  featuringVendorCard: ["featuringVendorCard"],
   pagination: ["pagination"],
+  venueDetails: ["venueDetails", "venueData", "popularVenueCard"],
+  venueData: ["venueData", "popularVenueCard"],
+  popularVenueCard: ["popularVenueCard"],
   weddingArticles: [
     "weddingArticles",
     "weddingArticlesCard",
+    "reveal",
     "sliderCarousel7",
     "weddingArticlesCard2"
   ],
 
   weddingArticlesCard: [
     "weddingArticlesCard",
+    "reveal",
     "sliderCarousel7",
     "weddingArticlesCard2"
   ],
 
+  reveal: ["reveal", "sliderCarousel7", "weddingArticlesCard2"],
   sliderCarousel7: ["sliderCarousel7", "weddingArticlesCard2"],
   weddingArticlesCard2: ["weddingArticlesCard2"],
   embedHtml: ["embedHtml"]
@@ -3408,7 +3319,7 @@ export const PlasmicSearch = Object.assign(
     filterVenue: makeNodeComponent("filterVenue"),
     collapse7: makeNodeComponent("collapse7"),
     venue: makeNodeComponent("venue"),
-    filterType: makeNodeComponent("filterType"),
+    filterVendor: makeNodeComponent("filterVendor"),
     collapse2: makeNodeComponent("collapse2"),
     vendor: makeNodeComponent("vendor"),
     filterBudget: makeNodeComponent("filterBudget"),
@@ -3425,13 +3336,14 @@ export const PlasmicSearch = Object.assign(
     breadcrumb: makeNodeComponent("breadcrumb"),
     productCardDetails: makeNodeComponent("productCardDetails"),
     productData: makeNodeComponent("productData"),
-    promotions: makeNodeComponent("promotions"),
-    featuringVendor: makeNodeComponent("featuringVendor"),
     featuringVendorCard: makeNodeComponent("featuringVendorCard"),
-    sliderCarousel8: makeNodeComponent("sliderCarousel8"),
     pagination: makeNodeComponent("pagination"),
+    venueDetails: makeNodeComponent("venueDetails"),
+    venueData: makeNodeComponent("venueData"),
+    popularVenueCard: makeNodeComponent("popularVenueCard"),
     weddingArticles: makeNodeComponent("weddingArticles"),
     weddingArticlesCard: makeNodeComponent("weddingArticlesCard"),
+    reveal: makeNodeComponent("reveal"),
     sliderCarousel7: makeNodeComponent("sliderCarousel7"),
     weddingArticlesCard2: makeNodeComponent("weddingArticlesCard2"),
     embedHtml: makeNodeComponent("embedHtml"),

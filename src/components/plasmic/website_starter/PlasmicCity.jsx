@@ -1242,10 +1242,8 @@ function PlasmicCity__RenderFunc(props) {
                                       })()}
                                       id={(() => {
                                         try {
-                                          return $queries.featuredVendors.data
-                                            .response.data.stores.data[
-                                            currentIndex
-                                          ].id;
+                                          return $queries.vendors.data.response
+                                            .data.stores.data[currentIndex].id;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||

@@ -19,13 +19,20 @@ import {
   generateStateOnChangeProp,
   generateStateValueProp,
   hasVariant,
+  set as $stateSet,
   useDollarState
 } from "@plasmicapp/react-web";
 import {
   DataCtxReader as DataCtxReader__,
-  useDataEnv
+  useDataEnv,
+  useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
-import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import { TabsContainer } from "@plasmicpkgs/plasmic-tabs";
 import { TabContent } from "@plasmicpkgs/plasmic-tabs";
@@ -72,6 +79,7 @@ function PlasmicPremium__RenderFunc(props) {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+  const $globalActions = useGlobalActions?.();
   let [$queries, setDollarQueries] = React.useState({});
   const stateSpecs = React.useMemo(
     () => [
@@ -119,6 +127,8 @@ function PlasmicPremium__RenderFunc(props) {
     $queries: $queries,
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
   const new$Queries = {
     advSlots: usePlasmicDataOp(() => {
       return {
@@ -133,9 +143,11 @@ function PlasmicPremium__RenderFunc(props) {
     storeId: usePlasmicDataOp(() => {
       return {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "5f196169-a9b1-49b2-9220-fbed08f37819",
-        userArgs: {},
-        cacheKey: `plasmic.$.5f196169-a9b1-49b2-9220-fbed08f37819.$.`,
+        opId: "84aa557b-15f4-456b-bbee-790cd28bed77",
+        userArgs: {
+          variables: [$queries.auth.data.response.data.me.id]
+        },
+        cacheKey: `plasmic.$.84aa557b-15f4-456b-bbee-790cd28bed77.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -143,9 +155,11 @@ function PlasmicPremium__RenderFunc(props) {
     auth: usePlasmicDataOp(() => {
       return {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "72be148f-d676-4bfe-a565-82afe7f68f44",
-        userArgs: {},
-        cacheKey: `plasmic.$.72be148f-d676-4bfe-a565-82afe7f68f44.$.`,
+        opId: "0d630323-42c4-4290-88f4-fcb80340cdfb",
+        userArgs: {
+          headers: [`bearer ${localStorage.getItem("token")}`]
+        },
+        cacheKey: `plasmic.$.0d630323-42c4-4290-88f4-fcb80340cdfb.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -253,6 +267,48 @@ function PlasmicPremium__RenderFunc(props) {
                                     "space2",
                                     "value"
                                   ]).apply(null, eventArgs);
+                                  (async value => {
+                                    const $steps = {};
+                                    $steps["updateAdvDataSpace"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["advData", "space"]
+                                            },
+                                            operation: 0
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateAdvDataSpace"] != null &&
+                                      typeof $steps["updateAdvDataSpace"] ===
+                                        "object" &&
+                                      typeof $steps["updateAdvDataSpace"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateAdvDataSpace"] =
+                                        await $steps["updateAdvDataSpace"];
+                                    }
+                                  }).apply(null, eventArgs);
                                 }}
                                 options={[
                                   { value: "option1", label: "Option 1" },
@@ -497,6 +553,20 @@ function PlasmicPremium__RenderFunc(props) {
                                         "__wab_instance",
                                         sty.button___7JDze
                                       )}
+                                      disabled={(() => {
+                                        try {
+                                          return !$state.advData.space;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
                                       type={"ghost"}
                                     >
                                       <div
@@ -528,191 +598,385 @@ function PlasmicPremium__RenderFunc(props) {
                                 sty.freeBox__aeVft
                               )}
                             >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__usHCo
-                                )}
-                              >
-                                <div
+                              {(() => {
+                                try {
+                                  return $queries.advSlots.data.response.data.advSlots.data.filter(
+                                    item =>
+                                      item.attributes.Adv_Space ===
+                                      $state.advData.space.replaceAll(" ", "_")
+                                  ).length;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__islTo
+                                    sty.freeBox__usHCo
                                   )}
                                 >
-                                  {"Slots Available"}
-                                </div>
-                                <AntdRadioGroup
-                                  data-plasmic-name={"slot2"}
-                                  data-plasmic-override={overrides.slot2}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.slot2
-                                  )}
-                                  onChange={async (...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__islTo
+                                    )}
+                                  >
+                                    {"Slots Available"}
+                                  </div>
+                                  <AntdRadioGroup
+                                    data-plasmic-name={"slot2"}
+                                    data-plasmic-override={overrides.slot2}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.slot2
+                                    )}
+                                    onChange={async (...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "slot2",
+                                        "value"
+                                      ]).apply(null, eventArgs);
+                                      (async value => {
+                                        const $steps = {};
+                                        $steps["updateAdvDataSlot"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "advData",
+                                                    "slot"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: value
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateAdvDataSlot"] != null &&
+                                          typeof $steps["updateAdvDataSlot"] ===
+                                            "object" &&
+                                          typeof $steps["updateAdvDataSlot"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["updateAdvDataSlot"] =
+                                            await $steps["updateAdvDataSlot"];
+                                        }
+                                      }).apply(null, eventArgs);
+                                    }}
+                                    options={[
+                                      { value: "option1", label: "Option 1" },
+                                      { value: "option2", label: "Option 2" }
+                                    ]}
+                                    useChildren={true}
+                                    value={generateStateValueProp($state, [
                                       "slot2",
                                       "value"
-                                    ]).apply(null, eventArgs);
-                                  }}
-                                  options={[
-                                    { value: "option1", label: "Option 1" },
-                                    { value: "option2", label: "Option 2" }
-                                  ]}
-                                  useChildren={true}
-                                  value={generateStateValueProp($state, [
-                                    "slot2",
-                                    "value"
-                                  ])}
-                                >
-                                  {(_par =>
-                                    !_par
-                                      ? []
-                                      : Array.isArray(_par)
-                                      ? _par
-                                      : [_par])([]).map(
-                                    (__plasmic_item_0, __plasmic_idx_0) => {
-                                      const currentItem = __plasmic_item_0;
-                                      const currentIndex = __plasmic_idx_0;
-                                      return (
-                                        <AntdRadio
-                                          data-plasmic-name={"homeBanner2"}
-                                          data-plasmic-override={
-                                            overrides.homeBanner2
+                                    ])}
+                                  >
+                                    {(_par =>
+                                      !_par
+                                        ? []
+                                        : Array.isArray(_par)
+                                        ? _par
+                                        : [_par])(
+                                      (() => {
+                                        try {
+                                          return $queries.advSlots.data.response.data.advSlots.data.filter(
+                                            item =>
+                                              item.attributes.Adv_Space ===
+                                              $state.advData.space.replaceAll(
+                                                " ",
+                                                "_"
+                                              )
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
                                           }
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.homeBanner2
-                                          )}
-                                          key={currentIndex}
-                                          value={(() => {
-                                            try {
-                                              return currentItem.attributes
-                                                .Slot_No;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
+                                          throw e;
+                                        }
+                                      })()
+                                    ).map(
+                                      (__plasmic_item_0, __plasmic_idx_0) => {
+                                        const currentItem = __plasmic_item_0;
+                                        const currentIndex = __plasmic_idx_0;
+                                        return (
+                                          <AntdRadio
+                                            data-plasmic-name={"homeBanner2"}
+                                            data-plasmic-override={
+                                              overrides.homeBanner2
                                             }
-                                          })()}
-                                        >
-                                          <Stack__
-                                            as={"div"}
-                                            hasGap={true}
                                             className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox___4V6Qz
+                                              "__wab_instance",
+                                              sty.homeBanner2
                                             )}
+                                            key={currentIndex}
+                                            value={(() => {
+                                              try {
+                                                return currentItem.attributes
+                                                  .Slot_No;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()}
                                           >
-                                            <div
+                                            <Stack__
+                                              as={"div"}
+                                              hasGap={true}
                                               className={classNames(
                                                 projectcss.all,
-                                                projectcss.__wab_text,
-                                                sty.text__vrs7E
+                                                sty.freeBox___4V6Qz
                                               )}
                                             >
-                                              {""}
-                                            </div>
-                                          </Stack__>
-                                        </AntdRadio>
-                                      );
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__olTq
+                                                )}
+                                              >
+                                                <React.Fragment>
+                                                  {(() => {
+                                                    try {
+                                                      return (
+                                                        $state.advData.space +
+                                                        " Slot " +
+                                                        currentItem.attributes
+                                                          .Slot_No
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return "Home Page Banner";
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                </React.Fragment>
+                                              </div>
+                                            </Stack__>
+                                          </AntdRadio>
+                                        );
+                                      }
+                                    )}
+                                  </AntdRadioGroup>
+                                  <AntdSelect
+                                    data-plasmic-name={"select"}
+                                    data-plasmic-override={overrides.select}
+                                    bordered={false}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.select
+                                    )}
+                                    defaultStylesClassName={classNames(
+                                      projectcss.root_reset,
+                                      projectcss.plasmic_default_styles,
+                                      projectcss.plasmic_mixins,
+                                      projectcss.plasmic_tokens,
+                                      plasmic_antd_5_hostless_css.plasmic_tokens,
+                                      plasmic_plasmic_rich_components_css.plasmic_tokens
+                                    )}
+                                    onChange={async (...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "select",
+                                        "value"
+                                      ]).apply(null, eventArgs);
+                                      (async (value, option) => {
+                                        const $steps = {};
+                                        $steps["updateAdvDataTimeframe"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "advData",
+                                                    "timeframe"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: value
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["updateAdvDataTimeframe"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "updateAdvDataTimeframe"
+                                          ] === "object" &&
+                                          typeof $steps[
+                                            "updateAdvDataTimeframe"
+                                          ].then === "function"
+                                        ) {
+                                          $steps["updateAdvDataTimeframe"] =
+                                            await $steps[
+                                              "updateAdvDataTimeframe"
+                                            ];
+                                        }
+                                      }).apply(null, eventArgs);
+                                    }}
+                                    options={(() => {
+                                      const __composite = [
+                                        {
+                                          value: null,
+                                          label: null,
+                                          type: "option"
+                                        },
+                                        {
+                                          value: null,
+                                          label: null,
+                                          type: "option"
+                                        },
+                                        {
+                                          type: "option",
+                                          value: null,
+                                          label: null
+                                        }
+                                      ];
+
+                                      __composite["0"]["value"] = "daily";
+                                      __composite["0"]["label"] = "Daily";
+                                      __composite["1"]["value"] = "monthly";
+                                      __composite["1"]["label"] = "Monthly";
+                                      __composite["2"]["value"] = "yearly";
+                                      __composite["2"]["label"] = "Yearly";
+                                      return __composite;
+                                    })()}
+                                    placeholder={
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__nPAlc
+                                        )}
+                                      >
+                                        {"Select Time"}
+                                      </div>
                                     }
-                                  )}
-                                </AntdRadioGroup>
-                                <AntdSelect
-                                  data-plasmic-name={"select"}
-                                  data-plasmic-override={overrides.select}
-                                  bordered={false}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.select
-                                  )}
-                                  defaultStylesClassName={classNames(
-                                    projectcss.root_reset,
-                                    projectcss.plasmic_default_styles,
-                                    projectcss.plasmic_mixins,
-                                    projectcss.plasmic_tokens,
-                                    plasmic_antd_5_hostless_css.plasmic_tokens,
-                                    plasmic_plasmic_rich_components_css.plasmic_tokens
-                                  )}
-                                  onChange={async (...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
+                                    popupScopeClassName={sty["select__popup"]}
+                                    suffixIcon={
+                                      <AngleDownIcon
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.svg__xFVi6
+                                        )}
+                                        role={"img"}
+                                      />
+                                    }
+                                    value={generateStateValueProp($state, [
                                       "select",
                                       "value"
-                                    ]).apply(null, eventArgs);
-                                  }}
-                                  options={(() => {
-                                    const __composite = [
-                                      {
-                                        value: null,
-                                        label: null,
-                                        type: "option"
-                                      },
-                                      {
-                                        value: null,
-                                        label: null,
-                                        type: "option"
-                                      },
-                                      {
-                                        type: "option",
-                                        value: null,
-                                        label: null
-                                      }
-                                    ];
+                                    ])}
+                                  />
 
-                                    __composite["0"]["value"] = "daily";
-                                    __composite["0"]["label"] = "Daily";
-                                    __composite["1"]["value"] = "monthly";
-                                    __composite["1"]["label"] = "Monthly";
-                                    __composite["2"]["value"] = "yearly";
-                                    __composite["2"]["label"] = "Yearly";
-                                    return __composite;
-                                  })()}
-                                  placeholder={
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__nPAlc
-                                      )}
-                                    >
-                                      {"Select Time"}
-                                    </div>
-                                  }
-                                  popupScopeClassName={sty["select__popup"]}
-                                  suffixIcon={
-                                    <AngleDownIcon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__xFVi6
-                                      )}
-                                      role={"img"}
-                                    />
-                                  }
-                                  value={generateStateValueProp($state, [
-                                    "select",
-                                    "value"
-                                  ])}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__z8M5B
-                                  )}
-                                >
-                                  {""}
-                                </div>
-                              </Stack__>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__qVprm
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return (() => {
+                                            if (
+                                              $state.advData.timeframe ===
+                                              "daily"
+                                            )
+                                              return "Total: \u20B950";
+                                            if (
+                                              $state.advData.timeframe ===
+                                              "monthly"
+                                            )
+                                              return "Total: \u20B9699";
+                                            if (
+                                              $state.advData.timeframe ===
+                                              "yearly"
+                                            )
+                                              return "Total: \u20B98000";
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "Total: \\u20b9699";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </Stack__>
+                              ) : null}
                               <div
                                 className={classNames(
                                   projectcss.all,
@@ -793,6 +1057,20 @@ function PlasmicPremium__RenderFunc(props) {
                                         "__wab_instance",
                                         sty.button__wa9E
                                       )}
+                                      disabled={(() => {
+                                        try {
+                                          return !$state.advData.slot;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
                                       type={"ghost"}
                                     >
                                       <div
@@ -827,61 +1105,323 @@ function PlasmicPremium__RenderFunc(props) {
                                 sty.freeBox___0Q62P
                               )}
                             >
-                              <Stack__
-                                as={"div"}
-                                data-plasmic-name={"successful"}
-                                data-plasmic-override={overrides.successful}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.successful
-                                )}
-                              >
-                                <CheckCircleSvgrepoComSvgIcon
+                              {(() => {
+                                try {
+                                  return $state.paymentCompleted;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Stack__
+                                  as={"div"}
+                                  data-plasmic-name={"successful"}
+                                  data-plasmic-override={overrides.successful}
+                                  hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__vyDmX
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___0NIq
+                                    sty.successful
                                   )}
                                 >
+                                  <CheckCircleSvgrepoComSvgIcon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__vyDmX
+                                    )}
+                                    role={"img"}
+                                  />
+
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__bB8PI
+                                      sty.freeBox___0NIq
                                     )}
                                   >
-                                    {
-                                      "Successfully purchased advertisement slot!"
-                                    }
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__bB8PI
+                                      )}
+                                    >
+                                      {
+                                        "Successfully purchased advertisement slot!"
+                                      }
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__bCfCa
+                                      )}
+                                    >
+                                      {
+                                        "Visit your dashboard to set the advertisement image"
+                                      }
+                                    </div>
                                   </div>
-                                  <div
+                                  {(() => {
+                                    try {
+                                      return !$state.paymentCompleted;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <div
+                                      data-plasmic-name={"orderDetails2"}
+                                      data-plasmic-override={
+                                        overrides.orderDetails2
+                                      }
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.orderDetails2
+                                      )}
+                                    >
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__nHdh3
+                                        )}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__uuZPu
+                                          )}
+                                        >
+                                          {"Order Details"}
+                                        </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox___39VcD
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text___9HSqu
+                                            )}
+                                          >
+                                            {"Advertisement Space:"}
+                                          </div>
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__xWojp
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return $state.advData.space;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                        </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__cMb4
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__xn1Yl
+                                            )}
+                                          >
+                                            {"Advertisement Slot:"}
+                                          </div>
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__c3D37
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return $state.advData.slot;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                        </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__aMBtr
+                                          )}
+                                        >
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__dbtef
+                                            )}
+                                          >
+                                            {"Advertisement Time:"}
+                                          </div>
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__egHpF
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return (
+                                                    $state.advData.timeframe
+                                                      .charAt(0)
+                                                      .toUpperCase() +
+                                                    $state.advData.timeframe.slice(
+                                                      1
+                                                    )
+                                                  );
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                        </div>
+                                      </Stack__>
+                                    </div>
+                                  ) : null}
+                                  <ButtonContainer
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__bCfCa
+                                      "__wab_instance",
+                                      sty.buttonContainer__j0F4T
                                     )}
                                   >
-                                    {
-                                      "Visit your dashboard to set the advertisement image"
-                                    }
-                                  </div>
-                                </div>
-                                <div
-                                  data-plasmic-name={"orderDetails2"}
-                                  data-plasmic-override={
-                                    overrides.orderDetails2
+                                    <AntdButton
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.button__xlEx
+                                      )}
+                                      ghost={true}
+                                      onClick={async () => {
+                                        const $steps = {};
+                                        $steps["goToDashboard"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                destination: `/vendor/dashboard`
+                                              };
+                                              return (({ destination }) => {
+                                                if (
+                                                  typeof destination ===
+                                                    "string" &&
+                                                  destination.startsWith("#")
+                                                ) {
+                                                  document
+                                                    .getElementById(
+                                                      destination.substr(1)
+                                                    )
+                                                    .scrollIntoView({
+                                                      behavior: "smooth"
+                                                    });
+                                                } else {
+                                                  location.assign(destination);
+                                                }
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["goToDashboard"] != null &&
+                                          typeof $steps["goToDashboard"] ===
+                                            "object" &&
+                                          typeof $steps["goToDashboard"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["goToDashboard"] =
+                                            await $steps["goToDashboard"];
+                                        }
+                                      }}
+                                      size={"large"}
+                                      type={"ghost"}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__wlP5I
+                                        )}
+                                      >
+                                        {"Visit Your Dashboard"}
+                                      </div>
+                                    </AntdButton>
+                                  </ButtonContainer>
+                                </Stack__>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return !$state.paymentCompleted;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
                                   }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  data-plasmic-name={"orderDetails"}
+                                  data-plasmic-override={overrides.orderDetails}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.orderDetails2
+                                    sty.orderDetails
                                   )}
                                 >
                                   <Stack__
@@ -889,14 +1429,14 @@ function PlasmicPremium__RenderFunc(props) {
                                     hasGap={true}
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__nHdh3
+                                      sty.freeBox__xW2U
                                     )}
                                   >
                                     <div
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.__wab_text,
-                                        sty.text__uuZPu
+                                        sty.text__t1K4G
                                       )}
                                     >
                                       {"Order Details"}
@@ -904,14 +1444,14 @@ function PlasmicPremium__RenderFunc(props) {
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox___39VcD
+                                        sty.freeBox___0NyQ
                                       )}
                                     >
                                       <div
                                         className={classNames(
                                           projectcss.all,
                                           projectcss.__wab_text,
-                                          sty.text___9HSqu
+                                          sty.text__n8EGe
                                         )}
                                       >
                                         {"Advertisement Space:"}
@@ -920,48 +1460,93 @@ function PlasmicPremium__RenderFunc(props) {
                                         className={classNames(
                                           projectcss.all,
                                           projectcss.__wab_text,
-                                          sty.text__llgMq
+                                          sty.text__fuMSp
                                         )}
                                       >
-                                        {""}
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return $state.advData.space;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
                                       </div>
                                     </div>
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox__cMb4
+                                        sty.freeBox__kqMec
+                                      )}
+                                    >
+                                      {(() => {
+                                        try {
+                                          return true;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })() ? (
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__q8U99
+                                          )}
+                                        >
+                                          {"Advertisement Slot:"}
+                                        </div>
+                                      ) : null}
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__k67Yp
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return $state.advData.slot;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__oHfp
                                       )}
                                     >
                                       <div
                                         className={classNames(
                                           projectcss.all,
                                           projectcss.__wab_text,
-                                          sty.text__xn1Yl
-                                        )}
-                                      >
-                                        {"Advertisement Slot:"}
-                                      </div>
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__skp9Q
-                                        )}
-                                      >
-                                        {""}
-                                      </div>
-                                    </div>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__aMBtr
-                                      )}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__dbtef
+                                          sty.text__fznZr
                                         )}
                                       >
                                         {"Advertisement Time:"}
@@ -970,210 +1555,301 @@ function PlasmicPremium__RenderFunc(props) {
                                         className={classNames(
                                           projectcss.all,
                                           projectcss.__wab_text,
-                                          sty.text__nFdVo
+                                          sty.text__k4UEy
                                         )}
                                       >
-                                        {""}
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return (
+                                                $state.advData.timeframe
+                                                  .charAt(0)
+                                                  .toUpperCase() +
+                                                $state.advData.timeframe.slice(
+                                                  1
+                                                )
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
                                       </div>
+                                    </div>
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__bTvxK
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (() => {
+                                              if (
+                                                $state.advData.timeframe ===
+                                                "daily"
+                                              )
+                                                return "Total: \u20B950";
+                                              if (
+                                                $state.advData.timeframe ===
+                                                "monthly"
+                                              )
+                                                return "Total: \u20B9699";
+                                              if (
+                                                $state.advData.timeframe ===
+                                                "yearly"
+                                              )
+                                                return "Total: \u20B98000";
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
                                     </div>
                                   </Stack__>
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__ydtAf
+                                    )}
+                                  >
+                                    <TabButton
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.tabButton__olfKz
+                                      )}
+                                      tabKey={"slot"}
+                                    >
+                                      <AntdButton
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.button__hOcHi
+                                        )}
+                                        disabled={(() => {
+                                          try {
+                                            return !$state.advData.slot;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                        type={"ghost"}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__fdaPz
+                                          )}
+                                        >
+                                          {"Back"}
+                                        </div>
+                                      </AntdButton>
+                                    </TabButton>
+                                    <ButtonContainer
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.buttonContainer__seTpP
+                                      )}
+                                    >
+                                      <AntdButton
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.button___7UKeM
+                                        )}
+                                        disabled={(() => {
+                                          try {
+                                            return !$state.advData.slot;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                        onClick={async () => {
+                                          const $steps = {};
+                                          $steps["httpPost"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  dataOp: {
+                                                    sourceId:
+                                                      "9Ec94AiZppYUapp3zS4mTp",
+                                                    opId: "942ab724-a3de-416c-b6f7-8dccce33b5c0",
+                                                    userArgs: {},
+                                                    cacheKey: null,
+                                                    invalidatedKeys: [
+                                                      "plasmic_refresh_all"
+                                                    ],
+
+                                                    roleId: null
+                                                  }
+                                                };
+                                                return (async ({
+                                                  dataOp,
+                                                  continueOnError
+                                                }) => {
+                                                  try {
+                                                    const response =
+                                                      await executePlasmicDataOp(
+                                                        dataOp,
+                                                        {
+                                                          userAuthToken:
+                                                            dataSourcesCtx?.userAuthToken,
+                                                          user: dataSourcesCtx?.user
+                                                        }
+                                                      );
+                                                    await plasmicInvalidate(
+                                                      dataOp.invalidatedKeys
+                                                    );
+                                                    return response;
+                                                  } catch (e) {
+                                                    if (!continueOnError) {
+                                                      throw e;
+                                                    }
+                                                    return e;
+                                                  }
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["httpPost"] != null &&
+                                            typeof $steps["httpPost"] ===
+                                              "object" &&
+                                            typeof $steps["httpPost"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["httpPost"] = await $steps[
+                                              "httpPost"
+                                            ];
+                                          }
+                                          $steps["invokeGlobalAction"] = $steps
+                                            .httpPost.data.response.error
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    undefined,
+                                                    "Failed! Try again in sometime"
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "plasmic-antd5-config-provider.showNotification"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["invokeGlobalAction"] !=
+                                              null &&
+                                            typeof $steps[
+                                              "invokeGlobalAction"
+                                            ] === "object" &&
+                                            typeof $steps["invokeGlobalAction"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["invokeGlobalAction"] =
+                                              await $steps[
+                                                "invokeGlobalAction"
+                                              ];
+                                          }
+                                          $steps["updatePaymentCompleted"] =
+                                            $steps.httpPost.data.response
+                                              .success
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: [
+                                                        "paymentCompleted"
+                                                      ]
+                                                    },
+                                                    operation: 0,
+                                                    value: true
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                          if (
+                                            $steps["updatePaymentCompleted"] !=
+                                              null &&
+                                            typeof $steps[
+                                              "updatePaymentCompleted"
+                                            ] === "object" &&
+                                            typeof $steps[
+                                              "updatePaymentCompleted"
+                                            ].then === "function"
+                                          ) {
+                                            $steps["updatePaymentCompleted"] =
+                                              await $steps[
+                                                "updatePaymentCompleted"
+                                              ];
+                                          }
+                                        }}
+                                        type={"ghost"}
+                                      >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__lL4K8
+                                          )}
+                                        >
+                                          {"Proceed To Payment"}
+                                        </div>
+                                      </AntdButton>
+                                    </ButtonContainer>
+                                  </Stack__>
                                 </div>
-                                <ButtonContainer
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.buttonContainer__j0F4T
-                                  )}
-                                >
-                                  <AntdButton
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.button__xlEx
-                                    )}
-                                    ghost={true}
-                                    size={"large"}
-                                    type={"ghost"}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__wlP5I
-                                      )}
-                                    >
-                                      {"Visit Your Dashboard"}
-                                    </div>
-                                  </AntdButton>
-                                </ButtonContainer>
-                              </Stack__>
-                              <div
-                                data-plasmic-name={"orderDetails"}
-                                data-plasmic-override={overrides.orderDetails}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.orderDetails
-                                )}
-                              >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__xW2U
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__t1K4G
-                                    )}
-                                  >
-                                    {"Order Details"}
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox___0NyQ
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__n8EGe
-                                      )}
-                                    >
-                                      {"Advertisement Space:"}
-                                    </div>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__zoHA
-                                      )}
-                                    >
-                                      {""}
-                                    </div>
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__kqMec
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__q8U99
-                                      )}
-                                    >
-                                      {"Advertisement Slot:"}
-                                    </div>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__vXpYx
-                                      )}
-                                    >
-                                      {""}
-                                    </div>
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__oHfp
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__fznZr
-                                      )}
-                                    >
-                                      {"Advertisement Time:"}
-                                    </div>
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__y2FBc
-                                      )}
-                                    >
-                                      {""}
-                                    </div>
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__t6Msq
-                                    )}
-                                  >
-                                    {""}
-                                  </div>
-                                </Stack__>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__ydtAf
-                                  )}
-                                >
-                                  <TabButton
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.tabButton__olfKz
-                                    )}
-                                    tabKey={"slot"}
-                                  >
-                                    <AntdButton
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.button__hOcHi
-                                      )}
-                                      type={"ghost"}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__fdaPz
-                                        )}
-                                      >
-                                        {"Back"}
-                                      </div>
-                                    </AntdButton>
-                                  </TabButton>
-                                  <ButtonContainer
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.buttonContainer__seTpP
-                                    )}
-                                  >
-                                    <AntdButton
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.button___7UKeM
-                                      )}
-                                      type={"ghost"}
-                                    >
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__lL4K8
-                                        )}
-                                      >
-                                        {"Proceed To Payment"}
-                                      </div>
-                                    </AntdButton>
-                                  </ButtonContainer>
-                                </Stack__>
-                              </div>
+                              ) : null}
                             </Stack__>
                           </TabContent>
                         </div>

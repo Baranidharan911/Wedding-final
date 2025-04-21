@@ -83,8 +83,8 @@ function PlasmicVendorCateogiesCard__RenderFunc(props) {
       href={(() => {
         try {
           return $props.city
-            ? `/search/vendors?city=${$props.city}&type=${$props.category}`
-            : `/search/vendors?type=${$props.category}`;
+            ? `search/Vendor?city=${$props.city}&type=${$props.category}`
+            : `/search/Vendor?type=${$props.category}`;
         } catch (e) {
           if (
             e instanceof TypeError ||

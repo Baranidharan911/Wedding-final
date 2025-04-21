@@ -190,11 +190,24 @@ function PlasmicFeaturingVendorCard__RenderFunc(props) {
         }
       />
 
-      <CrownSvgrepoComSvgIcon
-        className={classNames(projectcss.all, sty.svg__vjx7S)}
-        role={"img"}
-      />
-
+      {(() => {
+        try {
+          return $props.featured;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <CrownSvgrepoComSvgIcon
+          className={classNames(projectcss.all, sty.svg__vjx7S)}
+          role={"img"}
+        />
+      ) : null}
       <div
         className={classNames(
           projectcss.all,

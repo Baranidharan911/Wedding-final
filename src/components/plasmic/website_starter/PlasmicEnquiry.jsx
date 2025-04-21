@@ -56,9 +56,11 @@ function PlasmicEnquiry__RenderFunc(props) {
     query: usePlasmicDataOp(() => {
       return {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "d601eccc-4ce0-4155-aadf-df759265513a",
-        userArgs: {},
-        cacheKey: `plasmic.$.d601eccc-4ce0-4155-aadf-df759265513a.$.`,
+        opId: "1a9e5a2b-2685-4a88-991d-5264d66406e6",
+        userArgs: {
+          headers: [`bearer ${localStorage.getItem("token")}`]
+        },
+        cacheKey: `plasmic.$.1a9e5a2b-2685-4a88-991d-5264d66406e6.$.`,
         invalidatedKeys: null,
         roleId: null
       };

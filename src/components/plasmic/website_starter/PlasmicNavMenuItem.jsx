@@ -46,11 +46,11 @@ createPlasmicElementProxy;
 export const PlasmicNavMenuItem__VariantProps = new Array();
 
 export const PlasmicNavMenuItem__ArgProps = new Array(
+  "activeCustomers",
   "venderInfo",
   "cards",
   "userProfilePicture",
   "city",
-  "activeCustomers",
   "isVendor"
 );
 
@@ -182,7 +182,7 @@ function PlasmicNavMenuItem__RenderFunc(props) {
                               destination: (() => {
                                 try {
                                   return (
-                                    "/search/Service?type=" +
+                                    "/search/Vendor?type=" +
                                     currentItem.attributes.title
                                   );
                                 } catch (e) {
@@ -740,7 +740,7 @@ function PlasmicNavMenuItem__RenderFunc(props) {
           </div>
           {(() => {
             try {
-              return $props.activeCustomers;
+              return !$props.activeCustomers;
             } catch (e) {
               if (
                 e instanceof TypeError ||

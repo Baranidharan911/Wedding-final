@@ -56,9 +56,11 @@ function PlasmicForm__RenderFunc(props) {
     formInfo: usePlasmicDataOp(() => {
       return {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "6edebaac-2712-439e-b8d3-755cfa55bd3f",
-        userArgs: {},
-        cacheKey: `plasmic.$.6edebaac-2712-439e-b8d3-755cfa55bd3f.$.`,
+        opId: "0c04d753-3d2e-4731-9e78-46484b778cb1",
+        userArgs: {
+          variables: [$ctx.params.id]
+        },
+        cacheKey: `plasmic.$.0c04d753-3d2e-4731-9e78-46484b778cb1.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -66,9 +68,11 @@ function PlasmicForm__RenderFunc(props) {
     userId: usePlasmicDataOp(() => {
       return {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "56746803-2848-46c3-b57a-6b1a20cb73cc",
-        userArgs: {},
-        cacheKey: `plasmic.$.56746803-2848-46c3-b57a-6b1a20cb73cc.$.`,
+        opId: "b35d8199-ec72-41aa-bad9-2f903e65fdf9",
+        userArgs: {
+          headers: [`bearer ${localStorage.getItem("token")}`]
+        },
+        cacheKey: `plasmic.$.b35d8199-ec72-41aa-bad9-2f903e65fdf9.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -76,9 +80,11 @@ function PlasmicForm__RenderFunc(props) {
     venderInfo: usePlasmicDataOp(() => {
       return {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
-        opId: "899dcdd9-7907-4951-857f-dc1da3fac18b",
-        userArgs: {},
-        cacheKey: `plasmic.$.899dcdd9-7907-4951-857f-dc1da3fac18b.$.`,
+        opId: "57b1b955-6584-4cc0-a2e0-11ae2f9f8ff4",
+        userArgs: {
+          variables: [$queries.userId.data.response.data.me.id]
+        },
+        cacheKey: `plasmic.$.57b1b955-6584-4cc0-a2e0-11ae2f9f8ff4.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -250,6 +256,48 @@ function PlasmicForm__RenderFunc(props) {
                     "__wab_instance",
                     sty.enquiryFormBuilder
                   )}
+                  currentEnquiry={(() => {
+                    try {
+                      return $queries.formInfo.data.response.data.form.data.attributes.enquiries.data.filter(
+                        enq => enq.id === $ctx.query.enquiry
+                      )[0];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {};
+                      }
+                      throw e;
+                    }
+                  })()}
+                  enquiryForm={(() => {
+                    try {
+                      return $queries.formInfo.data.response.data.form.data
+                        .attributes.questions;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  formId={(() => {
+                    try {
+                      return $ctx.params.id;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
               ) : null}
             </div>

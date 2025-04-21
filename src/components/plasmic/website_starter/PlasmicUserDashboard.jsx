@@ -587,28 +587,84 @@ function PlasmicUserDashboard__RenderFunc(props) {
         path: "firstname.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.userInfo.data.response.data.usersPermissionsUser
+                .data.attributes.FirstName;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
         path: "lastname.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.userInfo.data.response.data.usersPermissionsUser
+                .data.attributes.LastName;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
         path: "whatsapp.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.userInfo.data.response.data.usersPermissionsUser
+                .data.attributes.Whatsapp;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
         path: "phone.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.userInfo.data.response.data.usersPermissionsUser
+                .data.attributes.Whatsapp;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
@@ -676,9 +732,33 @@ function PlasmicUserDashboard__RenderFunc(props) {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
         opId: "49e98aef-cb8c-4949-b093-0798cb3267f2",
         userArgs: {
-          headers: [`bearer ${localStorage.getItem("strapi-jwt")}`]
+          headers: [`bearer ${localStorage.getItem("token")}`]
         },
         cacheKey: `plasmic.$.49e98aef-cb8c-4949-b093-0798cb3267f2.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    userInfo: usePlasmicDataOp(() => {
+      return {
+        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
+        opId: "be11c307-f463-4ebf-8aeb-bfa58a932c02",
+        userArgs: {
+          variables: [$queries.auth.data.response.data.me.id]
+        },
+        cacheKey: `plasmic.$.be11c307-f463-4ebf-8aeb-bfa58a932c02.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    enquiriesinfo: usePlasmicDataOp(() => {
+      return {
+        sourceId: "bvg9JqrXbdUtvMXZbC26cd",
+        opId: "55121eb2-52ba-4a2a-8b85-78e3068be8b2",
+        userArgs: {
+          variables: [$queries.auth.data.response.data.me.id]
+        },
+        cacheKey: `plasmic.$.55121eb2-52ba-4a2a-8b85-78e3068be8b2.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -1543,6 +1623,12 @@ function PlasmicUserDashboard__RenderFunc(props) {
                                                   ["profileInfo", "value"],
                                                   FormWrapper_Helpers
                                                 ).apply(null, eventArgs);
+                                                (async (
+                                                  changedValues,
+                                                  allValues
+                                                ) => {
+                                                  const $steps = {};
+                                                }).apply(null, eventArgs);
                                               },
                                               formItems: [
                                                 {
@@ -1583,7 +1669,7 @@ function PlasmicUserDashboard__RenderFunc(props) {
                                                                 .value
                                                                 .firstname,
                                                               $state.profileInfo
-                                                                .value.lastname,
+                                                                .value.lastName,
                                                               $state.profileInfo
                                                                 .value.whatsapp
                                                             ]
@@ -1890,7 +1976,6 @@ function PlasmicUserDashboard__RenderFunc(props) {
                                                         {"Last Name"}
                                                       </div>
                                                     }
-                                                    name={"lastname"}
                                                     noStyle={true}
                                                   >
                                                     <div
@@ -2073,6 +2158,7 @@ function PlasmicUserDashboard__RenderFunc(props) {
                                                       "__wab_instance",
                                                       sty.formField__alqad
                                                     )}
+                                                    hidden={false}
                                                     initialValue={
                                                       $queries.userInfo.data
                                                         .response.data
@@ -2087,7 +2173,7 @@ function PlasmicUserDashboard__RenderFunc(props) {
                                                           sty.text__nCcg7
                                                         )}
                                                       >
-                                                        {""}
+                                                        {"Whatsapp"}
                                                       </div>
                                                     }
                                                     name={"phone"}
@@ -2291,6 +2377,57 @@ function PlasmicUserDashboard__RenderFunc(props) {
                                             "__wab_instance",
                                             sty.locationForm
                                           )}
+                                          locationId={(() => {
+                                            try {
+                                              return $queries.userInfo?.data
+                                                ?.response?.data
+                                                ?.usersPermissionsUser?.data
+                                                ?.attributes?.location?.data
+                                                ?.id;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                          locationInfo={(() => {
+                                            try {
+                                              return $queries.userInfo.data
+                                                .response.data
+                                                .usersPermissionsUser.data
+                                                .attributes.location.data
+                                                .attributes;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                          userInfo={(() => {
+                                            try {
+                                              return $queries.auth.data.response
+                                                .data.me.id;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
                                         />
                                       </Stack__>
                                     </TabContent>

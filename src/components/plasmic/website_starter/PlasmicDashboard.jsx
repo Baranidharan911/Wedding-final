@@ -733,7 +733,7 @@ function PlasmicDashboard__RenderFunc(props) {
         sourceId: "bvg9JqrXbdUtvMXZbC26cd",
         opId: "8346fd09-c582-407e-a651-62acd88956f8",
         userArgs: {
-          headers: [`bearer ${localStorage.getItem("strapi-jwt")}`]
+          headers: [`bearer ${localStorage.getItem("token")}`]
         },
         cacheKey: `plasmic.$.8346fd09-c582-407e-a651-62acd88956f8.$.`,
         invalidatedKeys: null,
@@ -7954,7 +7954,7 @@ function PlasmicDashboard__RenderFunc(props) {
                                                                   {
                                                                     queryInvalidation:
                                                                       [
-                                                                        "6edebaac-2712-439e-b8d3-755cfa55bd3f"
+                                                                        "0c04d753-3d2e-4731-9e78-46484b778cb1"
                                                                       ]
                                                                   };
                                                                 return (async ({

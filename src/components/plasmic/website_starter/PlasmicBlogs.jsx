@@ -17,11 +17,10 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
-import PageLayout from "../../PageLayout"; // plasmic-import: hH7MsQQ-bd8u/component
+import LayoutDefault from "../../LayoutDefault"; // plasmic-import: 4uZwDUl-gHmp/component
 import SingleBlogDetails2 from "../../SingleBlogDetails2"; // plasmic-import: CsibeLwsObrI/component
 import WeddingPhotographyBlogCard from "../../WeddingPhotographyBlogCard"; // plasmic-import: qBUXaaiW1Dkm/component
 import Button2 from "../../Button2"; // plasmic-import: x0IYxFtlqF54/component
-import EmailSubscription from "../../EmailSubscription"; // plasmic-import: 8K23kVTVNTsQ/component
 import { useScreenVariants as useScreenVariantszapf5SksSeNd } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: ZAPF5sksSeNd/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -35,7 +34,6 @@ import MessagesPeopleManBubble1Icon from "./icons/PlasmicIcon__MessagesPeopleMan
 import MessagesPeopleWomanBubble1Icon from "./icons/PlasmicIcon__MessagesPeopleWomanBubble1"; // plasmic-import: 7qSFYcWmjNp_/icon
 import MessagesPeoplePersonBubble1Icon from "./icons/PlasmicIcon__MessagesPeoplePersonBubble1"; // plasmic-import: IdixEc2FgfFa/icon
 import MessagesPeoplePersonBubbleIcon from "./icons/PlasmicIcon__MessagesPeoplePersonBubble"; // plasmic-import: KF9GUA_LoD7M/icon
-import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: BBAKPheFo4LH/icon
 
 createPlasmicElementProxy;
 
@@ -86,1229 +84,623 @@ function PlasmicBlogs__RenderFunc(props) {
             sty.root
           )}
         >
-          <PageLayout
-            data-plasmic-name={"pageLayout"}
-            data-plasmic-override={overrides.pageLayout}
-            className={classNames("__wab_instance", sty.pageLayout)}
-          />
-
-          <div
-            data-plasmic-name={"featuredImage"}
-            data-plasmic-override={overrides.featuredImage}
-            className={classNames(projectcss.all, sty.featuredImage)}
-          />
-
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"singleBlogPageInfo"}
-            data-plasmic-override={overrides.singleBlogPageInfo}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.singleBlogPageInfo)}
+          <LayoutDefault
+            data-plasmic-name={"layoutDefault"}
+            data-plasmic-override={overrides.layoutDefault}
+            className={classNames("__wab_instance", sty.layoutDefault)}
           >
+            <div
+              data-plasmic-name={"featuredImage"}
+              data-plasmic-override={overrides.featuredImage}
+              className={classNames(projectcss.all, sty.featuredImage)}
+            />
+
             <Stack__
               as={"div"}
-              data-plasmic-name={"profile"}
-              data-plasmic-override={overrides.profile}
+              data-plasmic-name={"singleBlogPageInfo"}
+              data-plasmic-override={overrides.singleBlogPageInfo}
               hasGap={true}
-              className={classNames(projectcss.all, sty.profile)}
-            >
-              <div
-                data-plasmic-name={"profile2"}
-                data-plasmic-override={overrides.profile2}
-                className={classNames(projectcss.all, sty.profile2)}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qbhXp
-                )}
-              >
-                {"Kiran"}
-              </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"blogInfo"}
-              data-plasmic-override={overrides.blogInfo}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.blogInfo)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__npGfD
-                )}
-              >
-                {"12 of February, 2024"}
-              </div>
-              <Ellipse9Icon
-                className={classNames(projectcss.all, sty.svg__iaSbw)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__izwWi
-                )}
-              >
-                {"5 min read"}
-              </div>
-              <Ellipse9Icon
-                className={classNames(projectcss.all, sty.svg__akzxZ)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__uqDe3
-                )}
-              >
-                {"577 views"}
-              </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"likeShare"}
-              data-plasmic-override={overrides.likeShare}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.likeShare)}
-            >
-              <Shape329Icon
-                className={classNames(projectcss.all, sty.svg___2SGor)}
-                role={"img"}
-              />
-
-              <div
-                data-plasmic-name={"interfaceEssentialShareShare1"}
-                data-plasmic-override={overrides.interfaceEssentialShareShare1}
-                className={classNames(
-                  projectcss.all,
-                  sty.interfaceEssentialShareShare1
-                )}
-              >
-                <div
-                  data-plasmic-name={"group394"}
-                  data-plasmic-override={overrides.group394}
-                  className={classNames(projectcss.all, sty.group394)}
-                >
-                  <Share1Icon
-                    className={classNames(projectcss.all, sty.svg___7Hukl)}
-                    role={"img"}
-                  />
-                </div>
-              </div>
-            </Stack__>
-          </Stack__>
-          <div className={classNames(projectcss.all, sty.freeBox__xu0G)}>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"tableOfContents2"}
-              data-plasmic-override={overrides.tableOfContents2}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.tableOfContents2)}
+              className={classNames(projectcss.all, sty.singleBlogPageInfo)}
             >
               <Stack__
                 as={"div"}
-                data-plasmic-name={"frame1000006071"}
-                data-plasmic-override={overrides.frame1000006071}
+                data-plasmic-name={"profile"}
+                data-plasmic-override={overrides.profile}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.frame1000006071)}
+                className={classNames(projectcss.all, sty.profile)}
               >
+                <div
+                  data-plasmic-name={"profile2"}
+                  data-plasmic-override={overrides.profile2}
+                  className={classNames(projectcss.all, sty.profile2)}
+                />
+
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__mIdns
+                    sty.text__qbhXp
                   )}
                 >
-                  {"TABLE OF CONTENTS"}
+                  {"Kiran"}
                 </div>
               </Stack__>
               <Stack__
                 as={"div"}
-                data-plasmic-name={"tableOfContent2"}
-                data-plasmic-override={overrides.tableOfContent2}
+                data-plasmic-name={"blogInfo"}
+                data-plasmic-override={overrides.blogInfo}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.tableOfContent2)}
+                className={classNames(projectcss.all, sty.blogInfo)}
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__rWHi
+                    sty.text__npGfD
                   )}
                 >
-                  {"Abros"}
+                  {"12 of February, 2024"}
                 </div>
+                <Ellipse9Icon
+                  className={classNames(projectcss.all, sty.svg__iaSbw)}
+                  role={"img"}
+                />
+
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__rix98
+                    sty.text__izwWi
                   )}
                 >
-                  {"Beyond Tara"}
+                  {"5 min read"}
                 </div>
+                <Ellipse9Icon
+                  className={classNames(projectcss.all, sty.svg__akzxZ)}
+                  role={"img"}
+                />
+
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__wGjA
+                    sty.text__uqDe3
                   )}
                 >
-                  {"Hop Over Tales"}
+                  {"577 views"}
                 </div>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"likeShare"}
+                data-plasmic-override={overrides.likeShare}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.likeShare)}
+              >
+                <Shape329Icon
+                  className={classNames(projectcss.all, sty.svg___2SGor)}
+                  role={"img"}
+                />
+
                 <div
+                  data-plasmic-name={"interfaceEssentialShareShare1"}
+                  data-plasmic-override={
+                    overrides.interfaceEssentialShareShare1
+                  }
                   className={classNames(
                     projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nlUwy
+                    sty.interfaceEssentialShareShare1
                   )}
                 >
-                  {"Mandakini"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___7GlGb
-                  )}
-                >
-                  {"Nero India"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___175Ca
-                  )}
-                >
-                  {"Noroke"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oom8G
-                  )}
-                >
-                  {"Tarini Vij"}
+                  <div
+                    data-plasmic-name={"group394"}
+                    data-plasmic-override={overrides.group394}
+                    className={classNames(projectcss.all, sty.group394)}
+                  >
+                    <Share1Icon
+                      className={classNames(projectcss.all, sty.svg___7Hukl)}
+                      role={"img"}
+                    />
+                  </div>
                 </div>
               </Stack__>
             </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"blogContent"}
-              data-plasmic-override={overrides.blogContent}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.blogContent)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__mPmfU
-                )}
-              >
-                {
-                  "2024 Style Guide: Unveiling the Hottest Fashion and Lifestyle Brands"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__lCBmR
-                )}
-              >
-                {
-                  "In 2024, the world of fashion and lifestyle brands is evolving at a rapid pace, offering consumers an array of exciting options to explore. From sustainable fashion pioneers to innovative tech-infused designs, this year\u2019s selection promises something for everyone. Whether you\u2019re seeking timeless elegance, cutting-edge trends, or eco-conscious choices, the diverse landscape of brands has never been more vibrant. Join us as we delve into the top picks for fashion-forward individuals looking to elevate their wardrobe and lifestyle in 2024."
-                }
-              </div>
-              <SingleBlogDetails2
-                className={classNames(
-                  "__wab_instance",
-                  sty.singleBlogDetails2__eNzzx
-                )}
-              />
-
-              <SingleBlogDetails2
-                className={classNames(
-                  "__wab_instance",
-                  sty.singleBlogDetails2__nPlx
-                )}
-              />
-
-              <SingleBlogDetails2
-                className={classNames(
-                  "__wab_instance",
-                  sty.singleBlogDetails2___0LX3M
-                )}
-              />
-
-              <SingleBlogDetails2
-                className={classNames(
-                  "__wab_instance",
-                  sty.singleBlogDetails2__mGlO
-                )}
-              />
-
-              <SingleBlogDetails2
-                className={classNames(
-                  "__wab_instance",
-                  sty.singleBlogDetails2__qF0Lr
-                )}
-              />
-
-              <SingleBlogDetails2
-                className={classNames(
-                  "__wab_instance",
-                  sty.singleBlogDetails2__wQe5S
-                )}
-              />
-
-              <SingleBlogDetails2
-                className={classNames(
-                  "__wab_instance",
-                  sty.singleBlogDetails2___6Hbru
-                )}
-              />
-            </Stack__>
-          </div>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"singleBlogPageInfo3"}
-            data-plasmic-override={overrides.singleBlogPageInfo3}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.singleBlogPageInfo3)}
-          >
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"profile5"}
-              data-plasmic-override={overrides.profile5}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.profile5)}
-            >
-              <div
-                data-plasmic-name={"profile6"}
-                data-plasmic-override={overrides.profile6}
-                className={classNames(projectcss.all, sty.profile6)}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__agniG
-                )}
-              >
-                {"Kiran"}
-              </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"blogInfo3"}
-              data-plasmic-override={overrides.blogInfo3}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.blogInfo3)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__e3Dx
-                )}
-              >
-                {"12 of February, 2024"}
-              </div>
-              <Ellipse9Icon
-                className={classNames(projectcss.all, sty.svg__gfPcy)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___23Kpd
-                )}
-              >
-                {"5 min read"}
-              </div>
-              <Ellipse9Icon
-                className={classNames(projectcss.all, sty.svg___1Guq4)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vtcD9
-                )}
-              >
-                {"577 views"}
-              </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"likeShare3"}
-              data-plasmic-override={overrides.likeShare3}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.likeShare3)}
-            >
-              <Shape329Icon
-                className={classNames(projectcss.all, sty.svg__akhCy)}
-                role={"img"}
-              />
-
-              <div
-                data-plasmic-name={"interfaceEssentialShareShare13"}
-                data-plasmic-override={overrides.interfaceEssentialShareShare13}
-                className={classNames(
-                  projectcss.all,
-                  sty.interfaceEssentialShareShare13
-                )}
-              >
-                <div
-                  data-plasmic-name={"group396"}
-                  data-plasmic-override={overrides.group396}
-                  className={classNames(projectcss.all, sty.group396)}
-                >
-                  <Share1Icon
-                    className={classNames(projectcss.all, sty.svg___4Rtwk)}
-                    role={"img"}
-                  />
-                </div>
-              </div>
-            </Stack__>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"recentPost"}
-            data-plasmic-override={overrides.recentPost}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.recentPost)}
-          >
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"header"}
-              data-plasmic-override={overrides.header}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.header)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__d6Hl
-                )}
-              >
-                {"Wedding Photography Blogs"}
-              </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"blogGrid"}
-              data-plasmic-override={overrides.blogGrid}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.blogGrid)}
-            >
-              <WeddingPhotographyBlogCard
-                className={classNames(
-                  "__wab_instance",
-                  sty.weddingPhotographyBlogCard__h5DS
-                )}
-              />
-
-              <WeddingPhotographyBlogCard
-                className={classNames(
-                  "__wab_instance",
-                  sty.weddingPhotographyBlogCard__qyFtm
-                )}
-              />
-
-              <WeddingPhotographyBlogCard
-                className={classNames(
-                  "__wab_instance",
-                  sty.weddingPhotographyBlogCard__sLxzJ
-                )}
-              />
-
-              <WeddingPhotographyBlogCard
-                className={classNames(
-                  "__wab_instance",
-                  sty.weddingPhotographyBlogCard__kwIiz
-                )}
-              />
-            </Stack__>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            data-plasmic-name={"community"}
-            data-plasmic-override={overrides.community}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.community)}
-          >
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"frame1000005945"}
-              data-plasmic-override={overrides.frame1000005945}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.frame1000005945)}
+            <div
+              data-plasmic-name={"freeBox"}
+              data-plasmic-override={overrides.freeBox}
+              className={classNames(projectcss.all, sty.freeBox)}
             >
               <Stack__
                 as={"div"}
-                data-plasmic-name={"frame1000005944"}
-                data-plasmic-override={overrides.frame1000005944}
+                data-plasmic-name={"tableOfContents2"}
+                data-plasmic-override={overrides.tableOfContents2}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.frame1000005944)}
+                className={classNames(projectcss.all, sty.tableOfContents2)}
+              >
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"frame1000006071"}
+                  data-plasmic-override={overrides.frame1000006071}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.frame1000006071)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mIdns
+                    )}
+                  >
+                    {"TABLE OF CONTENTS"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"tableOfContent2"}
+                  data-plasmic-override={overrides.tableOfContent2}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.tableOfContent2)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__rWHi
+                    )}
+                  >
+                    {"Abros"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__rix98
+                    )}
+                  >
+                    {"Beyond Tara"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__wGjA
+                    )}
+                  >
+                    {"Hop Over Tales"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nlUwy
+                    )}
+                  >
+                    {"Mandakini"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___7GlGb
+                    )}
+                  >
+                    {"Nero India"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___175Ca
+                    )}
+                  >
+                    {"Noroke"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__oom8G
+                    )}
+                  >
+                    {"Tarini Vij"}
+                  </div>
+                </Stack__>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"blogContent"}
+                data-plasmic-override={overrides.blogContent}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.blogContent)}
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__p9KOr
-                  )}
-                >
-                  {"Join our Wedding Vows Community Forum"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__htcCk
+                    sty.text__mPmfU
                   )}
                 >
                   {
-                    "A space to share, connect, and inspire. Dive into discussions on crafting perfect vows, seek advice, and celebrate enduring love with a vibrant community of couples and dreamers. Your virtual hub for support, creativity, and the magic of heartfelt promises."
+                    "2024 Style Guide: Unveiling the Hottest Fashion and Lifestyle Brands"
                   }
                 </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__lCBmR
+                  )}
+                >
+                  {
+                    "In 2024, the world of fashion and lifestyle brands is evolving at a rapid pace, offering consumers an array of exciting options to explore. From sustainable fashion pioneers to innovative tech-infused designs, this year\u2019s selection promises something for everyone. Whether you\u2019re seeking timeless elegance, cutting-edge trends, or eco-conscious choices, the diverse landscape of brands has never been more vibrant. Join us as we delve into the top picks for fashion-forward individuals looking to elevate their wardrobe and lifestyle in 2024."
+                  }
+                </div>
+                <SingleBlogDetails2
+                  className={classNames(
+                    "__wab_instance",
+                    sty.singleBlogDetails2__eNzzx
+                  )}
+                />
+
+                <SingleBlogDetails2
+                  className={classNames(
+                    "__wab_instance",
+                    sty.singleBlogDetails2__nPlx
+                  )}
+                />
+
+                <SingleBlogDetails2
+                  className={classNames(
+                    "__wab_instance",
+                    sty.singleBlogDetails2___0LX3M
+                  )}
+                />
+
+                <SingleBlogDetails2
+                  className={classNames(
+                    "__wab_instance",
+                    sty.singleBlogDetails2__mGlO
+                  )}
+                />
+
+                <SingleBlogDetails2
+                  className={classNames(
+                    "__wab_instance",
+                    sty.singleBlogDetails2__qF0Lr
+                  )}
+                />
+
+                <SingleBlogDetails2
+                  className={classNames(
+                    "__wab_instance",
+                    sty.singleBlogDetails2__wQe5S
+                  )}
+                />
+
+                <SingleBlogDetails2
+                  className={classNames(
+                    "__wab_instance",
+                    sty.singleBlogDetails2___6Hbru
+                  )}
+                />
               </Stack__>
-              <Button2
-                className={classNames("__wab_instance", sty.button2__eateN)}
-                color={"red"}
+            </div>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"singleBlogPageInfo3"}
+              data-plasmic-override={overrides.singleBlogPageInfo3}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.singleBlogPageInfo3)}
+            >
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"profile5"}
+                data-plasmic-override={overrides.profile5}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.profile5)}
+              >
+                <div
+                  data-plasmic-name={"profile6"}
+                  data-plasmic-override={overrides.profile6}
+                  className={classNames(projectcss.all, sty.profile6)}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__agniG
+                  )}
+                >
+                  {"Kiran"}
+                </div>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"blogInfo3"}
+                data-plasmic-override={overrides.blogInfo3}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.blogInfo3)}
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__tBdmp
+                    sty.text__e3Dx
                   )}
                 >
-                  {"Join the community Now"}
+                  {"12 of February, 2024"}
                 </div>
-              </Button2>
-            </Stack__>
-            <div
-              data-plasmic-name={"group367"}
-              data-plasmic-override={overrides.group367}
-              className={classNames(projectcss.all, sty.group367)}
-            >
-              <div
-                data-plasmic-name={
-                  "messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1"
-                }
-                data-plasmic-override={
-                  overrides.messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1
-                }
-                className={classNames(
-                  projectcss.all,
-                  sty.messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1
-                )}
-              >
-                <div
-                  data-plasmic-name={"group"}
-                  data-plasmic-override={overrides.group}
-                  className={classNames(projectcss.all, sty.group)}
-                >
-                  <MessagesPeopleManBubble1Icon
-                    className={classNames(projectcss.all, sty.svg__dWlyo)}
-                    role={"img"}
-                  />
-                </div>
-              </div>
-              <div
-                data-plasmic-name={
-                  "messagesChatSmileysMessgaesPeopleMessagesPeopleWomanBubble1"
-                }
-                data-plasmic-override={
-                  overrides.messagesChatSmileysMessgaesPeopleMessagesPeopleWomanBubble1
-                }
-                className={classNames(
-                  projectcss.all,
-                  sty.messagesChatSmileysMessgaesPeopleMessagesPeopleWomanBubble1
-                )}
-              >
-                <div
-                  data-plasmic-name={"group31"}
-                  data-plasmic-override={overrides.group31}
-                  className={classNames(projectcss.all, sty.group31)}
-                >
-                  <MessagesPeopleWomanBubble1Icon
-                    className={classNames(projectcss.all, sty.svg___9CRvw)}
-                    role={"img"}
-                  />
-                </div>
-              </div>
-              <div
-                data-plasmic-name={
-                  "messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1"
-                }
-                data-plasmic-override={
-                  overrides.messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1
-                }
-                className={classNames(
-                  projectcss.all,
-                  sty.messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1
-                )}
-              >
-                <div
-                  data-plasmic-name={"group9"}
-                  data-plasmic-override={overrides.group9}
-                  className={classNames(projectcss.all, sty.group9)}
-                >
-                  <MessagesPeoplePersonBubble1Icon
-                    className={classNames(projectcss.all, sty.svg__up4Je)}
-                    role={"img"}
-                  />
-                </div>
-              </div>
-              <div
-                data-plasmic-name={"group16"}
-                data-plasmic-override={overrides.group16}
-                className={classNames(projectcss.all, sty.group16)}
-              >
-                <MessagesPeoplePersonBubbleIcon
-                  className={classNames(projectcss.all, sty.svg__oyxY7)}
+                <Ellipse9Icon
+                  className={classNames(projectcss.all, sty.svg__gfPcy)}
                   role={"img"}
                 />
-              </div>
-            </div>
-          </Stack__>
-          <div
-            data-plasmic-name={"footer"}
-            data-plasmic-override={overrides.footer}
-            className={classNames(projectcss.all, sty.footer)}
-          >
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"footerCards"}
-              data-plasmic-override={overrides.footerCards}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.footerCards)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__aRwl4
-                )}
-              >
-                {
-                  "Thank you for choosing Wedding Vows to be part of your extraordinary journey. As you embark on this beautiful adventure of love, may your vows become the foundation of a lifetime filled with joy, understanding, and countless cherished moments. Our commitment is to make every step of your wedding journey memorable, ensuring that your celebration reflects the uniqueness of your love story. Feel the warmth of our support, the creativity of our services, and the dedication of our team. Your moments are precious, and we're honoured to be a part of them."
-                }
-              </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___23Kpd
+                  )}
+                >
+                  {"5 min read"}
+                </div>
+                <Ellipse9Icon
+                  className={classNames(projectcss.all, sty.svg___1Guq4)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__vtcD9
+                  )}
+                >
+                  {"577 views"}
+                </div>
+              </Stack__>
               <Stack__
                 as={"div"}
-                data-plasmic-name={"frame1000005943"}
-                data-plasmic-override={overrides.frame1000005943}
+                data-plasmic-name={"likeShare3"}
+                data-plasmic-override={overrides.likeShare3}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.frame1000005943)}
+                className={classNames(projectcss.all, sty.likeShare3)}
               >
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card"}
-                  data-plasmic-override={overrides.card}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card)}
+                <Shape329Icon
+                  className={classNames(projectcss.all, sty.svg__akhCy)}
+                  role={"img"}
+                />
+
+                <div
+                  data-plasmic-name={"interfaceEssentialShareShare13"}
+                  data-plasmic-override={
+                    overrides.interfaceEssentialShareShare13
+                  }
+                  className={classNames(
+                    projectcss.all,
+                    sty.interfaceEssentialShareShare13
+                  )}
                 >
-                  <Stack__
-                    as={"div"}
-                    data-plasmic-name={"frame1000005932"}
-                    data-plasmic-override={overrides.frame1000005932}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.frame1000005932)}
+                  <div
+                    data-plasmic-name={"group396"}
+                    data-plasmic-override={overrides.group396}
+                    className={classNames(projectcss.all, sty.group396)}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__tTO0
-                      )}
-                    >
-                      {"Contact us to get best deals"}
-                    </div>
-                    <Stack__
-                      as={"div"}
-                      data-plasmic-name={"frame1000005931"}
-                      data-plasmic-override={overrides.frame1000005931}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.frame1000005931
-                      )}
-                    >
-                      <Stack__
-                        as={"div"}
-                        data-plasmic-name={"frame1000005929"}
-                        data-plasmic-override={overrides.frame1000005929}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.frame1000005929
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__hjuNy
-                          )}
-                        >
-                          {"For Vendors"}
-                        </div>
-                        <div
-                          data-plasmic-name={"linkButton"}
-                          data-plasmic-override={overrides.linkButton}
-                          className={classNames(projectcss.all, sty.linkButton)}
-                        >
-                          <div
-                            data-plasmic-name={"button22"}
-                            data-plasmic-override={overrides.button22}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.button22
-                            )}
-                          >
-                            {"vendors@wedding.com"}
-                          </div>
-                        </div>
-                      </Stack__>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___9IZ9P
-                        )}
-                      >
-                        <Line3Icon
-                          className={classNames(
-                            projectcss.all,
-                            sty.svg___2XtvG
-                          )}
-                          role={"img"}
-                        />
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        data-plasmic-name={"frame1000005930"}
-                        data-plasmic-override={overrides.frame1000005930}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.frame1000005930
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__eAlCk
-                          )}
-                        >
-                          {"For Users"}
-                        </div>
-                        <div
-                          data-plasmic-name={"linkButton2"}
-                          data-plasmic-override={overrides.linkButton2}
-                          className={classNames(
-                            projectcss.all,
-                            sty.linkButton2
-                          )}
-                        >
-                          <div
-                            data-plasmic-name={"button2"}
-                            data-plasmic-override={overrides.button2}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.button2
-                            )}
-                          >
-                            {"info@wedding.com"}
-                          </div>
-                        </div>
-                      </Stack__>
-                    </Stack__>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    data-plasmic-name={"frame1000005933"}
-                    data-plasmic-override={overrides.frame1000005933}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.frame1000005933)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__djx5F
-                      )}
-                    >
-                      {"Newsletter & Magazine Subscriptions"}
-                    </div>
-                    <EmailSubscription
-                      data-plasmic-name={"emailSubscription"}
-                      data-plasmic-override={overrides.emailSubscription}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.emailSubscription
-                      )}
+                    <Share1Icon
+                      className={classNames(projectcss.all, sty.svg___4Rtwk)}
+                      role={"img"}
                     />
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card2"}
-                  data-plasmic-override={overrides.card2}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card2)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qzPud
-                    )}
-                  >
-                    {"Start Planning"}
                   </div>
-                  <Stack__
-                    as={"div"}
-                    data-plasmic-name={"frame1000005935"}
-                    data-plasmic-override={overrides.frame1000005935}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.frame1000005935)}
-                  >
-                    <div
-                      data-plasmic-name={"linkButton3"}
-                      data-plasmic-override={overrides.linkButton3}
-                      className={classNames(projectcss.all, sty.linkButton3)}
-                    >
-                      <div
-                        data-plasmic-name={"button4"}
-                        data-plasmic-override={overrides.button4}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button4
-                        )}
-                      >
-                        {"Search By Vendor"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton4"}
-                      data-plasmic-override={overrides.linkButton4}
-                      className={classNames(projectcss.all, sty.linkButton4)}
-                    >
-                      <div
-                        data-plasmic-name={"button5"}
-                        data-plasmic-override={overrides.button5}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button5
-                        )}
-                      >
-                        {"Search By City"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton5"}
-                      data-plasmic-override={overrides.linkButton5}
-                      className={classNames(projectcss.all, sty.linkButton5)}
-                    >
-                      <div
-                        data-plasmic-name={"button6"}
-                        data-plasmic-override={overrides.button6}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button6
-                        )}
-                      >
-                        {"Top Rated Vendors"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton6"}
-                      data-plasmic-override={overrides.linkButton6}
-                      className={classNames(projectcss.all, sty.linkButton6)}
-                    >
-                      <div
-                        data-plasmic-name={"button7"}
-                        data-plasmic-override={overrides.button7}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button7
-                        )}
-                      >
-                        {"Destination Wedding"}
-                      </div>
-                    </div>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card3"}
-                  data-plasmic-override={overrides.card3}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card3)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gjEN
-                    )}
-                  >
-                    {"Wedding Ideas"}
-                  </div>
-                  <Stack__
-                    as={"div"}
-                    data-plasmic-name={"frame1000005936"}
-                    data-plasmic-override={overrides.frame1000005936}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.frame1000005936)}
-                  >
-                    <div
-                      data-plasmic-name={"linkButton7"}
-                      data-plasmic-override={overrides.linkButton7}
-                      className={classNames(projectcss.all, sty.linkButton7)}
-                    >
-                      <div
-                        data-plasmic-name={"button8"}
-                        data-plasmic-override={overrides.button8}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button8
-                        )}
-                      >
-                        {"Wedding Blog"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton8"}
-                      data-plasmic-override={overrides.linkButton8}
-                      className={classNames(projectcss.all, sty.linkButton8)}
-                    >
-                      <div
-                        data-plasmic-name={"button9"}
-                        data-plasmic-override={overrides.button9}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button9
-                        )}
-                      >
-                        {"Wedding Inspiration Gallery"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton9"}
-                      data-plasmic-override={overrides.linkButton9}
-                      className={classNames(projectcss.all, sty.linkButton9)}
-                    >
-                      <div
-                        data-plasmic-name={"button10"}
-                        data-plasmic-override={overrides.button10}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button10
-                        )}
-                      >
-                        {"Real Wedding"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton10"}
-                      data-plasmic-override={overrides.linkButton10}
-                      className={classNames(projectcss.all, sty.linkButton10)}
-                    >
-                      <div
-                        data-plasmic-name={"button11"}
-                        data-plasmic-override={overrides.button11}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button11
-                        )}
-                      >
-                        {"Submit Wedding"}
-                      </div>
-                    </div>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card4"}
-                  data-plasmic-override={overrides.card4}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card4)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gtqS5
-                    )}
-                  >
-                    {"Social Links"}
-                  </div>
-                  <Stack__
-                    as={"div"}
-                    data-plasmic-name={"frame1000005937"}
-                    data-plasmic-override={overrides.frame1000005937}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.frame1000005937)}
-                  >
-                    <div
-                      data-plasmic-name={"linkButton11"}
-                      data-plasmic-override={overrides.linkButton11}
-                      className={classNames(projectcss.all, sty.linkButton11)}
-                    >
-                      <div
-                        data-plasmic-name={"button12"}
-                        data-plasmic-override={overrides.button12}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button12
-                        )}
-                      >
-                        {"Instagram"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton12"}
-                      data-plasmic-override={overrides.linkButton12}
-                      className={classNames(projectcss.all, sty.linkButton12)}
-                    >
-                      <div
-                        data-plasmic-name={"button13"}
-                        data-plasmic-override={overrides.button13}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button13
-                        )}
-                      >
-                        {"Facebook"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton13"}
-                      data-plasmic-override={overrides.linkButton13}
-                      className={classNames(projectcss.all, sty.linkButton13)}
-                    >
-                      <div
-                        data-plasmic-name={"button14"}
-                        data-plasmic-override={overrides.button14}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button14
-                        )}
-                      >
-                        {"Youtube"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton14"}
-                      data-plasmic-override={overrides.linkButton14}
-                      className={classNames(projectcss.all, sty.linkButton14)}
-                    >
-                      <div
-                        data-plasmic-name={"button15"}
-                        data-plasmic-override={overrides.button15}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button15
-                        )}
-                      >
-                        {"Twitter"}
-                      </div>
-                    </div>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card5"}
-                  data-plasmic-override={overrides.card5}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card5)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__blbbH
-                    )}
-                  >
-                    {"Sitemap"}
-                  </div>
-                  <Stack__
-                    as={"div"}
-                    data-plasmic-name={"frame1000005938"}
-                    data-plasmic-override={overrides.frame1000005938}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.frame1000005938)}
-                  >
-                    <div
-                      data-plasmic-name={"linkButton15"}
-                      data-plasmic-override={overrides.linkButton15}
-                      className={classNames(projectcss.all, sty.linkButton15)}
-                    >
-                      <div
-                        data-plasmic-name={"button16"}
-                        data-plasmic-override={overrides.button16}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button16
-                        )}
-                      >
-                        {"About Wedding Vows"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton16"}
-                      data-plasmic-override={overrides.linkButton16}
-                      className={classNames(projectcss.all, sty.linkButton16)}
-                    >
-                      <div
-                        data-plasmic-name={"button17"}
-                        data-plasmic-override={overrides.button17}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button17
-                        )}
-                      >
-                        {"Careers"}
-                      </div>
-                    </div>
-                    <div
-                      data-plasmic-name={"linkButton17"}
-                      data-plasmic-override={overrides.linkButton17}
-                      className={classNames(projectcss.all, sty.linkButton17)}
-                    >
-                      <div
-                        data-plasmic-name={"button18"}
-                        data-plasmic-override={overrides.button18}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.button18
-                        )}
-                      >
-                        {"Contact Us"}
-                      </div>
-                    </div>
-                  </Stack__>
-                </Stack__>
+                </div>
               </Stack__>
             </Stack__>
             <Stack__
               as={"div"}
-              data-plasmic-name={"footer2"}
-              data-plasmic-override={overrides.footer2}
+              data-plasmic-name={"recentPost"}
+              data-plasmic-override={overrides.recentPost}
               hasGap={true}
-              className={classNames(projectcss.all, sty.footer2)}
+              className={classNames(projectcss.all, sty.recentPost)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__z1Kts
-                )}
-              >
-                {"\u00a9 2024 | Wedding Vows"}
-              </div>
               <Stack__
                 as={"div"}
-                data-plasmic-name={"frame1000005942"}
-                data-plasmic-override={overrides.frame1000005942}
+                data-plasmic-name={"header"}
+                data-plasmic-override={overrides.header}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.frame1000005942)}
+                className={classNames(projectcss.all, sty.header)}
               >
                 <div
-                  data-plasmic-name={"linkButton18"}
-                  data-plasmic-override={overrides.linkButton18}
-                  className={classNames(projectcss.all, sty.linkButton18)}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__d6Hl
+                  )}
                 >
-                  <div
-                    data-plasmic-name={"button19"}
-                    data-plasmic-override={overrides.button19}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.button19
-                    )}
-                  >
-                    {"Terms & Conditions"}
-                  </div>
-                </div>
-                <div
-                  data-plasmic-name={"linkButton19"}
-                  data-plasmic-override={overrides.linkButton19}
-                  className={classNames(projectcss.all, sty.linkButton19)}
-                >
-                  <div
-                    data-plasmic-name={"button20"}
-                    data-plasmic-override={overrides.button20}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.button20
-                    )}
-                  >
-                    {"Privacy Policy"}
-                  </div>
-                </div>
-                <div
-                  data-plasmic-name={"linkButton20"}
-                  data-plasmic-override={overrides.linkButton20}
-                  className={classNames(projectcss.all, sty.linkButton20)}
-                >
-                  <div
-                    data-plasmic-name={"button21"}
-                    data-plasmic-override={overrides.button21}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.button21
-                    )}
-                  >
-                    {"Cancellation Policy"}
-                  </div>
+                  {"Wedding Photography Blogs"}
                 </div>
               </Stack__>
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"blogGrid"}
+                data-plasmic-override={overrides.blogGrid}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.blogGrid)}
+              >
+                <WeddingPhotographyBlogCard
+                  className={classNames(
+                    "__wab_instance",
+                    sty.weddingPhotographyBlogCard__h5DS
+                  )}
+                />
+
+                <WeddingPhotographyBlogCard
+                  className={classNames(
+                    "__wab_instance",
+                    sty.weddingPhotographyBlogCard__qyFtm
+                  )}
+                />
+
+                <WeddingPhotographyBlogCard
+                  className={classNames(
+                    "__wab_instance",
+                    sty.weddingPhotographyBlogCard__sLxzJ
+                  )}
+                />
+
+                <WeddingPhotographyBlogCard
+                  className={classNames(
+                    "__wab_instance",
+                    sty.weddingPhotographyBlogCard__kwIiz
+                  )}
+                />
+              </Stack__>
             </Stack__>
-          </div>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"community"}
+              data-plasmic-override={overrides.community}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.community)}
+            >
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"frame1000005945"}
+                data-plasmic-override={overrides.frame1000005945}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.frame1000005945)}
+              >
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"frame1000005944"}
+                  data-plasmic-override={overrides.frame1000005944}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.frame1000005944)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__p9KOr
+                    )}
+                  >
+                    {"Join our Wedding Vows Community Forum"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__htcCk
+                    )}
+                  >
+                    {
+                      "A space to share, connect, and inspire. Dive into discussions on crafting perfect vows, seek advice, and celebrate enduring love with a vibrant community of couples and dreamers. Your virtual hub for support, creativity, and the magic of heartfelt promises."
+                    }
+                  </div>
+                </Stack__>
+                <Button2
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  color={"red"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__tBdmp
+                    )}
+                  >
+                    {"Join the community Now"}
+                  </div>
+                </Button2>
+              </Stack__>
+              <div
+                data-plasmic-name={"group367"}
+                data-plasmic-override={overrides.group367}
+                className={classNames(projectcss.all, sty.group367)}
+              >
+                <div
+                  data-plasmic-name={
+                    "messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1"
+                  }
+                  data-plasmic-override={
+                    overrides.messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1
+                  }
+                  className={classNames(
+                    projectcss.all,
+                    sty.messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1
+                  )}
+                >
+                  <div
+                    data-plasmic-name={"group"}
+                    data-plasmic-override={overrides.group}
+                    className={classNames(projectcss.all, sty.group)}
+                  >
+                    <MessagesPeopleManBubble1Icon
+                      className={classNames(projectcss.all, sty.svg__dWlyo)}
+                      role={"img"}
+                    />
+                  </div>
+                </div>
+                <div
+                  data-plasmic-name={
+                    "messagesChatSmileysMessgaesPeopleMessagesPeopleWomanBubble1"
+                  }
+                  data-plasmic-override={
+                    overrides.messagesChatSmileysMessgaesPeopleMessagesPeopleWomanBubble1
+                  }
+                  className={classNames(
+                    projectcss.all,
+                    sty.messagesChatSmileysMessgaesPeopleMessagesPeopleWomanBubble1
+                  )}
+                >
+                  <div
+                    data-plasmic-name={"group31"}
+                    data-plasmic-override={overrides.group31}
+                    className={classNames(projectcss.all, sty.group31)}
+                  >
+                    <MessagesPeopleWomanBubble1Icon
+                      className={classNames(projectcss.all, sty.svg___9CRvw)}
+                      role={"img"}
+                    />
+                  </div>
+                </div>
+                <div
+                  data-plasmic-name={
+                    "messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1"
+                  }
+                  data-plasmic-override={
+                    overrides.messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1
+                  }
+                  className={classNames(
+                    projectcss.all,
+                    sty.messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1
+                  )}
+                >
+                  <div
+                    data-plasmic-name={"group9"}
+                    data-plasmic-override={overrides.group9}
+                    className={classNames(projectcss.all, sty.group9)}
+                  >
+                    <MessagesPeoplePersonBubble1Icon
+                      className={classNames(projectcss.all, sty.svg__up4Je)}
+                      role={"img"}
+                    />
+                  </div>
+                </div>
+                <div
+                  data-plasmic-name={"group16"}
+                  data-plasmic-override={overrides.group16}
+                  className={classNames(projectcss.all, sty.group16)}
+                >
+                  <MessagesPeoplePersonBubbleIcon
+                    className={classNames(projectcss.all, sty.svg__oyxY7)}
+                    role={"img"}
+                  />
+                </div>
+              </div>
+            </Stack__>
+          </LayoutDefault>
         </div>
       </div>
     </React.Fragment>
@@ -1318,7 +710,7 @@ function PlasmicBlogs__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "pageLayout",
+    "layoutDefault",
     "featuredImage",
     "singleBlogPageInfo",
     "profile",
@@ -1327,6 +719,7 @@ const PlasmicDescendants = {
     "likeShare",
     "interfaceEssentialShareShare1",
     "group394",
+    "freeBox",
     "tableOfContents2",
     "frame1000006071",
     "tableOfContent2",
@@ -1344,6 +737,7 @@ const PlasmicDescendants = {
     "community",
     "frame1000005945",
     "frame1000005944",
+    "button2",
     "group367",
     "messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1",
     "group",
@@ -1351,70 +745,48 @@ const PlasmicDescendants = {
     "group31",
     "messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1",
     "group9",
-    "group16",
-    "footer",
-    "footerCards",
-    "frame1000005943",
-    "card",
-    "frame1000005932",
-    "frame1000005931",
-    "frame1000005929",
-    "linkButton",
-    "button22",
-    "frame1000005930",
-    "linkButton2",
-    "button2",
-    "frame1000005933",
-    "emailSubscription",
-    "card2",
-    "frame1000005935",
-    "linkButton3",
-    "button4",
-    "linkButton4",
-    "button5",
-    "linkButton5",
-    "button6",
-    "linkButton6",
-    "button7",
-    "card3",
-    "frame1000005936",
-    "linkButton7",
-    "button8",
-    "linkButton8",
-    "button9",
-    "linkButton9",
-    "button10",
-    "linkButton10",
-    "button11",
-    "card4",
-    "frame1000005937",
-    "linkButton11",
-    "button12",
-    "linkButton12",
-    "button13",
-    "linkButton13",
-    "button14",
-    "linkButton14",
-    "button15",
-    "card5",
-    "frame1000005938",
-    "linkButton15",
-    "button16",
-    "linkButton16",
-    "button17",
-    "linkButton17",
-    "button18",
-    "footer2",
-    "frame1000005942",
-    "linkButton18",
-    "button19",
-    "linkButton19",
-    "button20",
-    "linkButton20",
-    "button21"
+    "group16"
   ],
 
-  pageLayout: ["pageLayout"],
+  layoutDefault: [
+    "layoutDefault",
+    "featuredImage",
+    "singleBlogPageInfo",
+    "profile",
+    "profile2",
+    "blogInfo",
+    "likeShare",
+    "interfaceEssentialShareShare1",
+    "group394",
+    "freeBox",
+    "tableOfContents2",
+    "frame1000006071",
+    "tableOfContent2",
+    "blogContent",
+    "singleBlogPageInfo3",
+    "profile5",
+    "profile6",
+    "blogInfo3",
+    "likeShare3",
+    "interfaceEssentialShareShare13",
+    "group396",
+    "recentPost",
+    "header",
+    "blogGrid",
+    "community",
+    "frame1000005945",
+    "frame1000005944",
+    "button2",
+    "group367",
+    "messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1",
+    "group",
+    "messagesChatSmileysMessgaesPeopleMessagesPeopleWomanBubble1",
+    "group31",
+    "messagesChatSmileysMessgaesPeopleMessagesPeoplePersonBubble1",
+    "group9",
+    "group16"
+  ],
+
   featuredImage: ["featuredImage"],
   singleBlogPageInfo: [
     "singleBlogPageInfo",
@@ -1432,6 +804,14 @@ const PlasmicDescendants = {
   likeShare: ["likeShare", "interfaceEssentialShareShare1", "group394"],
   interfaceEssentialShareShare1: ["interfaceEssentialShareShare1", "group394"],
   group394: ["group394"],
+  freeBox: [
+    "freeBox",
+    "tableOfContents2",
+    "frame1000006071",
+    "tableOfContent2",
+    "blogContent"
+  ],
+
   tableOfContents2: ["tableOfContents2", "frame1000006071", "tableOfContent2"],
   frame1000006071: ["frame1000006071"],
   tableOfContent2: ["tableOfContent2"],
@@ -1463,6 +843,7 @@ const PlasmicDescendants = {
     "community",
     "frame1000005945",
     "frame1000005944",
+    "button2",
     "group367",
     "messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1",
     "group",
@@ -1473,8 +854,9 @@ const PlasmicDescendants = {
     "group16"
   ],
 
-  frame1000005945: ["frame1000005945", "frame1000005944"],
+  frame1000005945: ["frame1000005945", "frame1000005944", "button2"],
   frame1000005944: ["frame1000005944"],
+  button2: ["button2"],
   group367: [
     "group367",
     "messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1",
@@ -1504,373 +886,7 @@ const PlasmicDescendants = {
   ],
 
   group9: ["group9"],
-  group16: ["group16"],
-  footer: [
-    "footer",
-    "footerCards",
-    "frame1000005943",
-    "card",
-    "frame1000005932",
-    "frame1000005931",
-    "frame1000005929",
-    "linkButton",
-    "button22",
-    "frame1000005930",
-    "linkButton2",
-    "button2",
-    "frame1000005933",
-    "emailSubscription",
-    "card2",
-    "frame1000005935",
-    "linkButton3",
-    "button4",
-    "linkButton4",
-    "button5",
-    "linkButton5",
-    "button6",
-    "linkButton6",
-    "button7",
-    "card3",
-    "frame1000005936",
-    "linkButton7",
-    "button8",
-    "linkButton8",
-    "button9",
-    "linkButton9",
-    "button10",
-    "linkButton10",
-    "button11",
-    "card4",
-    "frame1000005937",
-    "linkButton11",
-    "button12",
-    "linkButton12",
-    "button13",
-    "linkButton13",
-    "button14",
-    "linkButton14",
-    "button15",
-    "card5",
-    "frame1000005938",
-    "linkButton15",
-    "button16",
-    "linkButton16",
-    "button17",
-    "linkButton17",
-    "button18",
-    "footer2",
-    "frame1000005942",
-    "linkButton18",
-    "button19",
-    "linkButton19",
-    "button20",
-    "linkButton20",
-    "button21"
-  ],
-
-  footerCards: [
-    "footerCards",
-    "frame1000005943",
-    "card",
-    "frame1000005932",
-    "frame1000005931",
-    "frame1000005929",
-    "linkButton",
-    "button22",
-    "frame1000005930",
-    "linkButton2",
-    "button2",
-    "frame1000005933",
-    "emailSubscription",
-    "card2",
-    "frame1000005935",
-    "linkButton3",
-    "button4",
-    "linkButton4",
-    "button5",
-    "linkButton5",
-    "button6",
-    "linkButton6",
-    "button7",
-    "card3",
-    "frame1000005936",
-    "linkButton7",
-    "button8",
-    "linkButton8",
-    "button9",
-    "linkButton9",
-    "button10",
-    "linkButton10",
-    "button11",
-    "card4",
-    "frame1000005937",
-    "linkButton11",
-    "button12",
-    "linkButton12",
-    "button13",
-    "linkButton13",
-    "button14",
-    "linkButton14",
-    "button15",
-    "card5",
-    "frame1000005938",
-    "linkButton15",
-    "button16",
-    "linkButton16",
-    "button17",
-    "linkButton17",
-    "button18"
-  ],
-
-  frame1000005943: [
-    "frame1000005943",
-    "card",
-    "frame1000005932",
-    "frame1000005931",
-    "frame1000005929",
-    "linkButton",
-    "button22",
-    "frame1000005930",
-    "linkButton2",
-    "button2",
-    "frame1000005933",
-    "emailSubscription",
-    "card2",
-    "frame1000005935",
-    "linkButton3",
-    "button4",
-    "linkButton4",
-    "button5",
-    "linkButton5",
-    "button6",
-    "linkButton6",
-    "button7",
-    "card3",
-    "frame1000005936",
-    "linkButton7",
-    "button8",
-    "linkButton8",
-    "button9",
-    "linkButton9",
-    "button10",
-    "linkButton10",
-    "button11",
-    "card4",
-    "frame1000005937",
-    "linkButton11",
-    "button12",
-    "linkButton12",
-    "button13",
-    "linkButton13",
-    "button14",
-    "linkButton14",
-    "button15",
-    "card5",
-    "frame1000005938",
-    "linkButton15",
-    "button16",
-    "linkButton16",
-    "button17",
-    "linkButton17",
-    "button18"
-  ],
-
-  card: [
-    "card",
-    "frame1000005932",
-    "frame1000005931",
-    "frame1000005929",
-    "linkButton",
-    "button22",
-    "frame1000005930",
-    "linkButton2",
-    "button2",
-    "frame1000005933",
-    "emailSubscription"
-  ],
-
-  frame1000005932: [
-    "frame1000005932",
-    "frame1000005931",
-    "frame1000005929",
-    "linkButton",
-    "button22",
-    "frame1000005930",
-    "linkButton2",
-    "button2"
-  ],
-
-  frame1000005931: [
-    "frame1000005931",
-    "frame1000005929",
-    "linkButton",
-    "button22",
-    "frame1000005930",
-    "linkButton2",
-    "button2"
-  ],
-
-  frame1000005929: ["frame1000005929", "linkButton", "button22"],
-  linkButton: ["linkButton", "button22"],
-  button22: ["button22"],
-  frame1000005930: ["frame1000005930", "linkButton2", "button2"],
-  linkButton2: ["linkButton2", "button2"],
-  button2: ["button2"],
-  frame1000005933: ["frame1000005933", "emailSubscription"],
-  emailSubscription: ["emailSubscription"],
-  card2: [
-    "card2",
-    "frame1000005935",
-    "linkButton3",
-    "button4",
-    "linkButton4",
-    "button5",
-    "linkButton5",
-    "button6",
-    "linkButton6",
-    "button7"
-  ],
-
-  frame1000005935: [
-    "frame1000005935",
-    "linkButton3",
-    "button4",
-    "linkButton4",
-    "button5",
-    "linkButton5",
-    "button6",
-    "linkButton6",
-    "button7"
-  ],
-
-  linkButton3: ["linkButton3", "button4"],
-  button4: ["button4"],
-  linkButton4: ["linkButton4", "button5"],
-  button5: ["button5"],
-  linkButton5: ["linkButton5", "button6"],
-  button6: ["button6"],
-  linkButton6: ["linkButton6", "button7"],
-  button7: ["button7"],
-  card3: [
-    "card3",
-    "frame1000005936",
-    "linkButton7",
-    "button8",
-    "linkButton8",
-    "button9",
-    "linkButton9",
-    "button10",
-    "linkButton10",
-    "button11"
-  ],
-
-  frame1000005936: [
-    "frame1000005936",
-    "linkButton7",
-    "button8",
-    "linkButton8",
-    "button9",
-    "linkButton9",
-    "button10",
-    "linkButton10",
-    "button11"
-  ],
-
-  linkButton7: ["linkButton7", "button8"],
-  button8: ["button8"],
-  linkButton8: ["linkButton8", "button9"],
-  button9: ["button9"],
-  linkButton9: ["linkButton9", "button10"],
-  button10: ["button10"],
-  linkButton10: ["linkButton10", "button11"],
-  button11: ["button11"],
-  card4: [
-    "card4",
-    "frame1000005937",
-    "linkButton11",
-    "button12",
-    "linkButton12",
-    "button13",
-    "linkButton13",
-    "button14",
-    "linkButton14",
-    "button15"
-  ],
-
-  frame1000005937: [
-    "frame1000005937",
-    "linkButton11",
-    "button12",
-    "linkButton12",
-    "button13",
-    "linkButton13",
-    "button14",
-    "linkButton14",
-    "button15"
-  ],
-
-  linkButton11: ["linkButton11", "button12"],
-  button12: ["button12"],
-  linkButton12: ["linkButton12", "button13"],
-  button13: ["button13"],
-  linkButton13: ["linkButton13", "button14"],
-  button14: ["button14"],
-  linkButton14: ["linkButton14", "button15"],
-  button15: ["button15"],
-  card5: [
-    "card5",
-    "frame1000005938",
-    "linkButton15",
-    "button16",
-    "linkButton16",
-    "button17",
-    "linkButton17",
-    "button18"
-  ],
-
-  frame1000005938: [
-    "frame1000005938",
-    "linkButton15",
-    "button16",
-    "linkButton16",
-    "button17",
-    "linkButton17",
-    "button18"
-  ],
-
-  linkButton15: ["linkButton15", "button16"],
-  button16: ["button16"],
-  linkButton16: ["linkButton16", "button17"],
-  button17: ["button17"],
-  linkButton17: ["linkButton17", "button18"],
-  button18: ["button18"],
-  footer2: [
-    "footer2",
-    "frame1000005942",
-    "linkButton18",
-    "button19",
-    "linkButton19",
-    "button20",
-    "linkButton20",
-    "button21"
-  ],
-
-  frame1000005942: [
-    "frame1000005942",
-    "linkButton18",
-    "button19",
-    "linkButton19",
-    "button20",
-    "linkButton20",
-    "button21"
-  ],
-
-  linkButton18: ["linkButton18", "button19"],
-  button19: ["button19"],
-  linkButton19: ["linkButton19", "button20"],
-  button20: ["button20"],
-  linkButton20: ["linkButton20", "button21"],
-  button21: ["button21"]
+  group16: ["group16"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -1905,7 +921,7 @@ export const PlasmicBlogs = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    pageLayout: makeNodeComponent("pageLayout"),
+    layoutDefault: makeNodeComponent("layoutDefault"),
     featuredImage: makeNodeComponent("featuredImage"),
     singleBlogPageInfo: makeNodeComponent("singleBlogPageInfo"),
     profile: makeNodeComponent("profile"),
@@ -1916,6 +932,7 @@ export const PlasmicBlogs = Object.assign(
       "interfaceEssentialShareShare1"
     ),
     group394: makeNodeComponent("group394"),
+    freeBox: makeNodeComponent("freeBox"),
     tableOfContents2: makeNodeComponent("tableOfContents2"),
     frame1000006071: makeNodeComponent("frame1000006071"),
     tableOfContent2: makeNodeComponent("tableOfContent2"),
@@ -1935,6 +952,7 @@ export const PlasmicBlogs = Object.assign(
     community: makeNodeComponent("community"),
     frame1000005945: makeNodeComponent("frame1000005945"),
     frame1000005944: makeNodeComponent("frame1000005944"),
+    button2: makeNodeComponent("button2"),
     group367: makeNodeComponent("group367"),
     messagesChatSmileysMessgaesPeopleMessagesPeopleManBubble1:
       makeNodeComponent(
@@ -1952,66 +970,6 @@ export const PlasmicBlogs = Object.assign(
       ),
     group9: makeNodeComponent("group9"),
     group16: makeNodeComponent("group16"),
-    footer: makeNodeComponent("footer"),
-    footerCards: makeNodeComponent("footerCards"),
-    frame1000005943: makeNodeComponent("frame1000005943"),
-    card: makeNodeComponent("card"),
-    frame1000005932: makeNodeComponent("frame1000005932"),
-    frame1000005931: makeNodeComponent("frame1000005931"),
-    frame1000005929: makeNodeComponent("frame1000005929"),
-    linkButton: makeNodeComponent("linkButton"),
-    button22: makeNodeComponent("button22"),
-    frame1000005930: makeNodeComponent("frame1000005930"),
-    linkButton2: makeNodeComponent("linkButton2"),
-    button2: makeNodeComponent("button2"),
-    frame1000005933: makeNodeComponent("frame1000005933"),
-    emailSubscription: makeNodeComponent("emailSubscription"),
-    card2: makeNodeComponent("card2"),
-    frame1000005935: makeNodeComponent("frame1000005935"),
-    linkButton3: makeNodeComponent("linkButton3"),
-    button4: makeNodeComponent("button4"),
-    linkButton4: makeNodeComponent("linkButton4"),
-    button5: makeNodeComponent("button5"),
-    linkButton5: makeNodeComponent("linkButton5"),
-    button6: makeNodeComponent("button6"),
-    linkButton6: makeNodeComponent("linkButton6"),
-    button7: makeNodeComponent("button7"),
-    card3: makeNodeComponent("card3"),
-    frame1000005936: makeNodeComponent("frame1000005936"),
-    linkButton7: makeNodeComponent("linkButton7"),
-    button8: makeNodeComponent("button8"),
-    linkButton8: makeNodeComponent("linkButton8"),
-    button9: makeNodeComponent("button9"),
-    linkButton9: makeNodeComponent("linkButton9"),
-    button10: makeNodeComponent("button10"),
-    linkButton10: makeNodeComponent("linkButton10"),
-    button11: makeNodeComponent("button11"),
-    card4: makeNodeComponent("card4"),
-    frame1000005937: makeNodeComponent("frame1000005937"),
-    linkButton11: makeNodeComponent("linkButton11"),
-    button12: makeNodeComponent("button12"),
-    linkButton12: makeNodeComponent("linkButton12"),
-    button13: makeNodeComponent("button13"),
-    linkButton13: makeNodeComponent("linkButton13"),
-    button14: makeNodeComponent("button14"),
-    linkButton14: makeNodeComponent("linkButton14"),
-    button15: makeNodeComponent("button15"),
-    card5: makeNodeComponent("card5"),
-    frame1000005938: makeNodeComponent("frame1000005938"),
-    linkButton15: makeNodeComponent("linkButton15"),
-    button16: makeNodeComponent("button16"),
-    linkButton16: makeNodeComponent("linkButton16"),
-    button17: makeNodeComponent("button17"),
-    linkButton17: makeNodeComponent("linkButton17"),
-    button18: makeNodeComponent("button18"),
-    footer2: makeNodeComponent("footer2"),
-    frame1000005942: makeNodeComponent("frame1000005942"),
-    linkButton18: makeNodeComponent("linkButton18"),
-    button19: makeNodeComponent("button19"),
-    linkButton19: makeNodeComponent("linkButton19"),
-    button20: makeNodeComponent("button20"),
-    linkButton20: makeNodeComponent("linkButton20"),
-    button21: makeNodeComponent("button21"),
     // Metadata about props expected for PlasmicBlogs
     internalVariantProps: PlasmicBlogs__VariantProps,
     internalArgProps: PlasmicBlogs__ArgProps,
